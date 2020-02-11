@@ -1,0 +1,288 @@
+﻿/* 引入字体样式图标 */
+@font-face {
+    font-family: "iconfont";
+    src: url('../fonts/iconfont5705.eot?t=1496742971209');
+    /* IE9*/
+    src: url('../fonts/iconfont5705.eot?t=1496742971209#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('../fonts/iconfont5705.woff?t=1496742971209') format('woff'),
+        /* chrome, firefox */
+        url('../fonts/iconfont5705.ttf?t=1496742971209') format('truetype'),
+        /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+        url('../fonts/iconfont5705.svg?t=1496742971209#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+/* 引入第一个字体 */
+@font-face {
+    font-family: "Graphik-Bold";
+    src: url("../fonts/Graphik-Bold.eot") format("woff"),
+        url("../fonts/Graphik-Bold.otf") format("truetype"),
+        url("../fonts/Graphik-Bold.svg") format("embedded-opentype"),
+        url("../fonts/Graphik-Bold.ttf") format("svg"),
+        url("../fonts/Graphik-Bold.woff") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 引入第二个字体 */
+@font-face {
+    font-family: "Graphik-Regular";
+    src: url("../fonts/Graphik-Regular.woff") format("woff"),
+        url("../fonts/GraphikGraphik-Regular.html") format("truetype"),
+        url("../fonts/Graphik-Regular.eot") format("embedded-opentype"),
+        url("../fonts/Graphik-Regular.svg") format("svg"),
+        url("../fonts/Graphik-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* 引入第三个字体 */
+@font-face {
+    font-family: "Graphik-Semibold";
+    src: url("../fonts/Graphik-Semibold.woff") format("woff"),
+        url("../fonts/Graphik-Semibold.ttf") format("truetype"),
+        url("../fonts/Graphik-Semibold.eot") format("embedded-opentype"),
+        url("../fonts/Graphik-Semibold.svg") format("svg"),
+        url("../fonts/Graphik-Semibold.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 引入第四个字体 */
+@font-face {
+    font-family: "Graphik-Thin";
+    src: url("../fonts/Graphik-Thin.woff") format("woff"),
+        url("../fonts/Graphik-Thin.ttf") format("truetype"),
+        url("../fonts/Graphik-Thin.eot") format("embedded-opentype"),
+        url("../fonts/Graphik-Thin.svg") format("svg"),
+        url("../fonts/Graphik-Thin.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: "IMPACT";
+  src: url("IMPACT.html") format("woff"),
+       url("IMPACT-2.html") format("truetype"),
+       url("IMPACT-3.html") format("embedded-opentype"),
+       url("IMPACT-4.html") format("svg"),
+       url("IMPACT-5.html") format("opentype");
+}
+
+
+
+
+
+
+
+
+
+.iconyoujian:before {
+  content: "\e641";
+}
+
+.iconicon:before {
+  content: "\e604";
+}
+
+.iconyuandianxiao:before {
+  content: "\e757";
+}
+
+.iconsousuo:before {
+  content: "\e60d";
+}
+
+.iconcircleyuanquan:before {
+  content: "\e71e";
+}
+
+.iconweixin:before {
+  content: "\e613";
+}
+
+.iconhuaxue:before {
+  content: "\e60b";
+}
+
+.iconcanyin5:before {
+  content: "\e658";
+}
+
+.iconfanhuidingbu:before {
+  content: "\e65b";
+}
+
+.icontianjiayaopin-01:before {
+  content: "\e686";
+}
+
+.iconchilun:before {
+  content: "\e673";
+}
+
+.iconM-xiaoshikefu:before {
+  content: "\e65e";
+}
+
+.iconicon-p_gongchangdanyuan:before {
+  content: "\e608";
+}
+
+.iconhezuo:before {
+  content: "\e605";
+}
+
+.icondianhua:before {
+  content: "\e7f0";
+}
+
+.iconeryanghualiu:before {
+  content: "\e630";
+}
+
+.iconyoujirongjixinxi:before {
+  content: "\e60e";
+}
+
+.icongongzuoshijian:before {
+  content: "\e72d";
+}
+
+.icondizhi:before {
+  content: "\e607";
+}
+
+.iconjianjie:before {
+  content: "\e908";
+}
+
+.iconicon103-copy-copy:before {
+  content: "\e7a7";
+}
+
+.iconbiaoge:before {
+  content: "\ea38";
+}
+
+.iconskype:before {
+  content: "\e995";
+}
+
+.icongongnengshezhi:before {
+  content: "\e61b";
+}
+
+.icondianhua2:before {
+  content: "\e68a";
+}
+
+.iconjiantou7:before {
+  content: "\e609";
+}
+
+.icondizhi1:before {
+  content: "\e722";
+}
+
+.iconfanhui:before {
+  content: "\e62a";
+}
+
+.iconhuaxueshiji:before {
+  content: "\e635";
+}
+
+.iconjihuashuguanli:before {
+  content: "\e610";
+}
+
+.iconFacebook:before {
+  content: "\e600";
+}
+
+.iconicon-up1:before {
+  content: "\e606";
+}
+
+.iconcaidan:before {
+  content: "\e67a";
+}
+
+.iconyuandian:before {
+  content: "\e61c";
+}
+
+.iconicon-:before {
+  content: "\e601";
+}
+
+.iconttww:before {
+  content: "\e617";
+}
+
+.iconxiazai:before {
+  content: "\e636";
+}
+
+.iconchahao:before {
+  content: "\e611";
+}
+
+.iconjinshuyuancaijiance:before {
+  content: "\e783";
+}
+
+.icondiqiu:before {
+  content: "\e602";
+}
+
+.iconlinked:before {
+  content: "\e603";
+}
+
+.iconclock-circle:before {
+  content: "\e61a";
+}
+
+.iconshuichulixitong:before {
+  content: "\e643";
+}
+
+.iconyingyong:before {
+  content: "\e73c";
+}
+
+.iconzixun:before {
+  content: "\eb00";
+}
+
+.iconwhatsapp:before {
+  content: "\e642";
+}
+
+.iconkongqijinghuaqi:before {
+  content: "\e65f";
+}
+
+.iconduoyuyan:before {
+  content: "\e6bc";
+}
+
+.iconmubiao:before {
+  content: "\e60f";
+}
+
+
