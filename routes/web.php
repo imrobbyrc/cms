@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function() {
     Route::get('/homepage/{alias}', 'Admin\HomepageController@index')->name('homepage');
     Route::get('/homepage/{alias}/show/{id}', 'Admin\HomepageController@show')->name('homepage.show');
     Route::post('/homepage/{alias}', 'Admin\HomepageController@store')->name('homepage.store');
+    Route::get('/homepage/{alias}/edit/{id}', 'Admin\HomepageController@edit')->name('homepage.edit');
     Route::post('/homepage/{alias}/update', 'Admin\HomepageController@update')->name('homepage.update');
     Route::post('/homepage/{alias}/delete', 'Admin\HomepageController@destroy')->name('homepage.destroy');
 

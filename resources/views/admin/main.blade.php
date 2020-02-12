@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+  @yield('title')
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <link rel="stylesheet" href="{{ URL::asset('admin_assets/modules/bootstrap/css/bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('admin_assets/modules/fontawesome/css/all.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('admin_assets/modules/datatables/datatables.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('admin_assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('admin_assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('admin_assets/modules/bootstrap-daterangepicker/daterangepicker.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('admin_assets/modules/select2/dist/css/select2.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('admin_assets/css/style.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('admin_assets/css/custom.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('admin_assets/css/components.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/modules/bootstrap/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/modules/fontawesome/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/modules/datatables/datatables.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/modules/bootstrap-daterangepicker/daterangepicker.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/modules/select2/dist/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/css/custom.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/css/components.css')}}">
   @stack('css')
-  <link rel="shortcut icon" type="image/png" href="{{URL::asset ('img/favicon.png')}}"/>
+  <link rel="shortcut icon" type="image/png" href="{{asset ('img/favicon.png')}}"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body>
@@ -49,10 +51,10 @@
   <script src="{{ asset('admin_assets/modules/datatables/datatables.min.js')}}"></script>
   <script src="{{ asset('admin_assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.j')}}s"></script>
   <script src="{{ asset('admin_assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js')}}"></script>
-  <script src="{{ asset('/js/fnSetFilteringDelay.js') }}"></script>
+  <script src="{{ asset('admin_assets/js/fnSetFilteringDelay.js') }}"></script>
   <script src="{{ asset('admin_assets/js/scripts.js')}}"></script>
   <script src="{{ asset('admin_assets/js/custom.js')}}"></script>
-  <script src="{{ asset('/js/sweetalert.min.js') }}"></script>
+  <script src="{{ asset('admin_assets/js/sweetalert.min.js') }}"></script>
   @include('sweet::alert')
 @stack('scripts')
 </body>

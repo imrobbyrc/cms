@@ -8,4 +8,6 @@ class Header extends Model
 {
     //
     protected $table= 'header_settings';
+    protected $primaryKey = 'idHeader';
+    protected $guarded = [];
 }

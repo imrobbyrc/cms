@@ -28,10 +28,29 @@ class HomepageController extends Controller
             return view('admin.homepage.main-slider');
         }elseif ($alias == 'header-content') {
 
-            return view('admin.homepage.header-content');
+            return view('admin.homepage.header-content.index');
         }elseif ($alias == 'footer-content') {
 
-            return view('admin.homepage.footer-content');
+            return view('admin.homepage.footer-content.index');
+        }else{
+
+             return abort(404);
+        }
+    }
+
+    public function create($alias)
+    {
+        if($alias == 'main-slider'){
+
+            return redirect()->back();
+
+        }elseif ($alias == 'header-content') {
+
+            return view('admin.homepage.header-content.create');
+
+        }elseif ($alias == 'footer-content') {
+
+            return view('admin.homepage.footer-content.create');
         }else{
 
              return abort(404);
@@ -40,56 +59,93 @@ class HomepageController extends Controller
 
     public function store(Request $request, $alias)
     {
-        if($alias == 'main-slider'){
 
-            $this->validate($request, [
-                'title'	    => 'required',
-                'link'      => 'required',
-                'status'    => 'required',
-                'priority'  => 'required|numeric|unique:main_sliders',
-                'image'     => 'image|mimes:jpeg,png,jpg',
-            ]);
+        try 
+        {
 
-            if($request->hasfile('image')) 
-            { 
-                $file = $request->file('image');
-                $extension = $file->getClientOriginalExtension();
-                $filename =time().'-'.$file->getClientOriginalName();
-                $file->move('image/slider/', $filename);
-            }
+            if($alias == 'main-slider'){
 
-            try { 
-
-                $save = Slider::create([
-
-                    'title' => $request->title,
-                    'link' => $request->link,
-                    'status' => $request->status,
-                    'priority'=>$request->priority,
-                    'image' =>  'image/slider/'. $filename,
-    
+                $this->validate($request, [
+                    'title'	    => 'required',
+                    'link'      => 'required',
+                    'status'    => 'required',
+                    'priority'  => 'required|numeric|unique:main_sliders',
+                    'image'     => 'image|mimes:jpeg,png,jpg',
                 ]);
+    
+                if($request->hasfile('image')) 
+                { 
+                    $file = $request->file('image');
+                    $extension = $file->getClientOriginalExtension();
+                    $filename =time().'-'.$file->getClientOriginalName();
+                    $file->move('image/slider/', $filename);
+                }
+    
+                    $save = Slider::create([
+    
+                        'title' => $request->title,
+                        'link' => $request->link,
+                        'status' => $request->status,
+                        'priority'=>$request->priority,
+                        'image' =>  'image/slider/'. $filename,
+        
+                    ]);
 
-                Alert()->success('Success','Added')->autoclose(1500);
-                return redirect()->back();
-
-            }catch(\Illuminate\Database\QueryException $ex){ 
-                Alert()->error('Error','Failed')->autoclose(1500);
-                return redirect()->back();
+    
+            }elseif ($alias == 'header-content') {
+    
+                $this->validate($request, [
+                    'title'	        => 'required',
+                    'rightContent'  => 'required',
+                    'leftContent'   => 'required',
+                    'descriptions'  => 'required',
+                    'imageIcon'     => 'image|mimes:jpeg,png,jpg',
+                    'imageLogo'     => 'image|mimes:jpeg,png,jpg',
+                ]);
+    
+                if($request->hasfile('imageIcon')) 
+                { 
+                    $file = $request->file('imageIcon');
+                    $extension = $file->getClientOriginalExtension();
+                    $filenameIcon =time().'-ImageIcon-'.$file->getClientOriginalName();
+                    $file->move('image/icon/', $filenameIcon);
+                }
+    
+                if($request->hasfile('imageLogo')) 
+                { 
+                    $file = $request->file('imageLogo');
+                    $extension = $file->getClientOriginalExtension();
+                    $filenameLogo =time().'-imageLogo-'.$file->getClientOriginalName();
+                    $file->move('image/logo/', $filenameLogo);
+                }
+    
+                    $save = Header::create([
+    
+                        'browserIcon'       => 'image/icon/'. $filenameIcon,
+                        'headerLogo'        => 'image/logo/'. $filenameLogo,
+                        'contentLeft'       => $request->leftContent,
+                        'contentRight'      => $request->rightContent,
+                        'metaDescription'   => $request->descriptions,
+                        'browserTitle'      => $request->title
+        
+                    ]);
+    
+    
+            }elseif ($alias == 'footer-content') {
+    
+                return view('admin.homepage.footer-content');
+                
+            }else{
+    
+                 return abort(404);
             }
 
-
-
-        }elseif ($alias == 'header-content') {
-
-            return view('admin.homepage.header-content');
-        }elseif ($alias == 'footer-content') {
-
-            return view('admin.homepage.footer-content');
-        }else{
-
-             return abort(404);
         }
+            catch(\Illuminate\Database\QueryException $ex){ 
+                Alert()->error('Failed')->autoclose(1500);
+                    return redirect()->route('homepage',['alias' => $alias]);
+        }
+
     }
 
     public function show($alias,$id)
@@ -111,63 +167,124 @@ class HomepageController extends Controller
         }
     }
 
-    public function update(Request $request,$alias)
+    public function edit($alias,$id)
     {
-        $id = $request->idUpdate;
-        
 
         if($alias == 'main-slider'){
 
-            
-            $filename = substr($request->currentImage,13);
-            $this->validate($request, [
-                'title'	    => 'required',
-                'link'      => 'required',
-                'status'    => 'required',
-                'priority'  => 'required|numeric',
-            ]);
-
-
-            if($request->hasfile('image')) 
-            { 
-                $file = $request->file('image');
-                $extension = $file->getClientOriginalExtension();
-                $filename =time().'-'.$file->getClientOriginalName();
-                $file->move('image/slider/', $filename);
-            }
-
-            
-            try { 
-          
-                $save = Slider::where('idMainSlider',$id)->update([
-
-                    'title' => $request->title,
-                    'link' => $request->link,
-                    'status' => $request->status,
-                    'priority'=>$request->priority,
-                    'image' =>  'image/slider/'. $filename,
-    
-                ]);
-
-                Alert()->success('Success','Added')->autoclose(1500);
-                return redirect()->back();
-
-            }catch(\Illuminate\Database\QueryException $ex){ 
-                Alert()->error('Error','Failed')->autoclose(1500);
-                return redirect()->back();
-            }
-                
+            return redirect()->back();
 
         }elseif ($alias == 'header-content') {
 
-            
+            $data = Header::findOrFail($id);
+            return view('admin.homepage.header-content.edit',['data'=>$data]);
+
         }elseif ($alias == 'footer-content') {
 
-           
+            return view('admin.homepage.footer-content.create');
         }else{
 
              return abort(404);
         }
+    }
+    public function update(Request $request,$alias)
+    {
+        $id = $request->idUpdate;
+        
+        try 
+        {
+
+            if($alias == 'main-slider'){
+
+            
+                $filename = substr($request->currentImage,13);
+                $this->validate($request, [
+                    'title'	    => 'required',
+                    'link'      => 'required',
+                    'status'    => 'required',
+                    'priority'  => 'required|numeric',
+                ]);
+    
+    
+                if($request->hasfile('image')) 
+                { 
+                    $file = $request->file('image');
+                    $extension = $file->getClientOriginalExtension();
+                    $filename =time().'-'.$file->getClientOriginalName();
+                    $file->move('image/slider/', $filename);
+                }
+    
+                    $save = Slider::where('idMainSlider',$id)->update([
+    
+                        'title' => $request->title,
+                        'link' => $request->link,
+                        'status' => $request->status,
+                        'priority'=>$request->priority,
+                        'image' =>  'image/slider/'. $filename,
+        
+                    ]);
+                    
+    
+            }elseif ($alias == 'header-content') {
+    
+    
+                $filenameIcon = substr($request->currentbrowserIcon,11);
+                $filenameLogo = substr($request->currentheaderLogo,11);
+                $this->validate($request, [
+                    'title'	        => 'required',
+                    'rightContent'  => 'required',
+                    'leftContent'   => 'required',
+                    'descriptions'  => 'required',
+                    'imageIcon'     => 'image|mimes:jpeg,png,jpg',
+                    'imageLogo'     => 'image|mimes:jpeg,png,jpg',
+                ]);
+    
+                if($request->hasfile('imageIcon')) 
+                { 
+                    $file = $request->file('imageIcon');
+                    $extension = $file->getClientOriginalExtension();
+                    $filenameIcon =time().'-ImageIcon-'.$file->getClientOriginalName();
+                    $file->move('image/icon/', $filenameIcon);
+                }
+    
+                if($request->hasfile('imageLogo')) 
+                { 
+                    $file = $request->file('imageLogo');
+                    $extension = $file->getClientOriginalExtension();
+                    $filenameLogo =time().'-imageLogo-'.$file->getClientOriginalName();
+                    $file->move('image/logo/', $filenameLogo);
+                }
+    
+                    $save = Header::where('idHeader',$id)->update([
+    
+                        'browserIcon'       => 'image/icon/'. $filenameIcon,
+                        'headerLogo'        => 'image/logo/'. $filenameLogo,
+                        'contentLeft'       => $request->leftContent,
+                        'contentRight'      => $request->rightContent,
+                        'metaDescription'   => $request->descriptions,
+                        'browserTitle'      => $request->title
+        
+                    ]);
+    
+                
+            }elseif ($alias == 'footer-content') {
+    
+               
+            }else{
+    
+                 return abort(404);
+            }
+
+            Alert()->success('Success')->autoclose(1500);
+                return redirect()->route('homepage',['alias' => $alias]);
+
+        }
+
+            catch(\Illuminate\Database\QueryException $ex){ 
+                Alert()->error('Failed')->autoclose(1500);
+                    return redirect()->route('homepage',['alias' => $alias]);
+        }
+        
     }
 
     public function destroy(Request $request,$alias)
@@ -192,8 +309,8 @@ class HomepageController extends Controller
         
         $data->delete();
 
-        Alert()->success('Success','Success')->autoclose(1500);
-        return redirect()->back();
+            Alert()->success('Success','Success')->autoclose(1500);
+            return redirect()->back();
     }
 
     public function getData($alias)
@@ -204,20 +321,27 @@ class HomepageController extends Controller
                             ->orderBy('status', 'DESC');
                 
             return Datatables::of($data)->setTotalRecords($data->count())
-                ->editColumn('status', function($data) {
-                    $css = $data->status == 'active' ? 'badge badge-success':'badge badge-warning';
-                    return '<div class="'.$css.'">'.ucfirst($data->status).'</div>';
-                })
-                ->editColumn('image', function($data) {
-                    return '<img src="'.asset($data->image).'" width="100%">';
-                })->rawColumns(['status','image'])
-                ->make(true);
+                    ->editColumn('status', function($data) {
+                        $css = $data->status == 'active' ? 'badge badge-success':'badge badge-warning';
+                        return '<div class="'.$css.'">'.ucfirst($data->status).'</div>';
+                    })
+                    ->editColumn('image', function($data) {
+                        return '<img src="'.asset($data->image).'" width="100%">';
+                    })->rawColumns(['status','image'])
+                    ->make(true);
         
         }elseif ($alias == 'header-content') {
 
             $data = Header::orderBy('created_at', 'DESC');
                 
-            return Datatables::of($data)->setTotalRecords($data->count())->make(true);
+            return Datatables::of($data)->setTotalRecords($data->count())
+                    ->editColumn('browserIcon', function($data) {
+                        return '<img src="'.asset($data->browserIcon).'" width="100%">';
+                    })
+                    ->editColumn('headerLogo', function($data) {
+                        return '<img src="'.asset($data->headerLogo).'" width="100%">';
+                    })->rawColumns(['browserIcon','headerLogo'])
+                    ->make(true);
 
         }elseif ($alias == 'footer-content') {
 
