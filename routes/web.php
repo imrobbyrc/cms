@@ -5,7 +5,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::get('/admin', 'Admin\DashboardController@index')->name('home');
 Route::group(['middleware' => 'auth','prefix' => 'admin'], function() {
     
     Route::group(['middleware' => ['role:admin']], function () {
@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function() {
 
     Route::get('/home', 'Admin\DashboardController@index')->name('home');
     Route::get('/homepage/{alias}', 'Admin\HomepageController@index')->name('homepage');
+    Route::get('/homepage/{alias}/create', 'Admin\HomepageController@create')->name('homepage.create');
     Route::get('/homepage/{alias}/show/{id}', 'Admin\HomepageController@show')->name('homepage.show');
     Route::post('/homepage/{alias}', 'Admin\HomepageController@store')->name('homepage.store');
     Route::get('/homepage/{alias}/edit/{id}', 'Admin\HomepageController@edit')->name('homepage.edit');

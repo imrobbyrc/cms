@@ -59,7 +59,7 @@ class HomepageController extends Controller
 
     public function store(Request $request, $alias)
     {
-
+        
         try 
         {
 
@@ -132,18 +132,36 @@ class HomepageController extends Controller
     
     
             }elseif ($alias == 'footer-content') {
+                
+                $this->validate($request, [
+                    'title'	          => 'required',
+                    'status'          => 'required',
+                    'descriptions'    => 'required',
+                    'priority'        => 'required|numeric|unique:footer_settings',
+                ]);
+
+                $save = Footer::create([
     
-                return view('admin.homepage.footer-content');
+                    'title'         => $request->title,
+                    'description'   => $request->descriptions,
+                    'status'        => $request->status,
+                    'priority'      => $request->priority,
+    
+                ]);                
+                
                 
             }else{
     
                  return abort(404);
             }
 
+            Alert()->success('Success')->autoclose(1500);
+                return redirect()->route('homepage',['alias' => $alias]);
+
         }
             catch(\Illuminate\Database\QueryException $ex){ 
                 Alert()->error('Failed')->autoclose(1500);
-                    return redirect()->route('homepage',['alias' => $alias]);
+                    return redirect()->back();
         }
 
     }
@@ -181,7 +199,8 @@ class HomepageController extends Controller
 
         }elseif ($alias == 'footer-content') {
 
-            return view('admin.homepage.footer-content.create');
+            $data = Footer::findOrFail($id);
+            return view('admin.homepage.footer-content.edit',['data'=>$data]);
         }else{
 
              return abort(404);
@@ -202,7 +221,7 @@ class HomepageController extends Controller
                     'title'	    => 'required',
                     'link'      => 'required',
                     'status'    => 'required',
-                    'priority'  => 'required|numeric',
+                    'priority'  => 'required|numeric|unique:main_sliders,idMainSlider,'.$id.',idMainSlider',
                 ]);
     
     
@@ -269,6 +288,21 @@ class HomepageController extends Controller
                 
             }elseif ($alias == 'footer-content') {
     
+                $this->validate($request, [
+                    'title'	          => 'required',
+                    'status'          => 'required',
+                    'descriptions'    => 'required',
+                    'priority'        => 'required|numeric|unique:footer_settings,idFooter,'.$id.',idFooter',
+                ]);
+
+                $save = Footer::where('idFooter',$id)->update([
+    
+                    'title'         => $request->title,
+                    'description'   => $request->descriptions,
+                    'status'        => $request->status,
+                    'priority'      => $request->priority,
+    
+                ]);      
                
             }else{
     
@@ -282,7 +316,7 @@ class HomepageController extends Controller
 
             catch(\Illuminate\Database\QueryException $ex){ 
                 Alert()->error('Failed')->autoclose(1500);
-                    return redirect()->route('homepage',['alias' => $alias]);
+                    return redirect()->back();
         }
         
     }
@@ -349,8 +383,9 @@ class HomepageController extends Controller
                             ->orderBy('status', 'DESC');
                 
             return Datatables::of($data)->setTotalRecords($data->count())->editColumn('status', function($data) {
-                    return '<div class="badge badge-success">'.ucfirst($data->status).'</div>';
-                })->rawColumns(['id'])->make(true);
+                    $css = $data->status == 'active' ? 'badge badge-success':'badge badge-warning';
+                    return '<div class="'.$css.'">'.ucfirst($data->status).'</div>';
+                })->rawColumns(['status'])->make(true);
 
         }else{
 

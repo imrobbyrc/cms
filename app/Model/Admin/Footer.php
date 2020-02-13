@@ -8,4 +8,6 @@ class Footer extends Model
 {
     //
     protected $table= 'footer_settings';
+    protected $primaryKey = 'idFooter';
+    protected $guarded = [];
 }

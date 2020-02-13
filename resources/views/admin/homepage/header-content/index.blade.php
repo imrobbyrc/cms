@@ -17,7 +17,7 @@
     <div class="card-header">
       <h4 class="d-inline">Header List</h4>
       <div class="card-header-action">
-        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#createModal">Add New</a>
+        <a class="btn btn-primary" href="{{route('homepage.create',request()->segment(3))}}">Add New</a>
       </div>
     </div>
     <div class="card-body">

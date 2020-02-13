@@ -8,14 +8,14 @@
     </div>
     <ul class="sidebar-menu">   
       <li class="menu-header">Dashboard</li>
-      <li class="active"><a class="nav-link" href="/admin/home"><i class="fab fa-dashcube"></i> <span>Dashboard</span></a></li>
+      <li class="@if(request()->segment(2)=='home') active @endif"><a class="nav-link" href="/admin/home"><i class="fab fa-dashcube"></i> <span>Dashboard</span></a></li>
       
-      <li class="dropdown">
+      <li class="dropdown @if(request()->segment(3)=='main-slider' || request()->segment(3)=='header-content' || request()->segment(3)=='footer-content'  ) active @endif">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-home"></i> <span>Homepage</span></a>
         <ul class="dropdown-menu">
-          <li class=""><a href="/admin/homepage/main-slider"><i class="fas fa-images"></i>Main Slider</a></li>
-          <li class=""><a href="/admin/homepage/header-content"><i class="fas fa-bookmark"></i>Header Content</a></li>
-          <li class=""><a href="/admin/homepage/footer-content"><i class="fas fa-shoe-prints"></i>Footer Content</a></li>
+          <li class="@if(request()->segment(3)=='main-slider') active @endif"><a href="/admin/homepage/main-slider"><i class="fas fa-images"></i>Main Slider</a></li>
+          <li class="@if(request()->segment(3)=='header-content') active @endif"><a href="/admin/homepage/header-content"><i class="fas fa-bookmark"></i>Header Content</a></li>
+          <li class="@if(request()->segment(3)=='footer-content') active @endif"><a href="/admin/homepage/footer-content"><i class="fas fa-shoe-prints"></i>Footer Content</a></li>
         </ul>
       </li>
             
@@ -38,17 +38,17 @@
 
        <li><a class="pl-3" href="inbox"><i class="far fa-envelope"></i>Inbox</a></li> 
 
-      {{-- @role('admin') --}}
+      @role('admin')
       <li class="menu-header ">Administrator</li>
-      <li class="dropdown">
+      <li class="dropdown @if(request()->segment(2)=='users' || request()->segment(2)=='role') active @endif">
         <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Auth</span></a>
         <ul class="dropdown-menu">
-          <li class=""><a href="{{ route('users.index') }}">Users</a></li>
-          <li class=""><a href="{{route('role.index')}}">Roles</a></li>
-          <li class=""><a href="{{route('users.roles_permission')}}">Role Permission</a></li>
+          <li class="@if(request()->segment(2)=='users' && request()->segment(3)=='' ) active @endif"><a href="{{ route('users.index') }}">Users</a></li>
+          <li class="@if(request()->segment(2)=='role') active @endif"><a href="{{route('role.index')}}">Roles</a></li>
+          <li class="@if(request()->segment(3)=='role-permission') active @endif"><a href="{{route('users.roles_permission')}}">Role Permission</a></li>
         </ul>
       </li>
-      {{-- @endrole --}}
+      @endrole
               
     </ul>
   </aside>
