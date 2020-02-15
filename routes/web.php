@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function() {
     Route::get('/contact-us/{alias}', 'Admin\DashboardController@contact')->name('contact-us');
     Route::get('/content/{alias}', 'Admin\DashboardController@content')->name('content');
     Route::get('/inbox', 'Admin\DashboardController@inbox')->name('inbox');
+    Route::get('/inbox', 'Admin\DashboardController@inbox')->name('inbox');
+    Route::post('/ajax_get_all_submenu', 'Admin\DashboardController@ajax_get_all_submenu')->name('ajax_get_all_submenu');
 
 
     //datatables

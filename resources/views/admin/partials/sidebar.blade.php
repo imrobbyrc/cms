@@ -36,7 +36,7 @@
          </ul>
        </li>
 
-       <li><a class="pl-3" href="inbox"><i class="far fa-envelope"></i>Inbox</a></li> 
+       <li><a class="pl-3" href="/admin/inbox"><i class="far fa-envelope"></i>Inbox</a></li> 
 
       @role('admin')
       <li class="menu-header ">Administrator</li>

@@ -59,4 +59,21 @@ class DashboardController extends Controller
     {
         return view('admin.inbox');
     }
+
+    // select2 searcj
+	function ajax_get_all_submenu(){   
+        $data = []; 
+        $data[0] = array(
+            "id" => 1,
+            "text" => 'example',
+            "html" => 'image'
+        ); 
+        $data[1] = array(
+            "id" => 2,
+            "text" => 'example2',
+            "html" => 'image2'
+        ); 
+
+        return json_encode($data);
+    }
 }
