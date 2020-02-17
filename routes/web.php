@@ -32,13 +32,15 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function() {
     Route::post('/homepage/{alias}/update', 'Admin\HomepageController@update')->name('homepage.update');
     Route::post('/homepage/{alias}/delete', 'Admin\HomepageController@destroy')->name('homepage.destroy');
 
-    Route::get('/contact-us/{alias}', 'Admin\DashboardController@contact')->name('contact-us');
+    Route::get('/contact-us/{alias}', 'Admin\ContactController@index')->name('contact-us');
+    Route::post('/contact-us/{alias}', 'Admin\ContactController@store')->name('contact-us.store');
+    
     Route::get('/content/{alias}', 'Admin\DashboardController@content')->name('content');
     Route::get('/inbox', 'Admin\DashboardController@inbox')->name('inbox');
-    Route::get('/inbox', 'Admin\DashboardController@inbox')->name('inbox');
-    Route::post('/ajax_get_all_submenu', 'Admin\DashboardController@ajax_get_all_submenu')->name('ajax_get_all_submenu');
+    
 
 
     //datatables
-    Route::get('/homepage/{alias}/getdata', 'Admin\HomepageController@getData')->name('homepage.getdata'); 
+    Route::get('/homepage/{alias}/getdata', 'Admin\HomepageController@getData')->name('homepage.getdata');
+    Route::post('/ajax_get_all_submenu', 'Admin\DashboardController@ajax_get_all_submenu')->name('ajax_get_all_submenu');
 });

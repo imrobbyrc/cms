@@ -18,30 +18,6 @@ class DashboardController extends Controller
         return view('admin.home');
     }
 
-    public function homepage($alias)
-    {
-        if($alias == 'main-slider'){
-            return view('admin.homepage.main-slider');
-        }elseif ($alias == 'header-content') {
-            return view('admin.homepage.header-content');
-        }elseif ($alias == 'footer-content') {
-            return view('admin.homepage.footer-content');
-        }else{
-             return abort(404);
-        }
-    }
-
-    public function contact($alias)
-    {
-        if($alias == 'contact-us'){
-            return view('admin.contact-us.contact-us');
-        }elseif ($alias == 'location') {
-            return view('admin.contact-us.location');
-        }else{
-             return abort(404);
-        }
-    }
-
     public function content($alias)
     {
         if($alias == 'menu'){

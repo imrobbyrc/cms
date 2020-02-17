@@ -38,7 +38,7 @@
 
        <li><a class="pl-3" href="/admin/inbox"><i class="far fa-envelope"></i>Inbox</a></li> 
 
-      @role('admin')
+      {{-- @role('admin') --}}
       <li class="menu-header ">Administrator</li>
       <li class="dropdown @if(request()->segment(2)=='users' || request()->segment(2)=='role') active @endif">
         <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Auth</span></a>
@@ -48,7 +48,7 @@
           <li class="@if(request()->segment(3)=='role-permission') active @endif"><a href="{{route('users.roles_permission')}}">Role Permission</a></li>
         </ul>
       </li>
-      @endrole
+      {{-- @endrole --}}
               
     </ul>
   </aside>

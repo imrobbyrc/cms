@@ -31,7 +31,7 @@
             <div class="col-7">
                 <div class="mapouter">
                     <div class="gmap_canvas">
-                        <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Kompleks%20Ruko%20Roxy%20Mas%2C%20Jalan%20Roxy%20Mas%20Pertokoan%2C%20RW.8%2C%20Cideng%2C%20Central%20Jakarta%20City%2C%20Jakarta&t=&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=.{{$data->fullAddress ?? 'monas'}}.&t=&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                         </iframe>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
             <div class="col-5">
                 <label for="map">Masukkan Alamat</label>
                 <input onchange="changemap()" id="map" type="text" class="form-control">
-                <button class="btn btn-primary btn-block mt-2">Simpan</button>
+                <button class="btn btn-primary btn-block mt-2" onclick="changemap()">Simpan</button>
             </div>
         </div>
       </div>
@@ -49,9 +49,43 @@
 @push('scripts')
 <script>
     function changemap(){
-        var url = $('#map').val();
-        var encodedUrl = encodeURI(url);
-        $('#gmap_canvas').attr('src', 'https://maps.google.com/maps?q='+encodedUrl+'&t=&z=19&ie=UTF8&iwloc=&output=embed')
-    }
+    
+        var urls = $('#map').val();
+        var encodedUrl = encodeURI(urls);
+        //save to db
+        swal({
+          title: "Are you sure ??",
+          text: "Once Request, you location will be change!",
+          icon: "info",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+            
+            $.ajax({
+                type:'POST',
+                url:'{{route('contact-us.store',request()->segment(3))}}',
+                data:{
+                    'fullAddress' : urls,
+                    "_token": "{{ csrf_token() }}",
+                },
+                success:function(data){
+                    
+                    swal("Success! Record has been added!", { icon: "success", });
+
+                    $('#gmap_canvas').attr('src', 'https://maps.google.com/maps?q='+encodedUrl+'&t=&z=19&ie=UTF8&iwloc=&output=embed')
+
+                },error: function (xhr, ajaxOptions, thrownError) {
+                    swal("Error adding!", "Please try again", { icon: "error", });
+                }
+            });
+
+            } else {
+            swal("Operation Canceled!");
+            }
+        }); 
+
+        }
 </script>
 @endpush
