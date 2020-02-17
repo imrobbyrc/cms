@@ -91,8 +91,9 @@ class ContactController extends Controller
 
                     $save = ContactUs::create([
 
+                        
                         'fullAddress' => $request->fullAddress,
-                        'contact' => $request->contact,
+                        'contact' => '',
                         'showOnHomepage' => "no",
                         'browserTitle' => '',
                         'metaDescription' => '',

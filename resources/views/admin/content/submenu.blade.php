@@ -60,7 +60,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="needs-validation" novalidate="" method="post" action="" enctype="multipart/form-data">
+      <form class="needs-validation" novalidate="" method="post" action="{{ route('content.store',request()->segment(3))}}" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">
           @if ($errors->any())
@@ -77,9 +77,10 @@
             <div class="form-group">
               <label>Menu</label>
               <select class="form-control" required="" name="menuId" onchange="cekMenu()">
-                <option value="">Pilih Menu</option>
-                <option value="1">Brand</option>
-                <option value="2">Solution</option>
+                <option value="" disabled selected>Pilih Menu</option>
+                @foreach ($data as $row)
+                  <option value="{{$row->idMenus}}">{{$row->menu}}</option>
+                @endforeach
               </select>
               <div class="invalid-feedback">
                 Menu Required
@@ -140,7 +141,7 @@
             </div>
             <div class="form-group">
               <label>Layout</label>
-              <select class="form-control" required="" name="showOnHomepage">
+              <select class="form-control" required="" name="layout">
                 <option value="2">2</option>
                 <option value="1" selected="selected">1</option>
               </select>
@@ -204,4 +205,147 @@ function cekMenu(){
 
 @push('scripts')
 <script src="{{ asset('admin_assets/modules/summernote/summernote-bs4.js')}}"></script>
+<script>
+  var alias = '{{request()->segment(3)}}';
+  $(function() {
+    
+      let url = "{{ route('content.getdata', ':alias') }}";
+          url = url.replace(':alias', alias);
+  
+        $('#submenu').DataTable({
+          'processing': true,
+          'serverSide': true,
+          "deferRender": true,
+          "info": true,
+          "autoWidth": false,
+          searchDelay: 600,
+          ajax: url,
+          columns: [
+              { data: 'idSubmenus',name:'idSubmenus',render: function (data, type, row, meta) 
+                {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+              },
+              { data: 'menu',name: 'menus.menu'},
+              { data: 'submenus',name: 'submenus'},
+              { data: 'title',name: 'title'},
+              { data: 'description',name: 'description'},
+              { data: 'link',name: 'link'},
+              { data: 'image',name: 'image',"searchable": false},
+              { data: 'status',name: 'status',"searchable": false},
+              { data: 'layout',name: 'layout',"searchable": false},
+              { data: 'priority',name: 'priority',"searchable": false},
+              { data: 'created_at',name: 'created_at',"searchable": false},
+              { data: 'updated_at',name: 'updated_at',"searchable": false},
+              { data: 'idSubmenus',name: 'idSubmenus',"searchable": false,
+                render: function(data) { 
+                  return '<a class="btn btn-primary btn-action mr-1" onclick="getData('+data+')"><i class="fas fa-pencil-alt"></i></a> <a class="btn btn-danger btn-action trigger--fire-modal-1" onclick="performDelete('+data+')"><i class="fas fa-trash"></i></a>'
+  
+                  },
+              },
+          ]
+      });
+  });
+  $(function(){
+    var dtable=$('#slider').dataTable();
+  
+  $(".dataTables_filter input")
+      .unbind() 
+      .bind("input", function(e) { 
+   
+          if(this.value.length >= 3 || e.keyCode == 13) {
+            
+              dtable.api().search(this.value).draw();
+          }
+          
+          if(this.value == "") {
+              dtable.api().search("").draw();
+          }
+          return;
+      })
+      .bind("keyup", function(e) { 
+         
+          if(e.keyCode == 13) {
+              dtable.api().search(this.value).draw();
+          }
+   
+          if(this.value == "") {
+              dtable.api().search("").draw();
+          }
+          return;
+      });
+  });
+  
+  //get detail
+  function getData(id){
+    let url = "{{ route('content.show',[':alias',':id']) }}";
+          url = url.replace(':alias', alias);
+          url = url.replace(':id', id);
+  
+          $.ajax({
+          url: url,
+          dataType: "JSON",
+          type: 'get',
+          beforeSend: function () {
+              $(".overlay").show();
+            },
+            complete: function () {
+              $(".overlay").hide();
+            },
+          success: function(response){ 
+            $("#idUpdate").val(response.idMenus);
+            $("#menus").val(response.menu);
+            $("#link").val(response.link);
+            $("#priority").val(response.priority);
+            $("#status").val(response.status);
+            $("#showOnHomepage").val(response.showOnHomepage);
+            $("#browserTitle").val(response.browserTitle);
+            $("#metaDescription").code(response.metaDescription);
+
+            
+            // Display Modal
+            $('#editModal').modal('show'); 
+          }
+        });
+  
+  }
+  
+  function performDelete(id)
+  {
+    let url = "{{ route('content.destroy', ':alias') }}";
+        url = url.replace(':alias', alias);
+    swal({
+            title: "Are you sure ??",
+            text: "Once Request, you will not be able to revert this record!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            
+            $.ajax({
+              type:'POST',
+              url:url,
+              data:{
+                "_token": "{{ csrf_token() }}",
+                id : id,
+              },
+              success:function(data){
+                location.reload(true);
+                swal("Success! Record has been added!", { icon: "success", });
+  
+              },error: function (xhr, ajaxOptions, thrownError) {
+  
+                swal("Error adding!", "Please try again", { icon: "success", });
+  
+              }
+            });
+  
+          } else {
+            swal("Operation Canceled!");
+          }
+        });
+  }
+  </script>
 @endpush

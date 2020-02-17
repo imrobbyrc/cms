@@ -32,15 +32,23 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function() {
     Route::post('/homepage/{alias}/update', 'Admin\HomepageController@update')->name('homepage.update');
     Route::post('/homepage/{alias}/delete', 'Admin\HomepageController@destroy')->name('homepage.destroy');
 
+    Route::get('/content/{alias}', 'Admin\ContentController@index')->name('content');
+    Route::get('/content/{alias}/create', 'Admin\ContentController@create')->name('content.create');
+    Route::get('/content/{alias}/show/{id}', 'Admin\ContentController@show')->name('content.show');
+    Route::post('/content/{alias}', 'Admin\ContentController@store')->name('content.store');
+    Route::get('/content/{alias}/edit/{id}', 'Admin\ContentController@edit')->name('content.edit');
+    Route::post('/content/{alias}/update', 'Admin\ContentController@update')->name('content.update');
+    Route::post('/content/{alias}/delete', 'Admin\ContentController@destroy')->name('content.destroy');
+
     Route::get('/contact-us/{alias}', 'Admin\ContactController@index')->name('contact-us');
     Route::post('/contact-us/{alias}', 'Admin\ContactController@store')->name('contact-us.store');
     
-    Route::get('/content/{alias}', 'Admin\DashboardController@content')->name('content');
     Route::get('/inbox', 'Admin\DashboardController@inbox')->name('inbox');
     
 
 
     //datatables
     Route::get('/homepage/{alias}/getdata', 'Admin\HomepageController@getData')->name('homepage.getdata');
+    Route::get('/content/{alias}/getdata', 'Admin\ContentController@getData')->name('content.getdata');
     Route::post('/ajax_get_all_submenu', 'Admin\DashboardController@ajax_get_all_submenu')->name('ajax_get_all_submenu');
 });
