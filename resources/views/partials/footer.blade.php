@@ -1,65 +1,95 @@
-<div class="bottmos-gong">
-<div class="bottoms">
-    <div class="bottoms-layout wrapper">
-        <ul class="bottoms-ul"> 
-            <li class="bottmos-li-one">
-                    <div>
-                    <div class="bottmos-li-three-list"><a href="javascript:;">About us</a></div>
-                    </div>
-                    <p>
-                        Ningxia Yongruida Carbon Co,.Ltd  was founded in <br>
-                        2003.With an area of over 50000 square meters ,our <br>
-                        factory is located in the city of Shizuishan Ningxia .
-                    </p>
-                    <div class="bottmos-li-line"></div>
-                    <div class="bottmos-li-font">
-                        <a href=" " target="_blank"><span class="iconfont iconFacebook"></span></a>
-                        <a href=" " target="_blank"><span class="iconfont iconttww"></span></a>
-                        <a href=" " target="_blank"><span class="iconfont iconlinked"></span></a>
-                        <a href="skype:+86 18037139272?chat" target="_blank"><span class="iconfont iconskype"></span></a>
-                    </div>
-            </li>
-            <li class="bottmos-li-two">
-                    <div class="bottmos-li-two-list"><a href="#">Our products</a></div>
 
-                    <div class="bottmos-li-two-more"><a href="products/activated-carbon/index.html" title="Activated Carbon"><span class="iconfont iconduoyuyan"></span>Activated Carbon</a></div><div class="bottmos-li-two-more"><a href="products/chemical/index.html" title="PAC/PAM"><span class="iconfont iconduoyuyan"></span>PAC/PAM</a></div><div class="bottmos-li-two-more"><a href="products/carbon-additve/index.html" title="Carbon Additive"><span class="iconfont iconduoyuyan"></span>Carbon Additive</a></div>                            
-            </li>
-            <li class="bottmos-li-three">
-                    <div class="bottmos-li-three-list"><a href="javascript:;">Contact us</a></div>
-                    <div class="bottmos-li-three-more"><a href="mailto:info@yrdcarbon.com"><span class="iconfont iconyoujian"></span>Email: info@yrdcarbon.com</a></div>
-                    <div class="bottmos-li-three-more"><a href="tel:+86 18037139272"><span class="iconfont icondianhua"></span>Tel: +86 18037139272</a></div>
-                    <div class="bottmos-li-three-more"><a href="https://api.whatsapp.com/send?phone=+86%2018037139272"><span class="iconfont iconwhatsapp"></span>whatsapp: +86 18037139272</a></div>
-                    <div class="bottmos-li-three-more"><a href="skype:+86 18037139272?chat"><span class="iconfont iconskype"></span>Skype: +86 18037139272</a></div>
-            </li>
-            <li class="bottmos-li-four">
-                <div class="bottmos-li-four-list">Send message</div>
-                <form method="post" action="https://www.yrdcarbon.com/e/enews/index.php" name="formd2" onsubmit="return(CheckInputd(formd2))">
-                    <div class="bottmos-li-three-name"><input type="text" name="name" id="bottmos-li-three-name" value="" placeholder="Name" /></div>
-                    <div class="bottmos-li-three-email"><input type="text" name="email" id="bottmos-li-three-email" value="" placeholder="Email" /></div>
-                    <div class="bottmos-li-three-message"><textarea name="title" id="bottmos-li-three-message" placeholder="Message"></textarea></div>
-                    <div class="bottmos-li-three-submit"><button type="submit">Submit</button></div>
-                    <input name='enews' type='hidden' value='AddFeedback'>
-                    <input name="fromurl" value="" type="hidden"  />
-                    <input name="bid" value="1" type="hidden" /> 
-                </form> 
-            </li>
-        </ul>
-        <div class="bottmos-li-font bottmos-li-font_nobl">
-                <a href=" " target="_blank"><span class="iconfont iconFacebook"></span></a>
-                <a href=" " target="_blank"><span class="iconfont iconttww"></span></a>
-                <a href=" " target="_blank"><span class="iconfont iconlinked"></span></a>
-                <a href="skype:+86 18037139272?chat" target="_blank"><span class="iconfont iconskype"></span></a>
+        <section style="background-color: #3D4C6F">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="background-primary color-white p-5 p-lg-6 radius-secondary">
+                            <h4 class="color-white fs-1 fs-lg-2 mb-1">Sign up for email alerts</h4>
+                            <p class="color-white">Stay current with our latest insights</p>
+                            <form class="mt-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-7 pr-md-0">
+                                        <div class="input-group">
+                                            <input class="form-control" type="email" placeholder="Enter Email Here" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 mt-3 mt-md-0">
+                                        <button class="btn btn-warning btn-block" type="submit"><span class="color-primary fw-600">Submit</span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-4 mt-lg-0">
+                        <div class="row">
+                            <div class="col-6 col-lg-4 color-white ml-lg-auto">
+                                <ul class="list-unstyled">
+                                    <li class="mb-3"><a class="color-white" href="#">Contact Us</a></li>
+                                    <li class="mb-3"><a class="color-white" href="#">FAQ</a></li>
+                                    <li class="mb-3"><a class="color-white" href="#">Privacy Policy</a></li>
+                                    <li class="mb-3"><a class="color-white" href="#">Terms of Use</a></li>
+                                    <li class="mb-3"><a class="color-white" href="#">Global Office</a></li>
+                                    <li class="mb-3"><a class="color-white" href="#">Local Office</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-sm-5 ml-sm-auto">
+                                <a href="#">
+                                    <div class="row mb-3 align-items-center no-gutters">
+                                        <div class="col-auto">
+                                            <div class="background-primary text-center d-flex align-items-center radius-primary" style="height: 40px; width: 40px;"><span class="w-100 fa fa-linkedin color-white"></span></div>
+                                        </div>
+                                        <div class="col-6 pl-3">
+                                            <h5 class="fs-0 color-white mb-0 d-inline-block">Linkedin</h5></div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="row mb-3 align-items-center no-gutters">
+                                        <div class="col-auto">
+                                            <div class="background-primary text-center d-flex align-items-center radius-primary" style="height: 40px; width: 40px;"><span class="w-100 fa fa-twitter color-white"></span></div>
+                                        </div>
+                                        <div class="col-6 pl-3">
+                                            <h5 class="fs-0 color-white mb-0 d-inline-block">Twitter</h5></div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="row mb-3 align-items-center no-gutters">
+                                        <div class="col-auto">
+                                            <div class="background-primary text-center d-flex align-items-center radius-primary" style="height: 40px; width: 40px;"><span class="w-100 fa fa-facebook color-white"></span></div>
+                                        </div>
+                                        <div class="col-6 pl-3">
+                                            <h5 class="fs-0 color-white mb-0 d-inline-block">Facebook</h5></div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="row mb-3 align-items-center no-gutters">
+                                        <div class="col-auto">
+                                            <div class="background-primary text-center d-flex align-items-center radius-primary" style="height: 40px; width: 40px;"><span class="w-100 fa fa-google-plus color-white"></span></div>
+                                        </div>
+                                        <div class="col-6 pl-3">
+                                            <h5 class="fs-0 color-white mb-0 d-inline-block">Google+</h5></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.row-->
             </div>
-    </div>
-</div> 
-<div class="source">
-    <div class="source-layout wrapper">
-        <div class="source-left">
-            Copyright © Ningxia Yongruida Carbon Co., Ltd. All Rights Reserved.
-        </div>
-        <div class="source-right">
-                <a href="https://www.coverweb.cc/">Support: Coverweb</a>
-        </div>
-    </div>
-</div>
-</div>
+            <!--/.container-->
+        </section>
+        <section class="background-primary text-center py-4">
+            <div class="container">
+                <div class="row align-items-center" style="opacity: 0.85">
+                    <div class="col-sm-3 text-sm-left">
+                        <a href="index-2.html"><img src="assets/images/logo-light.png" alt="" /></a>
+                    </div>
+                    <div class="col-sm-6 mt-3 mt-sm-0">
+                        <p class="color-white lh-6 mb-0 fw-600">&copy; Copyright 2018 Elixir Inc.</p>
+                    </div>
+                    <div class="col text-sm-right mt-3 mt-sm-0"><a class="color-white" href="https://themewagon.com/" target="_blank"> Designed by Themewagon</a></div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section> 
+</html>

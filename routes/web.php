@@ -3,6 +3,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/{alias}', 'FrontEndController@get');
 
 Auth::routes();
 Route::get('/admin', 'Admin\DashboardController@index')->name('home');

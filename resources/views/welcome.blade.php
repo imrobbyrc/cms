@@ -1,638 +1,645 @@
 @extends('main')
 @section('title', 'Welcome')
-	@section('content') 
-	<div class="content">
-		<div class="ct-list" id="notice-con"> 
-			<div class="item" style="display: block;">  
-				<div class="banner">
-					<div class="item">
-						<a href="#" title="">
-							<img src="{{asset('custom/images/banner/banner1.jpg')}}" alt="activated carbon for civilian water, Industrial water & enviromental water">
-						</a> 
-					</div>
-					<div class="item">
-						<a href="#" title="">
-							<img src="{{asset('custom/images/banner/banner2.jpg')}}" alt="Activated Carbon">
-						</a> 
-					</div>
-				</div>
- 
-				<div class="bc-color ind_box1">
-					<div class="commodity wrapper">
-						<div class="shop_top tc">
-							<div class="shop_hot">
-								<h1>
-									<a href="products/index.html">
-										<span>PRODUK</span>
-										KAMI
-									</a>
-
-									<div class="btn btn-primary bg-blue float-right">Lihat Semua</div>
-								</h1>
-							</div>
-							<div class="border_b">
-							</div>
-						</div>
-						
-						
-						<div class="commodity-tit" >
-							<ul class="layui_tab_title">
-								<li class="commodity-li hover">Activated Carbon<div class="daosanjiao1 iconfont iconicon-up1"></div></li>
-								<li class="commodity-li">Filter Media & Chemical<div class="daosanjiao2 iconfont iconicon-up1"></div></li>
-								<li class="commodity-li">Carbon Additve<div class="daosanjiao3 iconfont iconicon-up1"></div></li>
-							</ul>
-						</div>
-						<div class="commodity-con" id="tab_con">
-							<div class="commodity-con_item">
-								<div class="commodity-item include_con">
-									<ul class="tab_content ind_solu_scroll">
-
-										<li>
-											<a href="products/activated-carbon/granular-activated-carbon.html" title="Granular Activated Carbon">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/activated-carbon/granule%20ac/granule%20activated%20carbon.jpg')}}" alt="Granular Activated Carbon" >
-											    </div>
-											    <p>Granular Activated Carbon</p>
-                                            </a>
-										</li><li>
-											<a href="products/activated-carbon/columnar-activated-carbon.html" title="Pellets Activated Carbon">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/carbon-additve/columnar.jpg')}}" alt="Pellets Activated Carbon" >
-											    </div>
-											    <p>Pellets Activated Carbon</p>
-                                            </a>
-										</li><li>
-											<a href="products/activated-carbon/powdered-activated-carbon.html" title="Powdered Activated Carbon">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/carbon-additve/coal-base.jpg')}}" alt="Powdered activated carbon" >
-											    </div>
-											    <p>Powdered Activated Carbon</p>
-                                            </a>
-										</li><li>
-											<a href="products/activated-carbon/coal-base-activated-carbon.html" title="Coal Based Activated Carbon">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/carbon-additve/columnar1.jpg')}}" alt="Coal Base Activated Carbon" >
-											    </div>
-											    <p>Coal Based Activated Carbon</p>
-                                            </a>
-										</li><li>
-											<a href="products/activated-carbon/coconut-shell-base-activated-carbon.html" title="Coconut Shell Activated Carbon">
-                                                <div class="card">
-												    <img src="{{asset('custom/images/Coconut_Shell_Activated_Carbon_1.jpg')}}" alt="Coconut Shell Activated Carbon" >
-											    </div>
-											    <p>Coconut Shell Activated Carbon</p>
-                                            </a>
-										</li><li>
-											<a href="products/activated-carbon/wood-base-activated-carbon.html" title="Wood Activated Carbon">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/carbon-additve/wood-base-activated-carbon.jpg')}}" alt="Wood-base activated carbon" >
-											    </div>
-											    <p>Wood Activated Carbon</p>
-                                            </a>
-										</li><li>
-											<a href="products/activated-carbon/honeycomb-activated-carbon.html" title="Honeycomb Activated Carbon">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/carbon-additve/honeycomb-activated-carbon.jpg')}}" alt="Honeycomb activated carbon" >
-											    </div>
-											    <p>Honeycomb Activated Carbon</p>
-                                            </a>
-										</li><li>
-											<a href="products/activated-carbon/desulfurization-and-denitrification.html" title="Desulfurization and Denitrification">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/carbon-additve/desulfurization-and-denitrification.jpg')}}" alt="Desulfurization and Denitrification " >
-											    </div>
-											    <p>Desulfurization and Denitrification</p>
-                                            </a>
-										</li>
-										
-									</ul><ul class="tab_content ind_solu_scroll">
-
-										<li>
-											<a href="products/chemical/polyaluminum-chloride.html" title="POLYALUMINUM CHLORIDE (PAC)">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/pharmacy/polyaluminum-chloride.jpg')}}" alt="POLYALUMINUM CHLORIDE" >
-											    </div>
-											    <p>POLYALUMINUM CHLORIDE (PAC)</p>
-                                            </a>
-										</li><li>
-											<a href="products/chemical/18.html" title="Cationic Polyacrylamide">
-                                                <div class="card">
-												    <img src="{{asset('custom/files/PAM/CPAM_1.jpg')}}" alt="Cationic Polyacrylamide" >
-											    </div>
-											    <p>Cationic Polyacrylamide</p>
-                                            </a>
-										</li><li>
-											<a href="products/chemical/anionic-polyacrylamide.html" title="Anionic polyacrylamide ">
-                                                <div class="card">
-												    <img src="{{asset('custom/files/PAM/APAM%20_1.jpg')}}" alt="Anionic Polyacrylamide" >
-											    </div>
-											    <p>Anionic polyacrylamide </p>
-                                            </a>
-										</li><li>
-											<a href="products/chemical/polyacrylamide.html" title="Polyacrylamide">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/pharmacy/polyacrylamide.jpg')}}" alt="Polyacrylamide" >
-											    </div>
-											    <p>Polyacrylamide</p>
-                                            </a>
-										</li>
-										
-									</ul><ul class="tab_content ind_solu_scroll">
-
-										<li>
-											<a href="products/carbon-additve/instant-graphite-carbon-raiser.html" title="Instant Graphite Carbon Raiser">
-                                                <div class="card">
-												    <img src="{{asset('custom/files/carbon%20raiser/instant%20graphite%20cylinder%20carbon%20raiser/1%20(1).jpg')}}" alt="" >
-											    </div>
-											    <p>Instant Graphite Carbon Raiser</p>
-                                            </a>
-										</li><li>
-											<a href="products/carbon-additve/graphite-carburizer.html" title="Graphite Carburizer">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/activated-carbon/graphite-carburizer00.jpg')}}" alt="Graphite Carburizer" >
-											    </div>
-											    <p>Graphite Carburizer</p>
-                                            </a>
-										</li><li>
-											<a href="products/carbon-additve/petroleum-coke-carburizer.html" title="Petroleum Coke Carburizer">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/activated-carbon/petroleum-coke-carburizer00.jpg')}}" alt="Petroleum Coke Carburizer" >
-											    </div>
-											    <p>Petroleum Coke Carburizer</p>
-                                            </a>
-										</li><li>
-											<a href="products/carbon-additve/coal-carburizer.html" title="Coal Carburizer">
-                                                <div class="card">
-												    <img class="rounded" src="{{asset('custom/images/products/activated-carbon/coal-carburizer00.jpg')}}" alt="Coal Carburizer" >
-											    </div>
-											    <p>Coal Carburizer</p>
-                                            </a>
-										</li>
-										
-									</ul>								</div>
-								<div class="commodity-con-scroll_btn commodity-con_item_prev">
-									<p class="iconfont iconduoyuyan"></p>
-								</div>
-								<div class="commodity-con-scroll_btn commodity-con_item_next">
-									<p class="iconfont iconduoyuyan"></p>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-				
-				<div class="bc-color ind_box1">
-					<div class="commodity wrapper">
-						<div class="shop_top tc">
-							<div class="shop_hot">
-								<h1>
-									<a href="products/index.html">
-										<span>APLIKASI</span>
-										KAMI
-									</a>
-
-									<div class="btn btn-primary bg-blue float-right">Lihat Semua</div>
-								</h1>
-							</div>
-							<div class="border_b">
-						</div>
-					</div>
-					
-				<!--tab/ application-->
-				<div class="application_tab">
-				  <ul class="layui_tab_title">
-					<li>Application in Liquid Phase<div class="daosanjiao1 iconfont iconicon-up1"></div></li>
-					<li>Application in Gas Phase<div class="daosanjiao2 iconfont iconicon-up1"></div></li>
-					<li>Other Special Application<div class="daosanjiao3 iconfont iconicon-up1"></div></li>
-				  </ul>
-				<div class="layui-tab-content">
-				    <div class="layui-tab-item layui-tab-item1 layui-show ind_application">
-
-						<div class="layui-tab-item-ul wrapper">
-							<dl class="layui-tab-item-li">
-								<dd>Application in Liquid Phase</dd>
-								<dd>
-									Beverage ,wine ,food ,medical treatment ,chemical industry .Activated carbon has various functions in industrial prodcution and it is widely used for decolorization ,deodorization ...
-								</dd>
-								<dd>
-									<a href="application/application-in-liquid-phase/index.html" title="Application in Liquid Phase">Learn about app details</a>
-								</dd>
-							</dl>
-						</div><div class="layui-tab-item-ul wrapper">
-							<dl class="layui-tab-item-li">
-								<dd>Application in Gas Phase</dd>
-								<dd>
-									Activated carbons are mainly used in the refinement of carbonate gas for beverage ,in the industrial preparation of helium gas for natural gas ,in ozone decomposition ,in separation of carbon dioxide in flue gas etc.
-								</dd>
-								<dd>
-									<a href="application/application-in-gas-phase/index.html" title="Application in Gas Phase">Learn about app details</a>
-								</dd>
-							</dl>
-						</div><div class="layui-tab-item-ul wrapper">
-							<dl class="layui-tab-item-li">
-								<dd>Other Special Application</dd>
-								<dd>
-									Ningxia Yongruida activated carbon is used for decoloring of cane sugar ,glucose ,edibleoil、amino acide manufacture 、monosodium glutamate、medicine,etc .to make it clearer ,and also for removing heavy metal in food ,for example ,Plumbum,mercury ,and arsenic in wine ,chocolate and candy .
-								</dd>
-								<dd>
-									<a href="application/other-special-application/index.html" title="Other Special Application">Learn about app details</a>
-								</dd>
-							</dl>
-						</div>						
-					</div>
-                </div> 
-				</div>
-                
-				<div class="tab-shop wrapper" id="tab-shop">
-					<div class="shop_top tc">
-						<div class="shop_hot">
-						<h1>
-									<a href="products/index.html">
-										<span>SOLUSI</span>
-										KAMI
-									</a>
-
-									<div class="btn btn-primary bg-blue float-right">Lihat Semua</div>
-								</h1>
-						</div>
-						<div class="border_b">
-							
-						</div>
-					</div>
-					
-					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-					  <ul class="layui-tab-title ind_solution">
-					  						    <li>
-							<a href="javascript:;">
-								<div class="iconfont iconkongqijinghuaqi">
-								
-								</div>
-								<p>
-									Air Purification								</p>
-							</a>
-							
-						</li>
-					    					    <li>
-							<a href="javascript:;">
-								<div class="iconfont iconshuichulixitong">
-								
-								</div>
-								<p>
-									Water treatment								</p>
-							</a>
-							
-						</li>
-					    					    <li>
-							<a href="javascript:;">
-								<div class="iconfont icontianjiayaopin-01">
-								
-								</div>
-								<p>
-									Pharmacy								</p>
-							</a>
-							
-						</li>
-					    					    <li>
-							<a href="javascript:;">
-								<div class="iconfont iconcanyin5">
-								
-								</div>
-								<p>
-									Food & Beverage								</p>
-							</a>
-							
-						</li>
-					    					    <li>
-							<a href="javascript:;">
-								<div class="iconfont iconyoujirongjixinxi">
-								
-								</div>
-								<p>
-									Solvent Recovery								</p>
-							</a>
-							
-						</li>
-					    					    <li>
-							<a href="javascript:;">
-								<div class="iconfont iconeryanghualiu">
-								
-								</div>
-								<p>
-									Desulfurization								</p>
-							</a>
-							
-						</li>
-					    					    <li>
-							<a href="javascript:;">
-								<div class="iconfont iconhuaxue">
-								
-								</div>
-								<p>
-									Chemistry								</p>
-							</a>
-							
-						</li>
-					    					    <li>
-							<a href="javascript:;">
-								<div class="iconfont iconjinshuyuancaijiance">
-								
-								</div>
-								<p>
-									Precious Metal Recovery								</p>
-							</a>
-							
-						</li>
-					    			
-					  </ul>
-					  <div class="layui-tab-content clearfix" id="layui-tab-content-id">
-					  						    <div class="layui-tab-item layui-show">
-							<div class="tab-shop-img">
-                                <a href="solution/air-purification.html" title="Air Purification">
-                                    <img src="{{asset('custom/images/solutionfangan-1.jpg')}}" alt="">
-                                </a>
-                            </div>
-                            <div class="introduce">
-                                <a href="solution/air-purification.html" title="Air Purification">
-                                    <div class="introduce-title">
-                                        Air Purification                                    </div>
-                                    <div class="introduce-content">
-                                        Today, all over the world are facing with the problem of how to solve air pollution. As society continues to developing, pollution is difficult to reach from the root cause, and only can use effective products to control air pollution. For many years, the most widely used air pollution treatment product in the world is activated carbon (AC) . Activated carbon has become the default choice for pollution filtration in various industries. Ningxia Yongruida Activated Carbon factory produce particular AC used in air purification.                                    </div>
-                                </a>
-                                <div class="introduce-more">
-                                    <a href="solution/air-purification.html" title="Air Purification">View More</a>
-                                </div>
-                            </div>
-						</div>
-					    					    					    <div class="layui-tab-item">
-							<div class="tab-shop-img">
-                                <a href="solution/water-treatment.html" title="Water treatment">
-                                    <img src="{{asset('custom/images/Solution-list02_03.jpg')}}" alt="">
-                                </a>
-                            </div>
-                            <div class="introduce">
-                                <a href="solution/water-treatment.html" title="Water treatment">
-                                    <div class="introduce-title">
-                                        Water treatment                                    </div>
-                                    <div class="introduce-content">
-                                        The world is facing an invisible water quality crisis, causing one-third of potential economic growth in heavily polluted areas, posing a threat to human and environmental health.
-World Bank research in the report shows that a combination of microorganisms, sewage, chemicals, and plastics draws oxygen from water supplies and turns them into poisons for humans and ecosystems.
-Activated Carbon (AC) is the most basic material used for water treatment,  so activated carbon will play a vital role in improving human water pollution.                                    </div>
-                                </a>
-                                <div class="introduce-more">
-                                    <a href="solution/water-treatment.html" title="Water treatment">View More</a>
-                                </div>
-                            </div>
-						</div>
-					    					    <div class="layui-tab-item">
-							<div class="tab-shop-img">
-                                <a href="solution/pharmacy.html" title="Pharmacy">
-                                    <img src="{{asset('custom/images/Solution-list03_03.jpg')}}" alt="Pharmacy">
-                                </a>
-                            </div>
-                            <div class="introduce">
-                                <a href="solution/pharmacy.html" title="Pharmacy">
-                                    <div class="introduce-title">
-                                        Pharmacy                                    </div>
-                                    <div class="introduce-content">
-                                        Activated charcoal was considered the universal antidote. Nowadays, it is promoted as a potent natural treatment.
-It has a variety of proposed benefits, ranging from lowering cholesterol to whitening teeth and curing hangovers. Sometimes used to manage a poisoning or overdose. It helps rid the body of unpleasant substances.
-                                    </div>
-                                </a>
-                                <div class="introduce-more">
-                                    <a href="solution/pharmacy.html" title="Pharmacy">View More</a>
-                                </div>
-                            </div>
-						</div>
-					    					    <div class="layui-tab-item">
-							<div class="tab-shop-img">
-                                <a href="solution/food-and-beverage.html" title="Food & Beverage">
-                                    <img src="{{asset('custom/images/Solution-list04_03.jpg')}}" alt="Food & Beverage">
-                                </a>
-                            </div>
-                            <div class="introduce">
-                                <a href="solution/food-and-beverage.html" title="Food & Beverage">
-                                    <div class="introduce-title">
-                                        Food & Beverage                                    </div>
-                                    <div class="introduce-content">
-                                        Activated Charcoal is used in food to colour it black and for its supposed health benefits.
-Sometimes it is used as a food ingredient. This is typically made from bamboo or coconut shell. It gives food an earthy, smoky taste and the black colouring gives the food an exotic, fashionable appearance.
-Health benefits have been claimed for charcoal back to classical times, when Hippocrates and Pliny recommended it for conditions such as anthrax and vertigo. Activated charcoal adsorbs chemicals and so may bind to both toxins and vital nutrients such as vitamins. Its effects are therefore broad and indiscriminate.                                    </div>
-                                </a>
-                                <div class="introduce-more">
-                                    <a href="solution/food-and-beverage.html" title="Food & Beverage">View More</a>
-                                </div>
-                            </div>
-						</div>
-					    					    <div class="layui-tab-item">
-							<div class="tab-shop-img">
-                                <a href="solution/solvent-recovery.html" title="Solvent Recovery">
-                                    <img src="{{asset('custom/images/Solution-list05_03.jpg')}}" alt="Solvent Recovery">
-                                </a>
-                            </div>
-                            <div class="introduce">
-                                <a href="solution/solvent-recovery.html" title="Solvent Recovery">
-                                    <div class="introduce-title">
-                                        Solvent Recovery                                    </div>
-                                    <div class="introduce-content">
-                                        The solvent processing industry, e. g. the printing industry, dry cleaning shops and paint shops, depend on solvents which are vaporized in the course of the production process. Recovery of these solvents from the process exhaust air is desirable both from economic and ecological aspects. 
-The solvent recovery process relies on high-quality activated carbon grades with a well-balanced pore structure. Depending on the type of solvent to be removed, activated carbon grades of different raw material origins or low-ash carbon grades are employed to give the best treatment result.                                    </div>
-                                </a>
-                                <div class="introduce-more">
-                                    <a href="solution/solvent-recovery.html" title="Solvent Recovery">View More</a>
-                                </div>
-                            </div>
-						</div>
-					    					    <div class="layui-tab-item">
-							<div class="tab-shop-img">
-                                <a href="solution/6.html" title="Desulfurization">
-                                    <img src="{{asset('custom/images/Solution-list06_03.jpg')}}" alt="">
-                                </a>
-                            </div>
-                            <div class="introduce">
-                                <a href="solution/6.html" title="Desulfurization">
-                                    <div class="introduce-title">
-                                        Desulfurization                                    </div>
-                                    <div class="introduce-content">
-                                        Application of activated carbon for air cleaning from sulfur containing species, such as hydrogen sulfide, sulfur dioxide, and mercaptans. The removal of organic sulfur-containing compounds from both gaseous and liquid fuel is addressed. The emphasis is placed on the role of activated carbon surfaces, either unmodified or modified in the processes of adsorption and catalytic oxidation of the pollutants.                                    </div>
-                                </a>
-                                <div class="introduce-more">
-                                    <a href="solution/6.html" title="Desulfurization">View More</a>
-                                </div>
-                            </div>
-						</div>
-					    					    <div class="layui-tab-item">
-							<div class="tab-shop-img">
-                                <a href="solution/chemistry.html" title="Chemistry">
-                                    <img src="{{asset('custom/images/Solution-list07_03.jpg')}}" alt="Chemistry">
-                                </a>
-                            </div>
-                            <div class="introduce">
-                                <a href="solution/chemistry.html" title="Chemistry">
-                                    <div class="introduce-title">
-                                        Chemistry                                    </div>
-                                    <div class="introduce-content">
-                                        Activated carbons, because of their unique surface chemistry, act not only as adsorbents but also as catalysts for the oxidation of inorganic and organic species, and their surface can be modified and tailored toward desired applications.
-										Gas Disposal&mdash;Removal of Mercury:
-										Gas Disposal&mdash;Gas Purifying Liquid
-										Industrial Water--- Purification:
-										Control and Prevention of Pollution--- Purifica                                    
-									</div>
-                                </a>
-                                <div class="introduce-more">
-                                    <a href="solution/chemistry.html" title="Chemistry">View More</a>
-                                </div>
-                            </div>
-						</div>
-					    					    <div class="layui-tab-item">
-							<div class="tab-shop-img">
-                                <a href="solution/precious-metal-recovery.html" title="Precious Metal Recovery">
-                                    <img src="{{asset('custom/images/Solution-list08_03.jpg')}}" alt="Precious Metal Recovery">
-                                </a>
-                            </div>
-                            <div class="introduce">
-                                <a href="solution/precious-metal-recovery.html" title="Precious Metal Recovery">
-                                    <div class="introduce-title">
-                                        Precious Metal Recovery                                    </div>
-                                    <div class="introduce-content">
-                                        A major use of activated carbon in mining is in gold recovery, where granular activated carbon (GAC) is used for adsorption of the gold-cyanide complex in carbon-in-pulp (CIP) and carbon-in-leach (CIL) systems, or in carbon-in-column (CIC) systems after a heap leach operation carbon. We produce a wide and dedicated product range including extruded and high-quality broken grades for gold recovery applications. These activated carbons combine superior hardness with adsorption kinetics and capacity, resulting in fewer fines and associated gold losses.                                    </div>
-                                </a>
-                                <div class="introduce-more">
-                                    <a href="solution/precious-metal-recovery.html" title="Precious Metal Recovery">View More</a>
-                                </div>
-                            </div>
-						</div>
-					    					  </div>
-					</div>
+	@section('content')  
+        <div class="loading" id="preloader">
+            <div class="loader h-100 d-flex align-items-center justify-content-center">
+                <div class="line-scale">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
-                
-				<div class="about-us"> 
-					<div class="about-us-layout wrapper">
-						<div class="about-us-our">
-							<div class="about-us-title">
-								About us  /  Company Profile
-							</div>
-							<div class="about-us-title-one">
-								<dd>LET EVERY DROP OF WATER</dd>
-								<d>
-									AND AIR TURN BACK TO 
-								</d><br>
-								THE NATURE
-							</div>
-							<div class="about-us-introduce">
-								Ningxia Yongruida Carbon Co,.Ltd  was founded in 2003.With an area of over 50000 
-								square meters ,our factory is located in the city of Shizuishan Ningxia .Our factory 
-								has two kioton level Slep Activated Fumace and two Carbonized convertors .
-							</div>
-							<div class="about-us-more">
-								<a href="about/index.html">View More</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				 
-				<div class="news">
-					<div class="news-layout wrapper">
-						<div class="news-left">
-							<div class="news-left-one">
-								<a href="news/index.html">Media Information</a>
-							</div>
-							<div class="news-left-two">
-								<a href="news/index.html">NEWS <dd>CENTER</dd></a>
-							</div>
-							<div class="news-left-three">
-								
-							</div>
-						</div>
-						<div class="news-more">
-							<a href="news/index.html">View More</a>
-						</div>
-					</div>
-				</div> 
-				
-				<div class="issue newsdisn">
-					<div class="issue-layout wrapper banner">
-												<div class="issue_images_con">
-							<a href="news/coal-activated-carbon-pellets-wastewater-treatment.html" title="Coal Activated Carbon Pellets Are Playing an Important Role in Wastewater Treatment">
-                                <div class="issue_images">
-                                    <img src="{{asset('custom/files/activated-carbon-pellets_2.jpg')}}" alt="">
+            </div>
+        </div>
+        <div class="flexslider flexslider-simple h-full loading">
+            <ul class="slides">
+                <li data-zanim-timeline="{}">
+                    <section class="py-0">
+                        <div>
+                            <div class="background-holder elixir-zanimm-scale" style="background-image:url(assets/images/header-6.jpg);" data-zanimm='{"from":{"opacity":0.1,"filter":"blur(10px)","scale":1.05},"to":{"opacity":1,"filter":"blur(0px)","scale":1}}'></div>
+                            <!--/.background-holder-->
+                            <div class="container">
+                                <div class="row h-full py-8 align-items-center" data-inertia='{"weight":1.5}'>
+                                    <div class="col-sm-8 col-lg-7 px-5 px-sm-3">
+                                        <div class="overflow-hidden">
+                                            <h1 class="fs-4 fs-md-5 zopacity" data-zanim='{"delay":0}'>Helping Leaders</h1></div>
+                                        <div class="overflow-hidden">
+                                            <p class="color-primary mt-4 mb-5 lh-2 fs-1 fs-md-2 zopacity" data-zanim='{"delay":0.1}'>We look forward to help you in taking your company to new height.</p>
+                                        </div>
+                                        <div class="overflow-hidden">
+                                            <div class="zopacity" data-zanim='{"delay":0.2}'><a class="btn btn-primary mr-3 mt-3" href="#">Read more<span class="fa fa-chevron-right ml-2"></span></a><a class="btn btn-warning mt-3" href="contact.html">Contact us<span class="fa fa-chevron-right ml-2"></span></a></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="issue-news">
-                                    <p>2019-12-26</p>
-                                    <a href="news/coal-activated-carbon-pellets-wastewater-treatment.html" title="Coal Activated Carbon Pellets Are Playing an Important Role in Wastewater Treatment">Coal Activated Carbon Pellets Are Playing an Important Role in Wastewater Treatment</a>
+                            </div>
+                            <!--/.row-->
+                        </div>
+                        <!--/.container-->
+                    </section>
+                </li>
+                <li data-zanim-timeline="{}">
+                    <section class="py-0">
+                        <div>
+                            <div class="background-holder elixir-zanimm-scale" style="background-image:url(assets/images/header-5.jpg);" data-zanimm='{"from":{"opacity":0.1,"filter":"blur(10px)","scale":1.05},"to":{"opacity":1,"filter":"blur(0px)","scale":1}}'></div>
+                            <!--/.background-holder-->
+                            <div class="container">
+                                <div class="row h-full py-8 align-items-center" data-inertia='{"weight":1.5}'>
+                                    <div class="col-sm-8 col-lg-7 px-5 px-sm-3">
+                                        <div class="overflow-hidden">
+                                            <h1 class="fs-4 fs-md-5 zopacity" data-zanim='{"delay":0}'>Expert Consultants</h1></div>
+                                        <div class="overflow-hidden">
+                                            <p class="color-primary mt-4 mb-5 lh-2 fs-1 fs-md-2 zopacity" data-zanim='{"delay":0.1}'>Over 10 years of experience in helping clients finding comprehensive solutions.</p>
+                                        </div>
+                                        <div class="overflow-hidden">
+                                            <div class="zopacity" data-zanim='{"delay":0.2}'><a class="btn btn-primary mr-3 mt-3" href="#">Read more<span class="fa fa-chevron-right ml-2"></span></a><a class="btn btn-warning mt-3" href="contact.html">Contact us<span class="fa fa-chevron-right ml-2"></span></a></div>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                            <!--/.row-->
+                        </div>
+                        <!--/.container-->
+                    </section>
+                </li>
+                <li data-zanim-timeline="{}">
+                    <section class="py-0">
+                        <div>
+                            <div class="background-holder elixir-zanimm-scale" style="background-image:url(assets/images/header-1.jpg);" data-zanimm='{"from":{"opacity":0.1,"filter":"blur(10px)","scale":1.05},"to":{"opacity":1,"filter":"blur(0px)","scale":1}}'></div>
+                            <!--/.background-holder-->
+                            <div class="container">
+                                <div class="row h-full py-8 align-items-center" data-inertia='{"weight":1.5}'>
+                                    <div class="col-sm-8 col-lg-7 px-5 px-sm-3">
+                                        <div class="overflow-hidden">
+                                            <h1 class="fs-4 fs-md-5 zopacity" data-zanim='{"delay":0}'>Growth Partners</h1></div>
+                                        <div class="overflow-hidden">
+                                            <p class="color-primary mt-4 mb-5 lh-2 fs-1 fs-md-2 zopacity" data-zanim='{"delay":0.1}'>Connect with top consultants hand-picked by Elixir consulting and finance. </p>
+                                        </div>
+                                        <div class="overflow-hidden">
+                                            <div class="zopacity" data-zanim='{"delay":0.2}'><a class="btn btn-primary mr-3 mt-3" href="#">Read more<span class="fa fa-chevron-right ml-2"></span></a><a class="btn btn-warning mt-3" href="contact.html">Contact us<span class="fa fa-chevron-right ml-2"></span></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.row-->
+                        </div>
+                        <!--/.container-->
+                    </section>
+                </li>
+            </ul>
+        </div>
+        <section class="background-white  text-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-md-6">
+                        <h3 class="color-primary fs-2 fs-lg-3">Welcome to the Elixir</h3>
+                        <p class="px-lg-4 mt-3">Get expert consultancy and support with Elixir, an advisory firm that stand by your side always.</p>
+                        <hr class="short" data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}' data-zanim-trigger="scroll" />
+                    </div>
+                </div>
+                <div class="row mt-4 mt-md-5">
+                    <div class="col-sm-6 col-lg-3 mt-4" data-zanim-timeline='{"delay":0.1}' data-zanim-trigger="scroll">
+                        <div class="background-11 border border-color-9 radius-round mx-auto d-flex align-items-center" data-zanim='{"delay":0}' style="height:100px; width:100px"><span class="icon-Bar-Chart5 fs-3 color-blueish mx-auto fw-600"></span></div>
+                        <h5 class="mt-4" data-zanim='{"delay":0.1}'>Business Consulting</h5>
+                        <p class="mb-0 mt-3 px-3" data-zanim='{"delay":0.2}'>Solution for every business related problems, readily
+                            <br/>and skillfully.</p>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-4" data-zanim-timeline='{"delay":0.1}' data-zanim-trigger="scroll">
+                        <div class="background-11 border border-color-9 radius-round mx-auto d-flex align-items-center" data-zanim='{"trigger":"scroll"}' style="height:100px; width:100px"><span class="icon-Clock fs-3 color-blueish mx-auto fw-600"></span></div>
+                        <h5 class="mt-4" data-zanim='{"delay":0.1}'>Risk Management</h5>
+                        <p class="mb-0 mt-3 px-3" data-zanim='{"delay":0.2}'>Calculate every possible risk in your business, take
+                            <br/>control over them.</p>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-4" data-zanim-timeline='{"delay":0.1}' data-zanim-trigger="scroll">
+                        <div class="background-11 border border-color-9 radius-round mx-auto d-flex align-items-center" data-zanim='{"trigger":"scroll"}' style="height:100px; width:100px"><span class="icon-Idea-2 fs-3 color-blueish mx-auto fw-600"></span></div>
+                        <h5 class="mt-4" data-zanim='{"delay":0.1}'>Market Research</h5>
+                        <p class="mb-0 mt-3 px-3" data-zanim='{"delay":0.2}'>Know the market before taking any step, reduce
+                            <br/>risks before you go. </p>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-4" data-zanim-timeline='{"delay":0.1}' data-zanim-trigger="scroll">
+                        <div class="background-11 border border-color-9 radius-round mx-auto d-flex align-items-center" data-zanim='{"trigger":"scroll"}' style="height:100px; width:100px"><span class="icon-Headset fs-3 color-blueish mx-auto fw-600"></span></div>
+                        <h5 class="mt-4" data-zanim='{"delay":0.1}'>Quality Services</h5>
+                        <p class="mb-0 mt-3 px-3" data-zanim='{"delay":0.2}'>Experience unparalleled service, from beginning
+                            <br/>to final construction.</p>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section class="pt-0">
+            <div class="container">
+                <div class="row align-items-center justify-content-center text-center">
+                    <div class="col-11 col-md-12">
+                        <div class="pos-relative mt-4 py-5 py-md-11">
+                            <div class="background-holder radius-secondary" style="background-image:url(assets/images/video-screenshot-2.jpg);"></div>
+                            <!--/.background-holder-->
+                            <a class="video-modal" href="https://www.youtube.com/watch?v=jlWMTNZNOc0" data-start="6" data-end="168">
+                                <div class="btn-elixir-play" style="transform: scale(0.8)" data-zanim-trigger="scroll" data-zanim='{"from":{"opacity":0,"scale":0.8},"to":{"opacity":1,"scale":1},"duration":1}'><span class="ion-play fs-2"></span></div>
                             </a>
-						</div>
-												<div class="issue_images_con">
-							<a href="news/the-nature-of-activated-carbon.html" title="Understanding Of The Nature Of Activated Carbon">
-                                <div class="issue_images">
-                                    <img src="{{asset('custom/images/news_4.jpg')}}" alt="The Nature Of Activated Carbon">
+                        </div>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section class="pt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 text-lg-left px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <h5 data-zanim='{"delay":0}'><span class="fa fa-users color-primary mr-3"></span>Awesome Team</h5>
+                        <p class="mt-3 pr-3 pr-lg-5" data-zanim='{"delay":0.1}'>Before talking destination, we shine a spotlight across your organization
+                            <br/>to fully understand it.</p>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 text-lg-left px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <h5 data-zanim='{"delay":0}'><span class="fa fa-comments color-primary mr-3"></span>Excellent Support</h5>
+                        <p class="mt-3 pr-3 pr-lg-5" data-zanim='{"delay":0.1}'>If you face any trouble, you can always let our dedicated support team help you. They are ready for you 24/7.</p>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 mt-3 mt-lg-0 text-lg-left px-4 px-sm-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <h5 data-zanim='{"delay":0}'><span class="fa fa-bolt color-primary mr-3"></span>Faster Performance</h5>
+                        <p class="mt-3 pr-3 pr-lg-5" data-zanim='{"delay":0.1}'>We develop a systematic well-ordered process of analysis, from concept through implementation.</p>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section class="background-11">
+            <div class="container">
+                <h3 class="text-center fs-2 fs-md-3">Our Services</h3>
+                <hr class="short" data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}' data-zanim-trigger="scroll" />
+                <div class="row no-gutters pos-relative mt-6">
+                    <div class="elixir-caret d-none d-lg-block"></div>
+                    <div class="col-lg-6 py-3 py-lg-0 mb-0" style="min-height:400px;">
+                        <div class="background-holder radius-tl-secondary radius-tr-secondary radius-tr-lg-0" style="background-image:url(assets/images/6.jpg);"></div>
+                        <!--/.background-holder-->
+                    </div>
+                    <div class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary radius-br-lg-0 radius-tr-lg-secondary">
+                        <div class="d-flex align-items-center h-100">
+                            <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden">
+                                    <h5 data-zanim='{"delay":0}'>Business Consulting</h5></div>
+                                <div class="overflow-hidden">
+                                    <p class="mt-3" data-zanim='{"delay":0.1}'>As one of the world’s largest accountancy networks, elixir helps a diverse range of clients with a diverse range of needs.This is especially true of our Advisory Practice, which provides corporate finance and transaction services, business restructuring.</p>
                                 </div>
-                                <div class="issue-news">
-                                    <p>2019-11-08</p>
-                                    <a href="news/the-nature-of-activated-carbon.html" title="Understanding Of The Nature Of Activated Carbon">Understanding Of The Nature Of Activated Carbon</a>
+                                <div class="overflow-hidden">
+                                    <div data-zanim='{"delay":0.2}'><a class="d-flex align-items-center" href="#">Learn More<div class="overflow-hidden ml-2"><span class="d-inline-block" data-zanim='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'>&xrarr;</span></div></a></div>
                                 </div>
-                            </a>
-						</div>
-												<div class="issue_images_con">
-							<a href="news/the-abcs-activated-carbon-.html" title="The ABC&#039;S activated carbon ">
-                                <div class="issue_images">
-                                    <img src="{{asset('custom/images/news/news.jpg')}}" alt="The ABC'S activated carbon ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters pos-relative mt-4 mt-lg-0">
+                    <div class="elixir-caret d-none d-lg-block"></div>
+                    <div class="col-lg-6 py-3 py-lg-0 mb-0 order-lg-2" style="min-height:400px;">
+                        <div class="background-holder radius-tl-secondary radius-tl-lg-0 radius-tr-secondary radius-tr-lg-0" style="background-image:url(assets/images/7.jpg);"></div>
+                        <!--/.background-holder-->
+                    </div>
+                    <div class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary radius-br-lg-0">
+                        <div class="d-flex align-items-center h-100">
+                            <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden">
+                                    <h5 data-zanim='{"delay":0}'>Tax consulting</h5></div>
+                                <div class="overflow-hidden">
+                                    <p class="mt-3" data-zanim='{"delay":0.1}'>Elixir serves clients across the country and around the world as they navigate an increasingly complex tax landscape. Our tax professionals draw on deep experience and industry-specific knowledge to deliver clients the insights and innovation they need.</p>
                                 </div>
-                                <div class="issue-news">
-                                    <p>2019-11-08</p>
-                                    <a href="news/the-abcs-activated-carbon-.html" title="The ABC&#039;S activated carbon ">The ABC&#039;S activated carbon </a>
+                                <div class="overflow-hidden">
+                                    <div data-zanim='{"delay":0.2}'><a class="d-flex align-items-center" href="#">Learn More<div class="overflow-hidden ml-2"><span class="d-inline-block" data-zanim='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'>&xrarr;</span></div></a></div>
                                 </div>
-                            </a>
-						</div>
-											</div>
-				</div>
-
-				<div class="issue newsdisb">
-					<div class="issue-layout wrapper">
-												<div class="issue_images_con">
-							<a href="news/coal-activated-carbon-pellets-wastewater-treatment.html" title="Coal Activated Carbon Pellets Are Playing an Important Role in Wastewater Treatment">
-                                <div class="issue_images">
-                                    <img src="{{asset('custom/files/activated-carbon-pellets_2.jpg')}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters pos-relative mt-4 mt-lg-0">
+                    <div class="elixir-caret d-none d-lg-block"></div>
+                    <div class="col-lg-6 py-3 py-lg-0 mb-0" style="min-height:400px;">
+                        <div class="background-holder radius-tl-secondary radius-tr-secondary radius-tr-lg-0 radius-tl-lg-0 radius-bl-0 radius-bl-lg-secondary" style="background-image:url(assets/images/8.jpg);"></div>
+                        <!--/.background-holder-->
+                    </div>
+                    <div class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary">
+                        <div class="d-flex align-items-center h-100">
+                            <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden">
+                                    <h5 data-zanim='{"delay":0}'>Advisory</h5></div>
+                                <div class="overflow-hidden">
+                                    <p class="mt-3" data-zanim='{"delay":0.1}'>To help you understand what this road looks like, we surveyed 1165 digital marketers across Europe and North America to explore current trends and priorities in digital marketing.</p>
                                 </div>
-                                <div class="issue-news">
-                                    <p>2019-12-26</p>
-                                    <a href="news/coal-activated-carbon-pellets-wastewater-treatment.html" title="Coal Activated Carbon Pellets Are Playing an Important Role in Wastewater Treatment">Coal Activated Carbon Pellets Are Playing an Important Role in Wastewater Treatment</a>
-                                
+                                <div class="overflow-hidden">
+                                    <div data-zanim='{"delay":0.2}'><a class="d-flex align-items-center" href="#">Learn More<div class="overflow-hidden ml-2"><span class="d-inline-block" data-zanim='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'>&xrarr;</span></div></a></div>
                                 </div>
-                            </a>
-						</div>
-												<div class="issue_images_con">
-							<a href="news/the-nature-of-activated-carbon.html" title="Understanding Of The Nature Of Activated Carbon">
-                                <div class="issue_images">
-                                    <img src="{{asset('custom/images/news_4.jpg')}}" alt="The Nature Of Activated Carbon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-7">
+                    <div class="col-sm-6 col-lg-4 px-4 px-sm-3 text-lg-x" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <h5 data-zanim='{"delay":0}'><span class="ion-card color-primary fs-2 icon-position-fix mr-3"></span>Special financing</h5>
+                        <p class="mt-3 pr-3 pr-lg-5 mb-0" data-zanim='{"delay":0.1}'>Apply for special financial support and earn exclusive rewards.</p>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 px-4 px-sm-3 mt-4 mt-sm-0 text-lg-x" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <h5 data-zanim='{"delay":0}'><span class="ion-chatbox-working color-primary mr-3"></span>Chat with team</h5>
+                        <p class="mt-3 pr-3 pr-lg-5 mb-0" data-zanim='{"delay":0.1}'>Have a question? Chat online with an expert. <a href="#">Start chatting<span class="fa fa-external-link ml-1 icon-position-fix"></span></a></p>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 px-4 px-sm-3 mt-4 mt-lg-0 text-lg-x" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <h5 data-zanim='{"delay":0}'><span class="ion-android-call color-primary mr-3"></span>Call a specialist</h5>
+                        <p class="mt-3 pr-3 pr-lg-5 mb-0" data-zanim='{"delay":0.1}'>Our 24/7 support team is ready for you at 1-800-MY-Elixir.</p>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section>
+            <div class="container">
+                <div class="row mb-6">
+                    <div class="col">
+                        <h3 class="text-center fs-2 fs-lg-3">Why Choose Elixir</h3>
+                        <hr class="short" data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}' data-zanim-trigger="scroll">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 pr-0 pr-lg-3"><img class="radius-secondary" src="assets/images/why-choose-us.jpg" alt="" /></div>
+                    <div class="col-lg-6 px-lg-5 mt-6 mt-lg-0" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="overflow-hidden">
+                            <div class="px-4 px-sm-0" data-zanim='{"delay":0}'>
+                                <h5 class="fs-0 fs-lg-1"><span class="ion-chatbubble-working fs-2 mr-2 icon-position-fix fw-800"></span>We Are Professional</h5>
+                                <p class="mt-3 px-lg-3">We resource, train, speak, mentor and encourage; marketplace leaders, business owners and career professionals to be effective in the workplace.</p>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden">
+                            <div class="px-4 px-sm-0 mt-5" data-zanim='{"delay":0.1}'>
+                                <h5 class="fs-0 fs-lg-1"><span class="ion-android-color-palette fs-2 mr-2 icon-position-fix fw-800"></span>We Are Creative</h5>
+                                <p class="mt-3 px-lg-3">With so many factors to consider when deciding how to characterize your company , wouldn’t it be great to have a group of forward-thinking, well-informed individuals on board who know what they’re doing?</p>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden">
+                            <div class="px-4 px-sm-0 mt-5" data-zanim='{"delay":0.2}'>
+                                <h5 class="fs-0 fs-lg-1"><span class="ion-ios-timer fs-2 mr-2 icon-position-fix fw-600"></span>24/7 Great Support</h5>
+                                <p class="mt-3 px-lg-3">Design clever and compelling marketing strategies, improve product positioning, and drive conversion rates, Elixir is all time available to guide you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section class=" background-primary py-6">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md">
+                        <h4 class="color-white mb-0">If you have any query related investment... <br class="d-md-none"/>we are available 24/7</h4></div>
+                    <div class="col-md-auto mt-md-0 mt-4"><a class="btn btn-white btn-capsule" href="contact.html">Contact Us</a></div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section class="text-center">
+            <div class="container">
+                <h3>Things You Get</h3>
+                <hr class="short" data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}' data-zanim-trigger="scroll" />
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="px-3 py-4 px-lg-4">
+                            <div class="overflow-hidden"><span class="icon-Double-Circle fs-3 color-primary fw-600" data-zanim='{"delay":0}'></span></div>
+                            <div class="overflow-hidden">
+                                <h5 class="mt-3" data-zanim='{"delay":0.1}'>Creative Support</h5></div>
+                            <div class="overflow-hidden">
+                                <p class="mb-0" data-zanim='{"delay":0.2}'>We transform brands, grow businesses, and tell brand and product stories in a most creative way.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="px-3 py-4 px-lg-4">
+                            <div class="overflow-hidden"><span class="icon-Mail-2 fs-3 color-primary fw-600" data-zanim='{"delay":0}'></span></div>
+                            <div class="overflow-hidden">
+                                <h5 class="mt-3" data-zanim='{"delay":0.1}'>Creating Experiences</h5></div>
+                            <div class="overflow-hidden">
+                                <p class="mb-0" data-zanim='{"delay":0.2}'>We cover a large range of creative platforms and digital projects with one purpose: to create experiences.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="px-3 py-4 px-lg-4">
+                            <div class="overflow-hidden"><span class="icon-Archery-2 fs-3 color-primary fw-600" data-zanim='{"delay":0}'></span></div>
+                            <div class="overflow-hidden">
+                                <h5 class="mt-3" data-zanim='{"delay":0.1}'>Product Consulting</h5></div>
+                            <div class="overflow-hidden">
+                                <p class="mb-0" data-zanim='{"delay":0.2}'>We guide you through the pipelines that generate new products with higher potential and lower risk.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="px-3 py-4 px-lg-4">
+                            <div class="overflow-hidden"><span class="icon-Globe-2 fs-3 color-primary fw-600" data-zanim='{"delay":0}'></span></div>
+                            <div class="overflow-hidden">
+                                <h5 class="mt-3" data-zanim='{"delay":0.1}'>Business Boosting</h5></div>
+                            <div class="overflow-hidden">
+                                <p class="mb-0" data-zanim='{"delay":0.2}'>We provide energy-efficient and environmentally conservative solutions to our clients to boost their business.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="px-3 py-4 px-lg-4">
+                            <div class="overflow-hidden"><span class="icon-Money-2 fs-3 color-primary fw-600" data-zanim='{"delay":0}'></span></div>
+                            <div class="overflow-hidden">
+                                <h5 class="mt-3" data-zanim='{"delay":0.1}'>Strategic Approach</h5></div>
+                            <div class="overflow-hidden">
+                                <p class="mb-0" data-zanim='{"delay":0.2}'>Based on solid strategic framework and real, relevant research, we create prototypes, not presentations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <div class="px-3 py-4 px-lg-4">
+                            <div class="overflow-hidden"><span class="icon-Bar-Chart fs-3 color-primary fw-600" data-zanim='{"delay":0}'></span></div>
+                            <div class="overflow-hidden">
+                                <h5 class="mt-3" data-zanim='{"delay":0.1}'>Logistic Consulting</h5></div>
+                            <div class="overflow-hidden">
+                                <p class="mb-0" data-zanim='{"delay":0.2}'>We work buy side and sell side to give our clienrts hard hitting answers and focus hard on best opportunities. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section class="background-primary">
+            <div class="container">
+                <div class="row align-items-center color-white">
+                    <div class="col-lg-4">
+                        <div class="border border-2x border-color-warning p-4 py-lg-5 text-center radius-secondary" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                            <div class="overflow-hidden">
+                                <h4 class="color-white" data-zanim='{"delay":0}'>Request a call back</h4></div>
+                            <div class="overflow-hidden">
+                                <p class="px-lg-1 color-11 mb-0" data-zanim='{"delay":0.1}'>Would you like to speak to one of our financial advisers over the phone? Just submit your details and we’ll be in touch shortly. You can also email us if you would prefer.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 pl-lg-5 mt-6 mt-lg-0">
+                        <h5 class="color-white">I would like to discuss:</h5>
+                        <form class="zform mt-4" method="post">
+                            <div class="row">
+                                <div class="col-6">
+                                    <input class="form-control" type="hidden" name="to" value="username@domain.extension" />
+                                    <input class="form-control" type="text" placeholder="Your Name" aria-label="Text input with dropdown button" />
                                 </div>
-                                <div class="issue-news">
-                                    <p>2019-11-08</p>
-                                    <a href="news/the-nature-of-activated-carbon.html" title="Understanding Of The Nature Of Activated Carbon">Understanding Of The Nature Of Activated Carbon</a>
-                                
+                                <div class="col-6">
+                                    <input class="form-control" type="text" placeholder="Phone Number" aria-label="Text input with dropdown button" />
                                 </div>
-                            </a>
-						</div>
-												<div class="issue_images_con">
-							<a href="news/the-abcs-activated-carbon-.html" title="The ABC&#039;S activated carbon ">
-                                <div class="issue_images">
-                                    <img src="{{asset('custom/images/news/news.jpg')}}" alt="The ABC'S activated carbon ">
+                                <div class="col-6 mt-4">
+                                    <input class="form-control" type="text" placeholder="Subject" aria-label="Text input with dropdown button" />
                                 </div>
-                                <div class="issue-news">
-                                    <p>2019-11-08</p>
-                                    <a href="news/the-abcs-activated-carbon-.html" title="The ABC&#039;S activated carbon ">The ABC&#039;S activated carbon </a>
-                                
+                                <div class="col-6 mt-4">
+                                    <button class="btn btn-warning btn-block" type="submit">Submit</button>
                                 </div>
-                            </a>
-						</div>
-												
-					</div>
-				</div>
-			
-				
-				
-			</div>
-		</div>
-		</div>
+                                <div class="col-12">
+                                    <div class="zform-feedback mt-4"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section class="background-11  text-center">
+            <div class="container">
+                <div class="row mb-6">
+                    <div class="col">
+                        <h3 class="fs-2 fs-md-3"> Global Leadership</h3>
+                        <hr class="short" data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}' data-zanim-trigger="scroll">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="background-white pb-4 h-100 radius-secondary"><img class="mb-4 radius-tr-secondary radius-tl-secondary" src="assets/images/portrait-3.jpg" alt="Profile Picture" />
+                            <div class="px-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden">
+                                    <h5 data-zanim='{"delay":0}'>Reenal Scott</h5></div>
+                                <div class="overflow-hidden">
+                                    <h6 class="fw-400 color-7" data-zanim='{"delay":0.1}'>Advertising Consultant</h6></div>
+                                <div class="overflow-hidden">
+                                    <p class="py-3 mb-0" data-zanim='{"delay":0.2}'>Reenal Scott is the Founder and CEO of Elixir, which he started from his dorm room in 2013 with 3 people only.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 mt-4 mt-sm-0">
+                        <div class="background-white pb-4 h-100 radius-secondary"><img class="mb-4 radius-tr-secondary radius-tl-secondary" src="assets/images/portrait-4.jpg" alt="Profile Picture" />
+                            <div class="px-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden">
+                                    <h5 data-zanim='{"delay":0}'>Lily Anderson</h5></div>
+                                <div class="overflow-hidden">
+                                    <h6 class="fw-400 color-7" data-zanim='{"delay":0.1}'>Activation Consultant</h6></div>
+                                <div class="overflow-hidden">
+                                    <p class="py-3 mb-0" data-zanim='{"delay":0.2}'>Lily leads Elixir UK and oversees the company’s Customer Operations teams supporting millions ofr users.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 mt-4 mt-lg-0">
+                        <div class="background-white pb-4 h-100 radius-secondary"><img class="mb-4 radius-tr-secondary radius-tl-secondary" src="assets/images/portrait-5.jpg" alt="Profile Picture" />
+                            <div class="px-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden">
+                                    <h5 data-zanim='{"delay":0}'>Thomas Anderson</h5></div>
+                                <div class="overflow-hidden">
+                                    <h6 class="fw-400 color-7" data-zanim='{"delay":0.1}'>Change Management Consultant</h6></div>
+                                <div class="overflow-hidden">
+                                    <p class="py-3 mb-0" data-zanim='{"delay":0.2}'>As the VP of People, Thomas’s focus lies in the development and optimization of talent retention.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 mt-4">
+                        <div class="background-white pb-4 h-100 radius-secondary"><img class="mb-4 radius-tr-secondary radius-tl-secondary" src="assets/images/portrait-6.jpg" alt="Profile Picture" />
+                            <div class="px-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden">
+                                    <h5 data-zanim='{"delay":0}'>Legartha Mantana</h5></div>
+                                <div class="overflow-hidden">
+                                    <h6 class="fw-400 color-7" data-zanim='{"delay":0.1}'>Brand Management Consultant</h6></div>
+                                <div class="overflow-hidden">
+                                    <p class="py-3 mb-0" data-zanim='{"delay":0.2}'>As General Counsel of Elixir, Tony oversees global legal activities and policies across all aspects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 mt-4">
+                        <div class="background-white pb-4 h-100 radius-secondary"><img class="mb-4 radius-tr-secondary radius-tl-secondary" src="assets/images/portrait-7.jpg" alt="Profile Picture" />
+                            <div class="px-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden">
+                                    <h5 data-zanim='{"delay":0}'>John Snow</h5></div>
+                                <div class="overflow-hidden">
+                                    <h6 class="fw-400 color-7" data-zanim='{"delay":0.1}'>Business Analyst</h6></div>
+                                <div class="overflow-hidden">
+                                    <p class="py-3 mb-0" data-zanim='{"delay":0.2}'>John has overseen the meteoric growth while protecting scaling its uniquely creative and culture.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 mt-4">
+                        <div class="background-white pb-4 h-100 radius-secondary"><img class="mb-4 radius-tr-secondary radius-tl-secondary" src="assets/images/portrait-1.jpg" alt="Profile Picture" />
+                            <div class="px-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden">
+                                    <h5 data-zanim='{"delay":0}'>Ragner Lothbrok</h5></div>
+                                <div class="overflow-hidden">
+                                    <h6 class="fw-400 color-7" data-zanim='{"delay":0.1}'>Business Consultant</h6></div>
+                                <div class="overflow-hidden">
+                                    <p class="py-3 mb-0" data-zanim='{"delay":0.2}'>Ragner, SVP of Engineering, oversees Elixir’s vast engineering organization which drives the core programming.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section>
+            <div class="background-holder overlay overlay-elixir" style="background-image:url(assets/images/background-15.jpg);"></div>
+            <!--/.background-holder-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="media"><span class="ion-android-checkmark-circle fs-5 color-warning mr-3" style="transform: translateY(-1rem)"></span>
+                            <div class="media-body">
+                                <h2 class="color-warning fs-3 fs-lg-4">Take the right step,<br/><span class="color-white">do the big things.</span></h2>
+                                <div class="row mt-4 pr-lg-10">
+                                    <div class="col-md-3 overflow-hidden" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                        <div class="fs-3 fs-lg-4 mb-0 lh-2 fw-700 color-white mt-lg-5 mt-3" data-zanim='{"delay":0.1}'>52k</div>
+                                        <h6 class="fs-0 color-white" data-zanim='{"delay":0.2}'>Cases Solved</h6></div>
+                                    <div class="col col-lg-3 overflow-hidden" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                        <div class="fs-3 fs-lg-4 mb-0 lh-2 fw-700 color-white mt-lg-5 mt-3" data-zanim='{"delay":0.1}'>164</div>
+                                        <h6 class="fs-0 color-white" data-zanim='{"delay":0.2}'>Trained Experts</h6></div>
+                                    <div class="w-100 d-flex d-lg-none"></div>
+                                    <div class="col-md-3 overflow-hidden" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                        <div class="fs-3 fs-lg-4 mb-0 lh-2 fw-700 color-white mt-lg-5 mt-3" data-zanim='{"delay":0.1}'>38</div>
+                                        <h6 class="fs-0 color-white" data-zanim='{"delay":0.2}'>Branches</h6></div>
+                                    <div class="col col-lg-3 overflow-hidden" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                        <div class="fs-3 fs-lg-4 mb-0 lh-2 fw-700 color-white mt-lg-5 mt-3" data-zanim='{"delay":0.1}'>100%</div>
+                                        <h6 class="fs-0 color-white" data-zanim='{"delay":0.2}'>Satisfied Clients</h6></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section class=" background-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="owl-carousel owl-theme owl-dot-round" data-options='{"nav":true,"dots":false,"loop":true,"autoplay":true,"autoplayHoverPause":true,"items":1}'>
+                            <div class="row px-lg-8">
+                                <div class="col-4 col-md-3 mx-auto"><img class="radius-secondary mx-auto" src="assets/images/client1.png" alt="Member" style="width: auto" /></div>
+                                <div class="col-md-9 ml-auto mt-4 mt-md-0 px-4 px-sm-3">
+                                    <p class="lead fw-400">Their work on our website and Internet marketing has made a significant different to our business. We’ve seen a 425% increase in quote requests from the website which has been pretty remarkable – but I’d always like to see more!</p>
+                                    <h6 class="fs-0 mb-1 mt-4">Michael Clarke</h6>
+                                    <p class="mb-0 color-7">CEO, A.E.T Institute</p>
+                                </div>
+                            </div>
+                            <div class="row px-lg-8">
+                                <div class="col-4 col-md-3 mx-auto"><img class="radius-secondary mx-auto" src="assets/images/client2.png" alt="Member" style="width: auto" /></div>
+                                <div class="col-md-9 ml-auto mt-4 mt-md-0 px-4 px-sm-3">
+                                    <p class="lead fw-400">Writing case studies was a daunting task for us. We didn’t know where to begin or what questions to ask, and clients never seemed to follow through when we asked. Elixir team did everything – with almost no time or effort for me!</p>
+                                    <h6 class="fs-0 mb-1 mt-4">Maria Sharapova</h6>
+                                    <p class="mb-0 color-7">Managing Director, Themewagon Inc.</p>
+                                </div>
+                            </div>
+                            <div class="row px-lg-8">
+                                <div class="col-4 col-md-3 mx-auto"><img class="radius-secondary mx-auto" src="assets/images/client3.png" alt="Member" style="width: auto" /></div>
+                                <div class="col-md-9 ml-auto mt-4 mt-md-0 px-4 px-sm-3">
+                                    <p class="lead fw-400">As a sales gamification company, we were skeptical to work with a consultant to optimize our sales emails, but Elixir was highly recommended by many other Y-Combinator startups we knew. Elixir helped us run a ~6 week email campaign.</p>
+                                    <h6 class="fs-0 mb-1 mt-4">David Beckham</h6>
+                                    <p class="mb-0 color-7">Chairman, Harmony Corporation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section class="background-10 py-6">
+            <div class="container">
+                <div class="row align-items-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                    <div class="col-4 col-md-2 my-3 overflow-hidden"><img src="assets/images/partner/logo2.png" alt="" data-zanim="{}" /></div>
+                    <div class="col-4 col-md-2 my-3 overflow-hidden"><img src="assets/images/partner/logo1.png" alt="" data-zanim="{}" /></div>
+                    <div class="col-4 col-md-2 my-3 overflow-hidden"><img src="assets/images/partner/logo6.png" alt="" data-zanim="{}" /></div>
+                    <div class="col-4 col-md-2 my-3 overflow-hidden"><img src="assets/images/partner/logo3.png" alt="" data-zanim="{}" /></div>
+                    <div class="col-4 col-md-2 my-3 overflow-hidden"><img src="assets/images/partner/logo5.png" alt="" data-zanim="{}" /></div>
+                    <div class="col-4 col-md-2 my-3 overflow-hidden"><img src="assets/images/partner/logo4.png" alt="" data-zanim="{}" /></div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
+        <section class="background-11">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="text-center fs-2 fs-lg-3">Latest News</h3>
+                        <hr class="short" data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}' data-zanim-trigger="scroll" />
+                    </div>
+                </div>
+                <div class="row mt-lg-6">
+                    <div class="col-md-6 col-lg-4 py-0 mt-4 mt-lg-0">
+                        <div class="background-white pb-4 h-100 radius-secondary"><img class="w-100 radius-tr-secondary radius-tl-secondary" src="assets/images/9.jpg" alt="Featured Image" />
+                            <div class="px-4 pt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden"><a href="news.html"><h5 data-zanim='{"delay":0}'>Tax impacts of lease mean accounting change</h5></a></div>
+                                <div class="overflow-hidden">
+                                    <p class="color-7" data-zanim='{"delay":0.1}'>By Paul O'Sullivan</p>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="mt-3" data-zanim='{"delay":0.2}'>HMRC released a consultation document to flag some potential tax impacts that a forthcoming change...</p>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <div class="d-inline-block" data-zanim='{"delay":0.3}'><a class="d-flex align-items-center" href="#">Learn More<div class="overflow-hidden ml-2" data-zanim='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'><span class="d-inline-block">&xrarr;</span></div></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 py-0 mt-4 mt-lg-0">
+                        <div class="background-white pb-4 h-100 radius-secondary"><img class="w-100 radius-tr-secondary radius-tl-secondary" src="assets/images/10.jpg" alt="Featured Image" />
+                            <div class="px-4 pt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden"><a href="news.html"><h5 data-zanim='{"delay":0}'>What brexit means for data protection law</h5></a></div>
+                                <div class="overflow-hidden">
+                                    <p class="color-7" data-zanim='{"delay":0.1}'>By Enrico Ambrosi</p>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="mt-3" data-zanim='{"delay":0.2}'>Assuming that the referendum is not ignored completely, there are two possible futures for the UK...</p>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <div class="d-inline-block" data-zanim='{"delay":0.3}'><a class="d-flex align-items-center" href="#">Learn More<div class="overflow-hidden ml-2" data-zanim='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'><span class="d-inline-block">&xrarr;</span></div></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 py-0 mt-4 mt-lg-0">
+                        <div class="background-white pb-4 h-100 radius-secondary"><img class="w-100 radius-tr-secondary radius-tl-secondary" src="assets/images/14.jpg" alt="Featured Image" />
+                            <div class="px-4 pt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                                <div class="overflow-hidden"><a href="news.html"><h5 data-zanim='{"delay":0}'>The growing meanace of social engineering fraud</h5></a></div>
+                                <div class="overflow-hidden">
+                                    <p class="color-7" data-zanim='{"delay":0.1}'>By Robson</p>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="mt-3" data-zanim='{"delay":0.2}'>Social engineering involves the collection of information from various sources about a target...</p>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <div class="d-inline-block" data-zanim='{"delay":0.3}'><a class="d-flex align-items-center" href="#">Learn More<div class="overflow-hidden ml-2" data-zanim='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'><span class="d-inline-block">&xrarr;</span></div></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </section>
 @endsection

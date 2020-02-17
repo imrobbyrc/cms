@@ -1,52 +1,21 @@
-
-<script >window.Laravel = { csrfToken: '{{ csrf_token() }}' }</script>
-<script src="{{asset('js/app.js')}}"></script>  
-<script src="{{asset('custom/js/jquery.min.js')}}"></script>
-<script src="{{asset('custom/js/layui.all.js')}}" type="text/javascript" charset="utf-8"></script>
-<script src="{{asset('custom/js/bootstrap.min.js')}}" type="text/javascript" charset="utf-8"></script>
-<script src="{{asset('custom/js/owl.carousel.min.js')}}" type="text/javascript" charset="utf-8"></script>
-<script src="{{asset('custom/js/index.js')}}" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" language="javascript">
-    $(".ind_application").children().eq(0).show(); 
-    $(".ind_solution").children().eq(0).addClass('layui-this')  
-    function is_email(str) {
-        if ((str.indexOf("@") == -1) || (str.indexOf(".") == -1)) {
-            return false;
-        }
-        return true;
-    }
-    function CheckInputd(form) {
-        
-        form.fromurl.value=window.location.href;
-
-         if (form.name.value == '') {
-            alert("Please enter your name.");
-            form.name.focus();
-            return false;
-        }
-        if (!is_email(form.email.value)){
-            alert("Please specify a valid email address.");
-            form.email.focus();
-            return false;
-        }
-        
-        if (form.title.value == '') {
-            alert("Please enter your messages.");
-            form.title.focus();
-            return false;
-        }
-        return true;
-    } 
-    $(".baiyun1").addClass('hover');
-
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-    document.getElementById("postfix").style.display = "none";
-  } else {
-    document.getElementById("postfix").style.display = "block";
-  }
-}
-</script>
+<!--  -->
+<!--    JavaScripts-->
+<!--    =============================================-->
+<script src="assets/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="assets/lib/jquery/dist/jquery.min.js"></script>
+<script src="assets/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assets/lib/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/lib/gsap/src/minified/TweenMax.min.js"></script>
+<script src="assets/lib/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
+<script src="assets/lib/CustomEase.min.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/zanimation.js"></script>
+<script src="assets/js/inertia.js"></script>
+<script src="assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+<script src="assets/lib/remodal/dist/remodal.js"></script>
+<script src="assets/lib/lightbox2/dist/js/lightbox.js"></script>
+<script src="assets/lib/flexslider/jquery.flexslider-min.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/main.js"></script>
 @yield('script')
