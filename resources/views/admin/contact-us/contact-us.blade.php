@@ -1,7 +1,7 @@
 @extends('admin.main')
 
 @section('title')
-    <title>footer content</title>
+    <title>Contact Us</title>
 @endsection
 
 @push('css') 

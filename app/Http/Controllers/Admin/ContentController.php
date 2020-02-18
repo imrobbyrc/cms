@@ -27,7 +27,7 @@ class ContentController extends Controller
             return view('admin.content.menu');
         }elseif ($alias == 'submenu') {
 
-            $data = Menu::select('idMenus','menu')->latest()->get();
+            $data = Menu::select('idMenus','menu')->where('status','active')->latest()->get();
             return view('admin.content.submenu',['data' => $data]);
         }elseif ($alias == 'content') {
 
@@ -73,6 +73,7 @@ class ContentController extends Controller
                     'priority'          => 'required|numeric|unique:menus',
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
+                    'layout'            => 'required',
                 ]);
     
                     $save = Menu::create([
@@ -80,6 +81,7 @@ class ContentController extends Controller
                         'menu'              => $request->menu,
                         'link'              => $request->link,
                         'status'            => $request->status,
+                        'layout'            => $request->layout,
                         'showOnHomepage'    => $request->showOnHomepage,
                         'priority'          => $request->priority,
                         'browserTitle'      => $request->browserTitle,
@@ -99,7 +101,7 @@ class ContentController extends Controller
                     'status'            => 'required',
                     'layout'            => 'required',
                     'priority'          => 'required',
-                    'imageIcon'         => 'image|mimes:jpeg,png,jpg',
+                    'image'             => 'image|mimes:jpeg,png,jpg',
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
                 ]);
@@ -131,20 +133,41 @@ class ContentController extends Controller
     
             }elseif ($alias == 'content') {
                 
+            
                 $this->validate($request, [
-                    'title'	          => 'required',
-                    'status'          => 'required',
-                    'descriptions'    => 'required',
-                    'priority'        => 'required|numeric|unique:footer_settings',
+                    'submenuId'         => 'required',
+                    'contents'          => 'required',
+                    'title'             => 'required',
+                    'description'       => 'required',
+                    'link'              => 'required',
+                    'image'             => 'required',
+                    'status'            => 'required',
+                    'priority'          => 'required|numeric|unique:contents',
+                    'browserTitle'      => 'required',
+                    'metaDescription'   => 'required',
                 ]);
 
-                $save = Footer::create([
-    
-                    'title'         => $request->title,
-                    'description'   => $request->descriptions,
-                    'status'        => $request->status,
-                    'priority'      => $request->priority,
-    
+
+                if($request->hasfile('image')) 
+                { 
+                    $file = $request->file('image');
+                    $extension = $file->getClientOriginalExtension();
+                    $filenameIcon =time().'-image-'.$file->getClientOriginalName();
+                    $file->move('image/content/', $filenameIcon);
+                }
+
+                $save = Content::create([
+                    'submenuId'         => $request->submenuId,
+                    'contents'          => $request->contents,
+                    'title'             => $request->title,
+                    'description'       => $request->description,
+                    'link'              => $request->link,
+                    'image'             => 'image/content/'. $filenameIcon,
+                    'status'            => $request->status,
+                    'priority'          => $request->priority,
+                    'browserTitle'      => $request->browserTitle,
+                    'metaDescription'   => $request->metaDescription,
+
                 ]);                
                 
                 
@@ -178,7 +201,8 @@ class ContentController extends Controller
             
         }elseif ($alias == 'content') {
 
-            $data = Content::findOrFail($id);
+            $data = Content::leftJoin('submenus','contents.submenuId','submenus.idSubmenus')
+            ->select('contents.*','submenus.submenus')->where('idContents',$id)->first();
             return $data->toJson();
            
         }else{
@@ -190,23 +214,24 @@ class ContentController extends Controller
     public function edit($alias,$id)
     {
 
-        if($alias == 'menu'){
+        return abort(404);
+        // if($alias == 'menu'){
 
-            return redirect()->back();
+        //     return redirect()->back();
 
-        }elseif ($alias == 'submenu') {
+        // }elseif ($alias == 'submenu') {
 
-            $data = Header::findOrFail($id);
-            return view('admin.homepage.submenu.edit',['data'=>$data]);
+        //     $data = Header::findOrFail($id);
+        //     return view('admin.homepage.submenu.edit',['data'=>$data]);
 
-        }elseif ($alias == 'content') {
+        // }elseif ($alias == 'content') {
 
-            $data = Footer::findOrFail($id);
-            return view('admin.homepage.content.edit',['data'=>$data]);
-        }else{
+        //     $data = Footer::findOrFail($id);
+        //     return view('admin.homepage.content.edit',['data'=>$data]);
+        // }else{
 
-             return abort(404);
-        }
+        //      return abort(404);
+        // }
     }
     public function update(Request $request,$alias)
     {
@@ -217,17 +242,18 @@ class ContentController extends Controller
 
             if($alias == 'menu'){
 
-            
-                $filename = substr($request->currentImage,13);
+    
                 $this->validate($request, [
 
                     'menu'              => 'required',
                     'link'              => 'required',
                     'status'            => 'required',
+                    'layout'            => 'required',
                     'showOnHomepage'    => 'required',
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
                     'priority'          => 'required|numeric|unique:menus,idMenus,'.$id.',idMenus',
+
                 ]);
     
 
@@ -236,6 +262,7 @@ class ContentController extends Controller
                         'menu'              => $request->menu,
                         'link'              => $request->link,
                         'status'            => $request->status,
+                        'layout'            => $request->layout,
                         'showOnHomepage'    => $request->showOnHomepage,
                         'priority'          => $request->priority,
                         'browserTitle'      => $request->browserTitle,
@@ -246,61 +273,94 @@ class ContentController extends Controller
     
             }elseif ($alias == 'submenu') {
     
-    
-                $filenameIcon = substr($request->currentbrowserIcon,11);
-                $filenameLogo = substr($request->currentheaderLogo,11);
+                
+                $filenameIcon = substr($request->currentImage,14);
                 $this->validate($request, [
-                    'title'	        => 'required',
-                    'rightContent'  => 'required',
-                    'leftContent'   => 'required',
-                    'descriptions'  => 'required',
-                    'imageIcon'     => 'image|mimes:jpeg,png,jpg',
-                    'imageLogo'     => 'image|mimes:jpeg,png,jpg',
+
+                    'menuId'	        => 'required',
+                    'submenus'          => 'required',
+                    'title'             => 'required',
+                    'description'       => 'required',
+                    'link'              => 'required',
+                    'status'            => 'required',
+                    'layout'            => 'required',
+                    'priority'          => 'required',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null',
+                    'browserTitle'      => 'required',
+                    'metaDescription'   => 'required',
+
                 ]);
+
     
-                if($request->hasfile('imageIcon')) 
+                if($request->hasfile('image')) 
                 { 
-                    $file = $request->file('imageIcon');
+                    $file = $request->file('image');
                     $extension = $file->getClientOriginalExtension();
-                    $filenameIcon =time().'-ImageIcon-'.$file->getClientOriginalName();
-                    $file->move('image/icon/', $filenameIcon);
+                    $filenameIcon =time().'-image-'.$file->getClientOriginalName();
+                    $file->move('image/submenu/', $filenameIcon);
                 }
+                
     
-                if($request->hasfile('imageLogo')) 
-                { 
-                    $file = $request->file('imageLogo');
-                    $extension = $file->getClientOriginalExtension();
-                    $filenameLogo =time().'-imageLogo-'.$file->getClientOriginalName();
-                    $file->move('image/logo/', $filenameLogo);
-                }
-    
-                    $save = Header::where('idHeader',$id)->update([
-    
-                        'browserIcon'       => 'image/icon/'. $filenameIcon,
-                        'headerLogo'        => 'image/logo/'. $filenameLogo,
-                        'contentLeft'       => $request->leftContent,
-                        'contentRight'      => $request->rightContent,
-                        'metaDescription'   => $request->descriptions,
-                        'browserTitle'      => $request->title
+                    $save = SubMenu::where('idSubmenus',$id)->update([
+
+                        'image'             => 'image/submenu/'. $filenameIcon,
+                        'menuId'	        => $request->menuId,
+                        'submenus'          => $request->submenus,
+                        'title'             => $request->title,
+                        'description'       => $request->description,
+                        'link'              => $request->link,
+                        'status'            => $request->status,
+                        'layout'            => $request->layout,
+                        'priority'          => $request->priority,
+                        'browserTitle'      => $request->browserTitle,
+                        'metaDescription'   => $request->metaDescription,
         
                     ]);
+
+                
     
                 
             }elseif ($alias == 'content') {
     
+                
+                $filenameIcon = substr($request->currentImage,14);
+
+
                 $this->validate($request, [
-                    'title'	          => 'required',
-                    'status'          => 'required',
-                    'descriptions'    => 'required',
-                    'priority'        => 'required|numeric|unique:footer_settings,idFooter,'.$id.',idFooter',
+
+                    'submenuId'         => 'required',
+                    'contents'          => 'required',
+                    'title'             => 'required',
+                    'description'       => 'required',
+                    'link'              => 'required',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null',
+                    'status'            => 'required',
+                    'priority'          => 'required|numeric|unique:contents,idContents,'.$id.',idContents',
+                    'browserTitle'      => 'required',
+                    'metaDescription'   => 'required',
+
                 ]);
 
-                $save = Footer::where('idFooter',$id)->update([
+                if($request->hasfile('image')) 
+                { 
+                    $file = $request->file('image');
+                    $extension = $file->getClientOriginalExtension();
+                    $filenameIcon =time().'-image-'.$file->getClientOriginalName();
+                    $file->move('image/content/', $filenameIcon);
+                }
+
+                $save = Content::where('idContents',$id)->update([
     
-                    'title'         => $request->title,
-                    'description'   => $request->descriptions,
-                    'status'        => $request->status,
-                    'priority'      => $request->priority,
+                    'submenuId'         => $request->submenuId,
+                    'contents'          => $request->contents,
+                    'title'             => $request->title,
+                    'description'       => $request->description,
+                    'link'              => $request->link,
+                    'image'             => 'image/content/'. $filenameIcon,
+                    'status'            => $request->status,
+                    'priority'          => $request->priority,
+                    'browserTitle'      => $request->browserTitle,
+                    'metaDescription'   => $request->metaDescription,
     
                 ]);      
                
@@ -364,7 +424,7 @@ class ContentController extends Controller
         
         }elseif ($alias == 'submenu') {
 
-            $data = SubMenu::leftJoin('menus','submenus.menuId','menus.IdMenus')
+            $data = SubMenu::leftJoin('menus','submenus.menuId','menus.idMenus')
             ->select('submenus.*','menus.menu')
             ->orderBy('created_at', 'DESC')
             ->orderBy('status', 'DESC');
@@ -376,23 +436,51 @@ class ContentController extends Controller
                     ->editColumn('status', function($data) {
                         $css = $data->status == 'active' ? 'badge badge-success':'badge badge-warning';
                         return '<div class="'.$css.'">'.ucfirst($data->status).'</div>';
-                    })->rawColumns(['image','status'])
+                    })->rawColumns(['image','status','description'])
                     ->make(true);
 
         }elseif ($alias == 'content') {
 
-            $data = Content::orderBy('created_at', 'DESC')
-                            ->orderBy('status', 'DESC');
+            $data = Content::leftJoin('submenus','contents.submenuId','submenus.idSubmenus')
+            ->select('contents.*','submenus.submenus')
+            ->orderBy('created_at', 'DESC')
+            ->orderBy('status', 'DESC');
                 
-            return Datatables::of($data)->setTotalRecords($data->count())->editColumn('status', function($data) {
-                    $css = $data->status == 'active' ? 'badge badge-success':'badge badge-warning';
-                    return '<div class="'.$css.'">'.ucfirst($data->status).'</div>';
-                })->rawColumns(['status'])->make(true);
+            return Datatables::of($data)->setTotalRecords($data->count())
+                    ->editColumn('image', function($data) {
+                        return '<img src="'.asset($data->image).'" width="100%">';
+                    })
+                    ->editColumn('status', function($data) {
+                        $css = $data->status == 'active' ? 'badge badge-success':'badge badge-warning';
+                        return '<div class="'.$css.'">'.ucfirst($data->status).'</div>';
+                    })->rawColumns(['image','status','description'])
+                    ->make(true);
 
         }else{
 
             return abort(404);
         }
 
+    }
+
+    public function ajax_get_all_submenu(Request $request)
+    {
+        $q = $request->q;
+        if($q == null){
+            
+            return 'No Data';
+
+        }else{
+            $data = SubMenu::select('idSubmenus as id','submenus as text','image as html');
+            $data->where('status','active')->where(function ($query){
+                $query->where('idSubmenus','like', '%'.$q.'%')
+                ->orWhere('submenus','like', '%'.$q.'%');
+            });
+
+            $data = $data->get();
+
+            return $data->toJson();
+        }
+            
     }
 }

@@ -34,6 +34,7 @@
               <th>Menu</th>
               <th>Link</th>
               <th>Status</th>
+              <th>Layout</th>
               <th>Show On Homepage</th>
               <th>Priority</th>
               <th>Created At</th>
@@ -93,6 +94,16 @@
               </select>
               <div class="invalid-feedback">
                 Status Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Layout</label>
+              <select class="form-control" required="" name="layout">
+                <option value="2">2</option>
+                <option value="1" selected="selected">1</option>
+              </select>
+              <div class="invalid-feedback">
+                Layout Required
               </div>
             </div>
             <div class="form-group">
@@ -177,7 +188,7 @@
             </div>
             <div class="form-group">
               <label>Status</label>
-              <select class="form-control" required="" name="status">
+              <select class="form-control" required="" name="status" id="status">
                 <option value="active">Active</option>
                 <option value="inactive" selected="selected">Inactive</option>
               </select>
@@ -186,8 +197,18 @@
               </div>
             </div>
             <div class="form-group">
+              <label>Layout</label>
+              <select class="form-control" required="" name="layout" id="layout">
+                <option value="2">2</option>
+                <option value="1" selected="selected">1</option>
+              </select>
+              <div class="invalid-feedback">
+                Layout Required
+              </div>
+            </div>
+            <div class="form-group">
               <label>Show on homepage</label>
-              <select class="form-control" required="" name="showOnHomepage">
+              <select class="form-control" required="" name="showOnHomepage" id="showOnHomepage">
                 <option value="yes">yes</option>
                 <option value="no" selected="selected">no</option>
               </select>
@@ -256,6 +277,7 @@
               { data: 'menu',name: 'menu'},
               { data: 'link',name: 'link'},
               { data: 'status',name: 'status',"searchable": false},
+              { data: 'layout',name: 'layout',"searchable": false},
               { data: 'showOnHomepage',name: 'showOnHomepage',"searchable": false},
               { data: 'priority',name: 'priority',"searchable": false},
               { data: 'created_at',name: 'created_at',"searchable": false},
@@ -321,9 +343,10 @@
             $("#link").val(response.link);
             $("#priority").val(response.priority);
             $("#status").val(response.status);
+            $("#layout").val(response.layout);
             $("#showOnHomepage").val(response.showOnHomepage);
             $("#browserTitle").val(response.browserTitle);
-            $("#metaDescription").code(response.metaDescription);
+            $('#metaDescription').summernote('code', response.metaDescription);
 
             
             // Display Modal

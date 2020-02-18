@@ -1,11 +1,12 @@
 <?php
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/{alias}', 'FrontEndController@get');
 
-Auth::routes();
+//cms route
 Route::get('/admin', 'Admin\DashboardController@index')->name('home');
 Route::group(['middleware' => 'auth','prefix' => 'admin'], function() {
     
@@ -46,10 +47,8 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function() {
     
     Route::get('/inbox', 'Admin\DashboardController@inbox')->name('inbox');
     
-
-
-    //datatables
+    //ajax
     Route::get('/homepage/{alias}/getdata', 'Admin\HomepageController@getData')->name('homepage.getdata');
     Route::get('/content/{alias}/getdata', 'Admin\ContentController@getData')->name('content.getdata');
-    Route::post('/ajax_get_all_submenu', 'Admin\DashboardController@ajax_get_all_submenu')->name('ajax_get_all_submenu');
+    Route::post('/ajax_get_all_submenu', 'Admin\ContentController@ajax_get_all_submenu')->name('ajax_get_all_submenu');
 });

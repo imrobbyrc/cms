@@ -374,7 +374,7 @@ class HomepageController extends Controller
                     })
                     ->editColumn('headerLogo', function($data) {
                         return '<img src="'.asset($data->headerLogo).'" width="100%">';
-                    })->rawColumns(['browserIcon','headerLogo'])
+                    })->rawColumns(['browserIcon','headerLogo','contentLeft','contentRight','metaDescription'])
                     ->make(true);
 
         }elseif ($alias == 'footer-content') {
@@ -385,7 +385,7 @@ class HomepageController extends Controller
             return Datatables::of($data)->setTotalRecords($data->count())->editColumn('status', function($data) {
                     $css = $data->status == 'active' ? 'badge badge-success':'badge badge-warning';
                     return '<div class="'.$css.'">'.ucfirst($data->status).'</div>';
-                })->rawColumns(['status'])->make(true);
+                })->rawColumns(['status','description'])->make(true);
 
         }else{
 

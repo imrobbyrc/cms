@@ -1,7 +1,7 @@
 @extends('admin.main')
 
 @section('title')
-    <title>Footer Content</title>
+    <title>Edit Footer Content</title>
 @endsection
 
 @push('css') 

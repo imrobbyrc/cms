@@ -1,6 +1,6 @@
 @extends('admin.main')
 @section('title')
-    <title>main-slider</title>
+    <title>Main Slider</title>
 @endsection
 
 @section('content')

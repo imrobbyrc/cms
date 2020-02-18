@@ -1,7 +1,7 @@
 @extends('admin.main')
 ​
 @section('title')
-    <title>header content</title>
+    <title>Location</title>
 @endsection
 ​
 @push('css') 

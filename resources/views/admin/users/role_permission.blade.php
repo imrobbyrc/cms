@@ -1,9 +1,9 @@
 @extends('admin.main')
-​
+
 @section('title')
     <title>Role Permission</title>
 @endsection
-​
+
 @section('content')
 
 <section class="section">

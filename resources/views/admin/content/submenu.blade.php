@@ -181,6 +181,138 @@
   </div>
 </div> 
 
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add New</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form class="needs-validation" novalidate="" method="post" action="{{ route('content.update',request()->segment(3))}}" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" class="form-control" required="" name="idUpdate" value="" id="idUpdate" readonly>
+        <input type="hidden" class="form-control" required="" name="currentImage" value="" id="currentImage" readonly>
+        <div class="modal-body">
+          @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+            </div>
+          @endif
+          <div class="card-body">
+            <div class="form-group">
+              <label>Menu</label>
+              <select class="form-control" required="" name="menuId" onchange="cekMenu()" id="menuId">
+                <option value="" disabled selected>Pilih Menu</option>
+                @foreach ($data as $row)
+                  <option value="{{$row->idMenus}}">{{$row->menu}}</option>
+                @endforeach
+              </select>
+              <div class="invalid-feedback">
+                Menu Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Sub Menu</label>
+              <input type="text" class="form-control" required="" name="submenus" value="{{ old('submenus') }}" id="submenus">
+              <div class="invalid-feedback">
+                Sub Menu Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" class="form-control" required="" name="title" value="{{ old('title') }}" id="title">
+              <div class="invalid-feedback">
+                Title Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+                <textarea id="description" class="summernote-simple" required="" name="description" value="{{ old('description') }}"></textarea>
+              <div class="invalid-feedback">
+               Description Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Link</label>
+              <input type="text" class="form-control" required="" name="link" value="{{ old('link') }}" id="link">
+              <div class="invalid-feedback">
+                Link Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Image</label>
+              <input type="file" accept="image/*" onchange="newFile(event)" name="image" id="image" class="form-control">
+              <div class="invalid-feedback">
+                Image Required
+              </div>
+              <br>
+              <img style="width:100%" src="" id="output" class="images"/>
+              <script>
+                var newFile = function(event) {
+                    var newfile = document.getElementById('output');
+                    newfile.src = URL.createObjectURL(event.target.files[0]);
+                };
+              </script>
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+              <select class="form-control" required="" name="status" id="status">
+                <option value="active">Active</option>
+                <option value="inactive" selected="selected">Inactive</option>
+              </select>
+              <div class="invalid-feedback">
+                Status Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Layout</label>
+              <select class="form-control" required="" name="layout" id="layout">
+                <option value="2">2</option>
+                <option value="1" selected="selected">1</option>
+              </select>
+              <div class="invalid-feedback">
+                Layout Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Priority</label>
+              <input type="number" class="form-control" required="" name="priority" value="{{ old('priority') }}" id="priority">
+              <div class="invalid-feedback">
+                Priority Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Browser Title</label>
+              <input type="text" class="form-control" required="" name="browserTitle" value="{{ old('browserTitle') }}" id="browserTitle">
+              <div class="invalid-feedback">
+              Browser Title Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Meta Description</label>
+                <textarea id="metaDescription" class="summernote-simple" required="" name="metaDescription" value="{{ old('metaDescription') }}"></textarea>
+              <div class="invalid-feedback">
+              Meta Description Required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
+
 
 <!-- modal -->
 @endsection
@@ -192,6 +324,8 @@ $(document).ready(function () {
         .prop("disabled", true);
     $('#metaDec').summernote('disable');
     $('#dec').summernote('disable');
+    $('#metaDescription').summernote('disable');
+    $('#description').summernote('disable');
 });
 
 function cekMenu(){
@@ -199,6 +333,8 @@ function cekMenu(){
         .prop("disabled", false);
     $('#metaDec').summernote('enable');
     $('#dec').summernote('enable');
+    $('#metaDescription').summernote('enable');
+    $('#description').summernote('enable');
 }
 </script>
 @endpush
@@ -218,6 +354,9 @@ function cekMenu(){
           "deferRender": true,
           "info": true,
           "autoWidth": false,
+          columnDefs: [
+            { width: "150px", targets: 6 }
+          ],
           searchDelay: 600,
           ajax: url,
           columns: [
@@ -293,14 +432,20 @@ function cekMenu(){
               $(".overlay").hide();
             },
           success: function(response){ 
-            $("#idUpdate").val(response.idMenus);
-            $("#menus").val(response.menu);
+            let images = "{{asset(':images')}}";
+                images = images.replace(':images',response.image);
+
+            $("#idUpdate").val(response.idSubmenus);
+            $("#title").val(response.title);
+            $("#submenus").val(response.submenus);
+            $("#description").summernote('code',response.description);
             $("#link").val(response.link);
-            $("#priority").val(response.priority);
             $("#status").val(response.status);
-            $("#showOnHomepage").val(response.showOnHomepage);
+            $("#priority").val(response.priority);
             $("#browserTitle").val(response.browserTitle);
-            $("#metaDescription").code(response.metaDescription);
+            $("#metaDescription").summernote('code',response.metaDescription);
+            $(".images").attr("src", images);
+            $("#currentImage").val(response.image)
 
             
             // Display Modal
@@ -347,5 +492,5 @@ function cekMenu(){
           }
         });
   }
-  </script>
+</script>
 @endpush
