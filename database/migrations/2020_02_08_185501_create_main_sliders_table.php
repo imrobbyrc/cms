@@ -17,6 +17,7 @@ class CreateMainSlidersTable extends Migration
             $table->bigIncrements('idMainSlider'); 
             $table->text('image'); 
             $table->string('title'); 
+            $table->text('description');
             $table->string('link'); 
             $table->enum('status', array('active', 'inactive'))->default('inactive');
             $table->integer('priority')->unique();

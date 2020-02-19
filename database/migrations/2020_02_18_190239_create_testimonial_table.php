@@ -20,6 +20,7 @@ class CreateTestimonialTable extends Migration
             $table->string('description');
             $table->string('link');
             $table->text('image');
+            $table->enum('status', array('active', 'inactive'))->default('inactive');
             $table->timestamps();
         });
     }

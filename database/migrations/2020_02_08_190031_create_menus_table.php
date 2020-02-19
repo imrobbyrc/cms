@@ -19,7 +19,7 @@ class CreateMenusTable extends Migration
             $table->string('link');
             $table->text('image');
             $table->enum('status', array('active', 'inactive'))->default('inactive');
-            $table->enum('layout', array('1', '2'))->default('1');
+            $table->enum('layout', array('1', '2', '3'))->default('1');
             $table->enum('showOnHomepage', array('yes', 'no'))->default('no');
             $table->integer('priority')->unique();
             $table->string('browserTitle'); 
