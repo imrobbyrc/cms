@@ -81,12 +81,12 @@
             <div class="container">
                 <div class="row align-items-center" style="opacity: 0.85">
                     <div class="col-sm-3 text-sm-left">
-                        <a href="index-2.html"><img src="assets/images/logo-light.png" alt="" /></a>
+                        <a href="index-2.html"><img src="{{$topmenu->headerLogo}}" alt="" /></a>
                     </div>
                     <div class="col-sm-6 mt-3 mt-sm-0">
-                        <p class="color-white lh-6 mb-0 fw-600">&copy; Copyright 2018 Elixir Inc.</p>
+                        <p class="color-white lh-6 mb-0 fw-600">&copy; Copyright 2020 innizhcarbon.com</p>
                     </div>
-                    <div class="col text-sm-right mt-3 mt-sm-0"><a class="color-white" href="https://themewagon.com/" target="_blank"> Designed by Themewagon</a></div>
+                    <div class="col text-sm-right mt-3 mt-sm-0"></div>
                 </div>
                 <!--/.row-->
             </div>
