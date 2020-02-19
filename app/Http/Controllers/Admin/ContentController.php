@@ -71,13 +71,24 @@ class ContentController extends Controller
                     'status'            => 'required',
                     'showOnHomepage'    => 'required',
                     'priority'          => 'required|numeric|unique:menus',
+                    'image'             => 'image|mimes:jpeg,png,jpg',
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
                     'layout'            => 'required',
                 ]);
+
+                if($request->hasfile('image')) 
+                { 
+                    $file = $request->file('image');
+                    $extension = $file->getClientOriginalExtension();
+                    $filenameIcon =time().'-image-'.$file->getClientOriginalName();
+                    $file->move('image/menu/', $filenameIcon);
+                }
+
     
                     $save = Menu::create([
-    
+
+                        'image'             => 'image/menu/'. $filenameIcon,
                         'menu'              => $request->menu,
                         'link'              => $request->link,
                         'status'            => $request->status,
@@ -242,7 +253,7 @@ class ContentController extends Controller
 
             if($alias == 'menu'){
 
-    
+                $filenameIcon = substr($request->currentImage,11);
                 $this->validate($request, [
 
                     'menu'              => 'required',
@@ -253,12 +264,22 @@ class ContentController extends Controller
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
                     'priority'          => 'required|numeric|unique:menus,idMenus,'.$id.',idMenus',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null',
 
                 ]);
+
+                if($request->hasfile('image')) 
+                { 
+                    $file = $request->file('image');
+                    $extension = $file->getClientOriginalExtension();
+                    $filenameIcon =time().'-image-'.$file->getClientOriginalName();
+                    $file->move('image/menu/', $filenameIcon);
+                }
     
 
                     $save = Menu::where('idMenus',$id)->update([
     
+                        'image'             => 'image/menu/'. $filenameIcon,
                         'menu'              => $request->menu,
                         'link'              => $request->link,
                         'status'            => $request->status,
@@ -419,7 +440,10 @@ class ContentController extends Controller
                         $css = $data->status == 'active' ? 'badge badge-success':'badge badge-warning';
                         return '<div class="'.$css.'">'.ucfirst($data->status).'</div>';
                     })
-                    ->rawColumns(['status'])
+                    ->editColumn('image', function($data) {
+                        return '<img src="'.asset($data->image).'" width="100%">';
+                    })
+                    ->rawColumns(['status','image'])
                     ->make(true);
         
         }elseif ($alias == 'submenu') {

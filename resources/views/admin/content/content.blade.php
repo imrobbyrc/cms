@@ -4,7 +4,6 @@
 @endsection
 
 @push('css') 
-<link rel="stylesheet" href="{{ asset('admin_assets/modules/summernote/summernote-bs4.css')}}"> 
 <style> 
 .select2-results__options{
     max-height: 300px!important;
@@ -344,7 +343,6 @@
 @endpush
 
 @push('scripts')
-<script src="{{ asset('admin_assets/modules/summernote/summernote-bs4.js')}}"></script>
 <script>
   var alias = '{{request()->segment(3)}}';
   $(function() {

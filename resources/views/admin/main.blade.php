@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ asset('admin_assets/css/style.css')}}">
   <link rel="stylesheet" href="{{ asset('admin_assets/css/custom.css')}}">
   <link rel="stylesheet" href="{{ asset('admin_assets/css/components.css')}}">
+  <link rel="stylesheet" href="{{ asset('admin_assets/modules/summernote/summernote-bs4.css')}}"> 
   @stack('css')
   <link rel="shortcut icon" type="image/png" href="{{asset ('img/favicon.png')}}"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -55,6 +56,7 @@
   <script src="{{ asset('admin_assets/js/scripts.js')}}"></script>
   <script src="{{ asset('admin_assets/js/custom.js')}}"></script>
   <script src="{{ asset('admin_assets/js/sweetalert.min.js') }}"></script>
+  <script src="{{ asset('admin_assets/modules/summernote/summernote-bs4.js')}}"></script>
   @include('sweet::alert')
 @stack('scripts')
 </body>

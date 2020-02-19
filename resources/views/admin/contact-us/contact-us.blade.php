@@ -4,10 +4,6 @@
     <title>Contact Us</title>
 @endsection
 
-@push('css') 
-<link rel="stylesheet" href="{{ asset('admin_assets/modules/summernote/summernote-bs4.css')}}"> 
-@endpush
-
 @section('content')
 
 <div class="section">
@@ -132,7 +128,3 @@
 
 
 @endsection
-
-@push('scripts')
-<script src="{{ asset('admin_assets/modules/summernote/summernote-bs4.js')}}"></script>  
-@endpush

@@ -29,6 +29,7 @@
               <th>Image</th>
               <th>Title</th>
               <th>Link</th>
+              <th>Description</th>
               <th>Priority</th>
               <th>Status</th>
               <th>Created At</th>
@@ -98,6 +99,13 @@
               </div>
             </div>
             <div class="form-group">
+              <label>Description</label>
+                <textarea class="summernote-simple" required="" name="description" value="{{ old('description') }}"></textarea>
+              <div class="invalid-feedback">
+               Description Required
+              </div>
+            </div>
+            <div class="form-group">
               <label>Image</label>
               <input type="file" accept="image/*" onchange="newFile(event)" name="image" id="image" required class="form-control">
               <div class="invalid-feedback">
@@ -149,6 +157,13 @@
             <div class="form-group">
               <label>Priority</label>
               <input type="number" class="form-control" required="" name="priority" value="" id="priority">
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+                <textarea class="summernote-simple" required="" name="description" value="{{ old('description') }}" id="description"></textarea>
+              <div class="invalid-feedback">
+               Description Required
+              </div>
             </div>
             <div class="form-group">
               <label>Status</label>
@@ -212,6 +227,7 @@ $(function() {
             { data: 'image',name: 'image',"searchable": false},
             { data: 'title',name: 'title'},
             { data: 'link',name: 'link'},
+            { data: 'description',name: 'description'},
             { data: 'priority',name: 'priority',"searchable": false},
             { data: 'status',name: 'status',"searchable": false},
             { data: 'created_at',name: 'created_at',"searchable": false},
@@ -280,7 +296,8 @@ function getData(id){
           $("#priority").val(response.priority);
           $("#status").val(response.status);
           $(".images").attr("src", images);
-          $("#currentImage").val(response.image)
+          $("#currentImage").val(response.image);
+          $('#description').summernote('code', response.description);
           
           // Display Modal
           $('#editModal').modal('show'); 

@@ -3,10 +3,6 @@
     <title>Sub Menu</title>
 @endsection
 
-@push('css') 
-<link rel="stylesheet" href="{{ asset('admin_assets/modules/summernote/summernote-bs4.css')}}"> 
-@endpush
-
 @section('content')
 <div class="section">
 <div class="section-header">
@@ -142,6 +138,7 @@
             <div class="form-group">
               <label>Layout</label>
               <select class="form-control" required="" name="layout">
+                <option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1" selected="selected">1</option>
               </select>
@@ -253,10 +250,10 @@
                 Image Required
               </div>
               <br>
-              <img style="width:100%" src="" id="output" class="images"/>
+              <img style="width:100%" src="" id="output_edit" class="images"/>
               <script>
                 var newFile = function(event) {
-                    var newfile = document.getElementById('output');
+                    var newfile = document.getElementById('output_edit');
                     newfile.src = URL.createObjectURL(event.target.files[0]);
                 };
               </script>
@@ -340,7 +337,6 @@ function cekMenu(){
 @endpush
 
 @push('scripts')
-<script src="{{ asset('admin_assets/modules/summernote/summernote-bs4.js')}}"></script>
 <script>
   var alias = '{{request()->segment(3)}}';
   $(function() {

@@ -66,11 +66,12 @@ class HomepageController extends Controller
             if($alias == 'main-slider'){
 
                 $this->validate($request, [
-                    'title'	    => 'required',
-                    'link'      => 'required',
-                    'status'    => 'required',
-                    'priority'  => 'required|numeric|unique:main_sliders',
-                    'image'     => 'image|mimes:jpeg,png,jpg',
+                    'title'	        => 'required',
+                    'link'          => 'required',
+                    'description'   => 'required',
+                    'status'        => 'required',
+                    'priority'      => 'required|numeric|unique:main_sliders',
+                    'image'         => 'image|mimes:jpeg,png,jpg',
                 ]);
     
                 if($request->hasfile('image')) 
@@ -83,11 +84,12 @@ class HomepageController extends Controller
     
                     $save = Slider::create([
     
-                        'title' => $request->title,
-                        'link' => $request->link,
-                        'status' => $request->status,
-                        'priority'=>$request->priority,
-                        'image' =>  'image/slider/'. $filename,
+                        'title'         => $request->title,
+                        'link'          => $request->link,
+                        'description'   => $request->description,
+                        'status'        => $request->status,
+                        'priority'      => $request->priority,
+                        'image'         => 'image/slider/'. $filename,
         
                     ]);
 
@@ -218,10 +220,11 @@ class HomepageController extends Controller
             
                 $filename = substr($request->currentImage,13);
                 $this->validate($request, [
-                    'title'	    => 'required',
-                    'link'      => 'required',
-                    'status'    => 'required',
-                    'priority'  => 'required|numeric|unique:main_sliders,idMainSlider,'.$id.',idMainSlider',
+                    'title'	       => 'required',
+                    'link'         => 'required',
+                    'status'       => 'required',
+                    'description'  => 'required',
+                    'priority'     => 'required|numeric|unique:main_sliders,idMainSlider,'.$id.',idMainSlider',
                 ]);
     
     
@@ -235,11 +238,12 @@ class HomepageController extends Controller
     
                     $save = Slider::where('idMainSlider',$id)->update([
     
-                        'title' => $request->title,
-                        'link' => $request->link,
-                        'status' => $request->status,
-                        'priority'=>$request->priority,
-                        'image' =>  'image/slider/'. $filename,
+                        'title'         => $request->title,
+                        'link'          => $request->link,
+                        'description'   => $request->description,
+                        'status'        => $request->status,
+                        'priority'      => $request->priority,
+                        'image'         => 'image/slider/'. $filename,
         
                     ]);
                     
@@ -361,7 +365,7 @@ class HomepageController extends Controller
                     })
                     ->editColumn('image', function($data) {
                         return '<img src="'.asset($data->image).'" width="100%">';
-                    })->rawColumns(['status','image'])
+                    })->rawColumns(['status','image','description'])
                     ->make(true);
         
         }elseif ($alias == 'header-content') {

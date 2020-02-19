@@ -4,10 +4,6 @@
     <title>Edit Footer Content</title>
 @endsection
 
-@push('css') 
-<link rel="stylesheet" href="{{ asset('admin_assets/modules/summernote/summernote-bs4.css')}}"> 
-@endpush
-
 @section('content')
 <div class="section">
   <div class="section-header">
@@ -86,9 +82,3 @@
     </div>
   </div> 
 @endsection
-@push('scripts')
-<script src="{{ asset('admin_assets/modules/summernote/summernote-bs4.js')}}"></script>
-<script>
-
-</script>
-@endpush

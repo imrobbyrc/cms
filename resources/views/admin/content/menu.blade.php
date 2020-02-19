@@ -4,10 +4,6 @@
     <title>Menu</title>
 @endsection
 
-@push('css') 
-<link rel="stylesheet" href="{{ asset('admin_assets/modules/summernote/summernote-bs4.css')}}"> 
-@endpush
-
 @section('content')
 <div class="section">
 <div class="section-header">
@@ -33,6 +29,7 @@
               <th>#</th>
               <th>Menu</th>
               <th>Link</th>
+              <th>Image</th>
               <th>Status</th>
               <th>Layout</th>
               <th>Show On Homepage</th>
@@ -87,6 +84,21 @@
               </div>
             </div>
             <div class="form-group">
+              <label>Image</label>
+              <input type="file" accept="image/*" onchange="newFile(event)" name="image" id="image" required class="form-control">
+              <div class="invalid-feedback">
+                Image Required
+              </div>
+              <br>
+              <img style="width:100%" src="" id="output"/>
+              <script>
+                var newFile = function(event) {
+                    var newfile = document.getElementById('output');
+                    newfile.src = URL.createObjectURL(event.target.files[0]);
+                };
+              </script>
+            </div>
+            <div class="form-group">
               <label>Status</label>
               <select class="form-control" required="" name="status">
                 <option value="active">Active</option>
@@ -99,6 +111,7 @@
             <div class="form-group">
               <label>Layout</label>
               <select class="form-control" required="" name="layout">
+                <option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1" selected="selected">1</option>
               </select>
@@ -160,6 +173,7 @@
       <form class="needs-validation" novalidate="" method="post" action="{{ route('content.update',request()->segment(3))}}" enctype="multipart/form-data">
         @csrf
         <input type="hidden" class="form-control" required="" name="idUpdate" value="" id="idUpdate" readonly>
+        <input type="hidden" class="form-control" required="" name="currentImage" value="" id="currentImage" readonly>
         <div class="modal-body">
           @if ($errors->any())
             <div class="alert alert-danger alert-dismissible">
@@ -185,6 +199,21 @@
               <div class="invalid-feedback">
                 Link Required
               </div>
+            </div>
+            <div class="form-group">
+              <label>Image</label>
+              <input type="file" accept="image/*" onchange="loadFile(event)" name="image" id="image" class="form-control">
+              <div class="invalid-feedback">
+                Image Required
+              </div>
+              <br>
+              <img style="width:100%" src="" id="output_edit" class="images"/>
+              <script>
+                var loadFile = function(event) {
+                    var loadFile = document.getElementById('output_edit');
+                    loadFile.src = URL.createObjectURL(event.target.files[0]);
+                };
+              </script>
             </div>
             <div class="form-group">
               <label>Status</label>
@@ -252,7 +281,6 @@
 <!-- modal -->
 @endsection
 @push('scripts')
-<script src="{{ asset('admin_assets/modules/summernote/summernote-bs4.js')}}"></script>
 <script>
   var alias = '{{request()->segment(3)}}';
   $(function() {
@@ -266,6 +294,9 @@
           "deferRender": true,
           "info": true,
           "autoWidth": false,
+          columnDefs: [
+            { width: "150px", targets: 3 }
+          ],
           searchDelay: 600,
           ajax: url,
           columns: [
@@ -276,6 +307,7 @@
               },
               { data: 'menu',name: 'menu'},
               { data: 'link',name: 'link'},
+              { data: 'image',name: 'image',"searchable": false},
               { data: 'status',name: 'status',"searchable": false},
               { data: 'layout',name: 'layout',"searchable": false},
               { data: 'showOnHomepage',name: 'showOnHomepage',"searchable": false},
@@ -338,6 +370,10 @@
               $(".overlay").hide();
             },
           success: function(response){ 
+
+            let images = "{{asset(':images')}}";
+                images = images.replace(':images',response.image);
+
             $("#idUpdate").val(response.idMenus);
             $("#menus").val(response.menu);
             $("#link").val(response.link);
@@ -347,6 +383,8 @@
             $("#showOnHomepage").val(response.showOnHomepage);
             $("#browserTitle").val(response.browserTitle);
             $('#metaDescription').summernote('code', response.metaDescription);
+            $(".images").attr("src", images);
+            $("#currentImage").val(response.image)
 
             
             // Display Modal
