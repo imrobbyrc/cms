@@ -3,7 +3,7 @@
 //     return view('welcome');
 // });
 Route::get('/', 'FrontEndController@index');
-Route::get('/{menu}/{submenu?}', 'FrontEndController@get');
+Route::get('/{menu}/{submenu?}/{content?}', 'FrontEndController@get');
 Auth::routes();
 
 
