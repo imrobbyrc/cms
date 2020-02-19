@@ -2,9 +2,10 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('/', 'FrontEndController@index');
+Route::get('/{menu}/{submenu?}', 'FrontEndController@get');
 Auth::routes();
 
-Route::get('/{alias}', 'FrontEndController@get');
 
 //cms route
 Route::get('/admin', 'Admin\DashboardController@index')->name('home');
