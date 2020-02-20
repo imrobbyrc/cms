@@ -57,7 +57,35 @@
   <script src="{{ asset('admin_assets/js/custom.js')}}"></script>
   <script src="{{ asset('admin_assets/js/sweetalert.min.js') }}"></script>
   <script src="{{ asset('admin_assets/modules/summernote/summernote-bs4.js')}}"></script>
-  @include('sweet::alert')
+  <script> //images validation
+    var _URL = window.URL || window.webkitURL;
+    function image_validation(file,preview,inputFile,dimension)
+    {
+      var img;
+      if ((file)) {
+            img = new Image();
+
+            img.onload = function() {
+                if(this.width === dimension.width && this.height === dimension.height ){
+                  var reader = new FileReader();
+                  reader.readAsDataURL(file); 
+                  reader.onloadend = function() {
+                    preview.attr("src", reader.result);
+                        
+                  }
+
+                }else{
+                  
+                  inputFile.val("");
+                  preview.attr("src", '');
+                  Swal.fire("Failed!", "Image size must be "+ dimension.width +" x "+ dimension.height +" pixel.", "warning");
+                }
+            };
+            img.src = _URL.createObjectURL(file);
+        } 
+    }
+  </script>
+@include('sweet::alert')
 @stack('scripts')
 </body>
 </html>

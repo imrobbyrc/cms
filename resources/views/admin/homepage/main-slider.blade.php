@@ -107,18 +107,12 @@
             </div>
             <div class="form-group">
               <label>Image</label>
-              <input type="file" accept="image/*" onchange="newFile(event)" name="image" id="image" required class="form-control">
+              <input type="file" accept="image/*"  name="image" id="image" required class="form-control imagesUpload">
               <div class="invalid-feedback">
                 Image Required
               </div>
               <br>
-              <img style="width:100%" src="" id="output"/>
-              <script>
-                var newFile = function(event) {
-                    var newfile = document.getElementById('output');
-                    newfile.src = URL.createObjectURL(event.target.files[0]);
-                };
-              </script>
+              <img style="width:100%" src="" class="output"/>
             </div>
           </div>
         </div>
@@ -174,15 +168,9 @@
             </div>
             <div class="form-group">
               <label>Image</label>
-              <input type="file" accept="image/*" onchange="loadFile(event)" name="image" class="form-control">
+              <input type="file" accept="image/*" name="image" class="form-control imagesUpload">
               <br>
-              <img id="output_edit" style="width:100%" src="" class="images"/>
-              <script>
-                var loadFile = function(event) {
-                    var output = document.getElementById('output_edit');
-                    output.src = URL.createObjectURL(event.target.files[0]);
-                };
-              </script>
+              <img id="output" style="width:100%" src="" class="images output"/>
             </div>
           </div>
         </div>
@@ -343,5 +331,22 @@ function performDelete(id)
         }
       });
 }
+
+
+//image validation
+$(".imagesUpload").change(function(e) {
+    var file = this.files[0];
+    var preview = $(".output");
+    var inputFile = $(".imagesUpload");
+    var dimension = [];
+        dimension['width'] = 478;
+        dimension['height'] = 477;
+    image_validation(file,preview,inputFile,dimension)
+
+});
+
+$('.modal').on('hidden.bs.modal', function (e) {
+  $(".output").attr("src", '');
+})
 </script>
 @endpush

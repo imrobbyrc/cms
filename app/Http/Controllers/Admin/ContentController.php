@@ -503,8 +503,9 @@ class ContentController extends Controller
             return 'No Data';
 
         }else{
+          
             $data = SubMenu::select('idSubmenus as id','submenus as text','image as html');
-            $data->where('status','active')->where(function ($query){
+            $data->where('status','active')->where(function ($query) use ( $q ){
                 $query->where('idSubmenus','like', '%'.$q.'%')
                 ->orWhere('submenus','like', '%'.$q.'%');
             });
