@@ -29,13 +29,13 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav fs-0 fw-700">
-                            <li><a class="d-block" href="contact.html">Home</a></li>
+                            <li><a class="d-block" href="/">Home</a></li>
                             @foreach ($menus as $menu)
-                                <li><a href="{{$menu->link}}">{{$menu->menu}}</a>
+                                <li><a href="/{{$menu->link}}">{{$menu->menu}}</a>
                                     @if (!empty($menu->submenus))
                                     <ul class="dropdown fs--1">
                                         @foreach ($menu->submenus as $submenu)
-                                                <li><a href="{{$submenu->link}}">{{$submenu->submenus}}</a></li> 
+                                                <li><a href="/{{$menu->link}}/{{$submenu->link}}">{{$submenu->submenus}}</a></li> 
                                            
                                         @endforeach 
                                     </ul>        
