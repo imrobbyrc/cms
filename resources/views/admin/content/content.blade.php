@@ -86,7 +86,7 @@
             <div class="form-group">
               <label>Sub Menu</label>
               <br>
-              <select style="width:100%;" class="form-control js-example-basic-single" required="" name="submenuId"> 
+              <select style="width:100%;" class="form-control js-example-basic-single submenu" required="" name="submenuId"> 
               </select>
               <div class="invalid-feedback">
                 Menu Required
@@ -122,18 +122,12 @@
             </div>
             <div class="form-group">
               <label>Image</label>
-              <input type="file" accept="image/*" onchange="newFile(event)" name="image" required class="form-control">
+              <input type="file" accept="image/*" name="image" required class="form-control imagesUpload">
               <div class="invalid-feedback">
                 Image Required
               </div>
               <br>
-              <img style="width:100%" src="" id="output"/>
-              <script>
-                var newFile = function(event) {
-                    var newfile = document.getElementById('output');
-                    newfile.src = URL.createObjectURL(event.target.files[0]);
-                };
-              </script>
+              <img style="width:100%" src="" id="output" class="output"/>
             </div>
             <div class="form-group">
               <label>Status</label>
@@ -205,7 +199,7 @@
             <div class="form-group">
               <label>Sub Menu</label>
               <br>
-              <select style="width:100%;" class="form-control js-example-basic-single" required="" name="submenuId" id="submenu"> 
+              <select style="width:100%;" class="form-control js-example-basic-single submenu" required="" name="submenuId" > 
               </select>
               <div class="invalid-feedback">
                 Menu Required
@@ -241,18 +235,12 @@
             </div>
             <div class="form-group">
               <label>Image</label>
-              <input type="file" accept="image/*" onchange="loadFile(event)" name="image" id="image" class="form-control">
+              <input type="file" accept="image/*" name="image" id="image" class="form-control imagesUpload">
               <div class="invalid-feedback">
                 Image Required
               </div>
               <br>
-              <img style="width:100%" src="" id="output_edit" class="images"/>
-              <script>
-                var loadFile = function(event) {
-                    var file = document.getElementById('output_edit');
-                    file.src = URL.createObjectURL(event.target.files[0]);
-                };
-              </script>
+              <img style="width:100%" src="" id="output_edit" class="images output"/>
             </div>
             <div class="form-group">
               <label>Status</label>
@@ -315,7 +303,7 @@
     return $state;
   }
 
-  $('#submenu').select2({ 
+  $('.submenu').select2({ 
     templateResult: formatState,
     allowClear: true,
     maximumSelectionLength: 6,
@@ -324,7 +312,7 @@
             'X-CSRF-Token': '{{ csrf_token() }}',
         },
         url: '{{route("ajax_get_all_submenu")}}',
-        type: 'POST',
+        method: 'POST',
         dataType: 'json',
            data: function (params) {
               return {
@@ -501,5 +489,20 @@
           }
         });
   }
+
+  $(".imagesUpload").change(function(e) {
+    var file = this.files[0];
+    var preview = $(".output");
+    var inputFile = $(".imagesUpload");
+    var dimension = [];
+        dimension['width'] = 478;
+        dimension['height'] = 477;
+    image_validation(file,preview,inputFile,dimension)
+
+});
+
+$('.modal').on('hidden.bs.modal', function (e) {
+  $(".output").attr("src", '');
+})
 </script>
 @endpush

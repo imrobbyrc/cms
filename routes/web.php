@@ -2,8 +2,8 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', 'FrontEndController@index');
-Route::get('/{menu}/{submenu?}/{content?}', 'FrontEndController@get');
+// Route::get('/', 'FrontEndController@index');
+// Route::get('/{menu}/{submenu?}/{content?}', 'FrontEndController@get');
 Auth::routes();
 
 

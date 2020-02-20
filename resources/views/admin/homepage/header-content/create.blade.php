@@ -58,19 +58,20 @@
         <div class="form-group row mb-4">
           <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Icon</label>
           <div class="col-sm-12 col-md-6">
-            <div id="image-preview" class="image-preview">
-              <label for="image-upload" id="image-label">Choose File</label>
-              <input type="file" name="imageIcon" id="image-upload" />
-            </div>
+            <input type="file" accept="image/*" name="imageIcon" class="form-control imagesIcon">
+              <br>
+              <img id="output" style="width:100%" src="" class="images outputIcon"/>
           </div>
+          
         </div>
         <div class="form-group row mb-4">
           <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Header Logo</label>
           <div class="col-sm-12 col-md-6">
-            <div id="image-preview1" class="image-preview">
-              <label for="image-upload" id="image-label1">Choose File</label>
-              <input type="file" name="imageLogo" id="image-upload1" />
-            </div>
+           
+              <input type="file" accept="image/*" name="imageLogo" class="form-control imagesHeader">
+              <br>
+              <img id="output" style="width:100%" src="" class="images outputHeader"/>
+            
           </div>
         </div>
         <div class="form-group row mb-4">
@@ -86,25 +87,26 @@
 @endsection
 @push('scripts')
 <script src="{{ asset('admin_assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js')}}"></script>
-
 <script>
-  $.uploadPreview({
-  input_field: "#image-upload",   // Default: .image-upload
-  preview_box: "#image-preview",  // Default: .image-preview
-  label_field: "#image-label",    // Default: .image-label
-  label_default: "Choose File",   // Default: Choose File
-  label_selected: "Change File",  // Default: Change File
-  no_label: false,                // Default: false
-  success_callback: null          // Default: null
+$(".imagesHeader").change(function(e) {
+    var file = this.files[0];
+    var preview = $(".outputHeader");
+    var inputFile = $(".imagesHeader");
+    var dimension = [];
+        dimension['width'] = 478;
+        dimension['height'] = 477;
+    image_validation(file,preview,inputFile,dimension)
+
 });
-$.uploadPreview({
-  input_field: "#image-upload1",   // Default: .image-upload
-  preview_box: "#image-preview1",  // Default: .image-preview
-  label_field: "#image-label1",    // Default: .image-label
-  label_default: "Choose File",   // Default: Choose File
-  label_selected: "Change File",  // Default: Change File
-  no_label: false,                // Default: false
-  success_callback: null          // Default: null
+$(".imagesIcon").change(function(e) {
+    var file = this.files[0];
+    var preview = $(".outputIcon");
+    var inputFile = $(".imagesIcon");
+    var dimension = [];
+        dimension['width'] = 478;
+        dimension['height'] = 477;
+    image_validation(file,preview,inputFile,dimension)
+
 });
 </script>
 @endpush

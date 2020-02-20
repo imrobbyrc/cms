@@ -28,6 +28,8 @@
             <tr>
               <th>#</th>
               <th>Menu</th>
+              <th>Title</th>
+              <th>Description</th>
               <th>Link</th>
               <th>Image</th>
               <th>Status</th>
@@ -77,6 +79,20 @@
               </div>
             </div>
             <div class="form-group">
+              <label>Title</label>
+              <input type="text" class="form-control" required="" name="title" value="{{ old('title') }}">
+              <div class="invalid-feedback">
+                Title Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+                <textarea class="summernote-simple" required="" name="description" value="{{ old('description') }}"></textarea>
+              <div class="invalid-feedback">
+               Description Required
+              </div>
+            </div>
+            <div class="form-group">
               <label>Link</label>
               <input type="text" class="form-control" required="" name="link" value="{{ old('link') }}">
               <div class="invalid-feedback">
@@ -85,18 +101,12 @@
             </div>
             <div class="form-group">
               <label>Image</label>
-              <input type="file" accept="image/*" onchange="newFile(event)" name="image" id="image" required class="form-control">
+              <input type="file" accept="image/*" name="image" id="image" required class="form-control imagesUpload">
               <div class="invalid-feedback">
                 Image Required
               </div>
               <br>
-              <img style="width:100%" src="" id="output"/>
-              <script>
-                var newFile = function(event) {
-                    var newfile = document.getElementById('output');
-                    newfile.src = URL.createObjectURL(event.target.files[0]);
-                };
-              </script>
+              <img style="width:100%" src="" id="output" class="output"/>
             </div>
             <div class="form-group">
               <label>Status</label>
@@ -194,6 +204,20 @@
               </div>
             </div>
             <div class="form-group">
+              <label>Title</label>
+              <input type="text" class="form-control" required="" name="title" value="{{ old('title') }}" id="title">
+              <div class="invalid-feedback">
+                Title Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+                <textarea class="summernote-simple" required="" name="description" value="{{ old('description') }}" id="description"></textarea>
+              <div class="invalid-feedback">
+               Description Required
+              </div>
+            </div>
+            <div class="form-group">
               <label>Link</label>
               <input type="text" class="form-control" required="" name="link" id="link" value="{{ old('link') }}">
               <div class="invalid-feedback">
@@ -202,18 +226,12 @@
             </div>
             <div class="form-group">
               <label>Image</label>
-              <input type="file" accept="image/*" onchange="loadFile(event)" name="image" id="image" class="form-control">
+              <input type="file" accept="image/*" name="image" id="image" class="form-control imagesUpload">
               <div class="invalid-feedback">
                 Image Required
               </div>
               <br>
-              <img style="width:100%" src="" id="output_edit" class="images"/>
-              <script>
-                var loadFile = function(event) {
-                    var loadFile = document.getElementById('output_edit');
-                    loadFile.src = URL.createObjectURL(event.target.files[0]);
-                };
-              </script>
+              <img style="width:100%" src="" id="output_edit" class="images output"/>
             </div>
             <div class="form-group">
               <label>Status</label>
@@ -295,7 +313,7 @@
           "info": true,
           "autoWidth": false,
           columnDefs: [
-            { width: "150px", targets: 3 }
+            { width: "150px", targets: 5 }
           ],
           searchDelay: 600,
           ajax: url,
@@ -306,6 +324,8 @@
                 }
               },
               { data: 'menu',name: 'menu'},
+              { data: 'title',name: 'title'},
+              { data: 'description',name: 'description'},
               { data: 'link',name: 'link'},
               { data: 'image',name: 'image',"searchable": false},
               { data: 'status',name: 'status',"searchable": false},
@@ -376,6 +396,8 @@
 
             $("#idUpdate").val(response.idMenus);
             $("#menus").val(response.menu);
+            $("#title").val(response.title);
+            $("#description").summernote('code',response.description);
             $("#link").val(response.link);
             $("#priority").val(response.priority);
             $("#status").val(response.status);
@@ -431,5 +453,22 @@
           }
         });
   }
+
+
+//image validation
+$(".imagesUpload").change(function(e) {
+    var file = this.files[0];
+    var preview = $(".output");
+    var inputFile = $(".imagesUpload");
+    var dimension = [];
+        dimension['width'] = 478;
+        dimension['height'] = 477;
+    image_validation(file,preview,inputFile,dimension)
+
+});
+
+$('.modal').on('hidden.bs.modal', function (e) {
+  $(".output").attr("src", '');
+})
   </script>
 @endpush
