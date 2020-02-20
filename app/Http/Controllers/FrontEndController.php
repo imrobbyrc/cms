@@ -10,12 +10,16 @@ use App\Model\Admin\Header;
 use App\Model\Admin\Footer;
 use App\Model\Admin\Slider;
 use App\Model\Admin\ContactUs;
+use App\Model\Admin\Partnership;
+use App\Model\Admin\Testimonial;
 
 class FrontEndController extends Controller
 {
     
     public function index()
     { 
+        $partnetships = Partnership::where('status', 'active')->orderBy('idPartership', 'ASC')->get()->all();
+        $testimonials = Testimonial::where('status', 'active')->orderBy('idTestimonial', 'ASC')->get()->all();
         $sliders = Slider::where('status', 'active')->orderBy('priority', 'ASC')->get()->all();
         $topmenu = Header::orderBy('idHeader', 'ASC')->get()->first();
         $botmenu = Footer::orderBy('idFooter', 'ASC')->take(4)->get();
@@ -36,6 +40,8 @@ class FrontEndController extends Controller
         return view('welcome',[ 
             'browserTitle'=>$topmenu->browserTitle,
             'metaDescription'=>$topmenu->metaDescription,
+            'partnerships'=>$partnetships,
+            'testimonials'=>$testimonials,
             'sliders'=>$sliders,
             'topmenu'=>$topmenu,
             'botmenu'=>$botmenu,
@@ -50,6 +56,8 @@ class FrontEndController extends Controller
             if(!is_null($results)){
                 $results['related'] = Content::whereNotIn('idContents', [$results->idContents])->where('submenuId' , $results->submenuId)->where('status', 'active')->get()->all();
                 $view = 'content';
+                $browserTitle = $results->browserTitle;
+                $metaDescription = $results->brometaDescriptionwserTitle;
             }else{
                 abort(404);
             }
@@ -61,6 +69,8 @@ class FrontEndController extends Controller
                 $results['contents'] = $content;
                 $results['menus'] = Menu::where('idMenus', $results->menuId)->orderBy('idMenus', 'ASC')->get()->first();
                 $view = 'submenu';
+                $browserTitle = $results->browserTitle;
+                $metaDescription = $results->brometaDescriptionwserTitle;
             }else{
                 abort(404);
             }
@@ -68,11 +78,15 @@ class FrontEndController extends Controller
             if($menu === 'contact-us'){
                 $results = ContactUs::where('idContacts' , 1)->get()->first();
                 $view = 'contact-us';
+                $browserTitle = $results->browserTitle;
+                $metaDescription = $results->brometaDescriptionwserTitle;
             }else{
                 $results = Menu::where('link' , $menu)->where('status', 'active')->get()->first(); 
                 if(!is_null($results)){
                     $submenu = SubMenu::where('menuId', $results->idMenus)->where('status', 'active')->orderBy('priority', 'ASC')->get()->all();
                     $results['submenus'] = $submenu;
+                    $browserTitle = $results->browserTitle;
+                    $metaDescription = $results->brometaDescriptionwserTitle;
                     if($results->layout == 3){
                         $view = 'menu-2';
                     }else{
@@ -101,10 +115,10 @@ class FrontEndController extends Controller
                 }
             $i++;
         }
-        // dd($results);
+// dd($results);
         return view($view,[ 
-            'browserTitle'=>$topmenu->browserTitle,
-            'metaDescription'=>$topmenu->metaDescription,
+            'browserTitle'=>$browserTitle,
+            'metaDescription'=>$metaDescription,
             'sliders'=>$sliders,
             'topmenu'=>$topmenu,
             'botmenu'=>$botmenu,
