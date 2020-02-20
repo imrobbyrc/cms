@@ -28,6 +28,8 @@
             <tr>
               <th>#</th>
               <th>Menu</th>
+              <th>Title</th>
+              <th>Description</th>
               <th>Link</th>
               <th>Image</th>
               <th>Status</th>
@@ -74,6 +76,20 @@
               <input type="text" class="form-control" required="" name="menu" value="{{ old('menu') }}">
               <div class="invalid-feedback">
                 Menu Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" class="form-control" required="" name="title" value="{{ old('title') }}">
+              <div class="invalid-feedback">
+                Title Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+                <textarea class="summernote-simple" required="" name="description" value="{{ old('description') }}"></textarea>
+              <div class="invalid-feedback">
+               Description Required
               </div>
             </div>
             <div class="form-group">
@@ -194,6 +210,20 @@
               </div>
             </div>
             <div class="form-group">
+              <label>Title</label>
+              <input type="text" class="form-control" required="" name="title" value="{{ old('title') }}" id="title">
+              <div class="invalid-feedback">
+                Title Required
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+                <textarea class="summernote-simple" required="" name="description" value="{{ old('description') }}" id="description"></textarea>
+              <div class="invalid-feedback">
+               Description Required
+              </div>
+            </div>
+            <div class="form-group">
               <label>Link</label>
               <input type="text" class="form-control" required="" name="link" id="link" value="{{ old('link') }}">
               <div class="invalid-feedback">
@@ -295,7 +325,7 @@
           "info": true,
           "autoWidth": false,
           columnDefs: [
-            { width: "150px", targets: 3 }
+            { width: "150px", targets: 5 }
           ],
           searchDelay: 600,
           ajax: url,
@@ -306,6 +336,8 @@
                 }
               },
               { data: 'menu',name: 'menu'},
+              { data: 'title',name: 'title'},
+              { data: 'description',name: 'description'},
               { data: 'link',name: 'link'},
               { data: 'image',name: 'image',"searchable": false},
               { data: 'status',name: 'status',"searchable": false},
@@ -376,6 +408,8 @@
 
             $("#idUpdate").val(response.idMenus);
             $("#menus").val(response.menu);
+            $("#title").val(response.title);
+            $("#description").summernote('code',response.description);
             $("#link").val(response.link);
             $("#priority").val(response.priority);
             $("#status").val(response.status);

@@ -71,7 +71,7 @@ class HomepageController extends Controller
                     'description'   => 'required',
                     'status'        => 'required',
                     'priority'      => 'required|numeric|unique:main_sliders',
-                    'image'         => 'image|mimes:jpeg,png,jpg',
+                    'image'         => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
                 ]);
     
                 if($request->hasfile('image')) 
@@ -101,8 +101,8 @@ class HomepageController extends Controller
                     'rightContent'  => 'required',
                     'leftContent'   => 'required',
                     'descriptions'  => 'required',
-                    'imageIcon'     => 'image|mimes:jpeg,png,jpg',
-                    'imageLogo'     => 'image|mimes:jpeg,png,jpg',
+                    'imageIcon'     => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
+                    'imageLogo'     => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
                 ]);
     
                 if($request->hasfile('imageIcon')) 
@@ -224,6 +224,7 @@ class HomepageController extends Controller
                     'link'         => 'required',
                     'status'       => 'required',
                     'description'  => 'required',
+                    'image'        => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
                     'priority'     => 'required|numeric|unique:main_sliders,idMainSlider,'.$id.',idMainSlider',
                 ]);
     
@@ -258,8 +259,8 @@ class HomepageController extends Controller
                     'rightContent'  => 'required',
                     'leftContent'   => 'required',
                     'descriptions'  => 'required',
-                    'imageIcon'     => 'image|mimes:jpeg,png,jpg',
-                    'imageLogo'     => 'image|mimes:jpeg,png,jpg',
+                    'imageIcon'     => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
+                    'imageLogo'     => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
                 ]);
     
                 if($request->hasfile('imageIcon')) 

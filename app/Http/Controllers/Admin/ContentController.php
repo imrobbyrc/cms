@@ -67,11 +67,13 @@ class ContentController extends Controller
 
                 $this->validate($request, [
                     'menu'              => 'required',
+                    'title'             => 'required',
+                    'description'       => 'required',
                     'link'              => 'required',
                     'status'            => 'required',
                     'showOnHomepage'    => 'required',
                     'priority'          => 'required|numeric|unique:menus',
-                    'image'             => 'image|mimes:jpeg,png,jpg',
+                    'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
                     'layout'            => 'required',
@@ -90,6 +92,8 @@ class ContentController extends Controller
 
                         'image'             => 'image/menu/'. $filenameIcon,
                         'menu'              => $request->menu,
+                        'title'             => $request->title,
+                        'description'       => $request->description,
                         'link'              => $request->link,
                         'status'            => $request->status,
                         'layout'            => $request->layout,
@@ -112,7 +116,7 @@ class ContentController extends Controller
                     'status'            => 'required',
                     'layout'            => 'required',
                     'priority'          => 'required',
-                    'image'             => 'image|mimes:jpeg,png,jpg',
+                    'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
                 ]);
@@ -151,7 +155,7 @@ class ContentController extends Controller
                     'title'             => 'required',
                     'description'       => 'required',
                     'link'              => 'required',
-                    'image'             => 'required',
+                    'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
                     'status'            => 'required',
                     'priority'          => 'required|numeric|unique:contents',
                     'browserTitle'      => 'required',
@@ -257,6 +261,8 @@ class ContentController extends Controller
                 $this->validate($request, [
 
                     'menu'              => 'required',
+                    'title'             => 'required',
+                    'description'       => 'required',
                     'link'              => 'required',
                     'status'            => 'required',
                     'layout'            => 'required',
@@ -264,7 +270,7 @@ class ContentController extends Controller
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
                     'priority'          => 'required|numeric|unique:menus,idMenus,'.$id.',idMenus',
-                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
 
                 ]);
 
@@ -281,6 +287,8 @@ class ContentController extends Controller
     
                         'image'             => 'image/menu/'. $filenameIcon,
                         'menu'              => $request->menu,
+                        'title'             => $request->title,
+                        'description'       => $request->description,
                         'link'              => $request->link,
                         'status'            => $request->status,
                         'layout'            => $request->layout,
@@ -306,7 +314,7 @@ class ContentController extends Controller
                     'status'            => 'required',
                     'layout'            => 'required',
                     'priority'          => 'required',
-                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
 
@@ -354,7 +362,7 @@ class ContentController extends Controller
                     'title'             => 'required',
                     'description'       => 'required',
                     'link'              => 'required',
-                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
                     'status'            => 'required',
                     'priority'          => 'required|numeric|unique:contents,idContents,'.$id.',idContents',
                     'browserTitle'      => 'required',
@@ -443,7 +451,7 @@ class ContentController extends Controller
                     ->editColumn('image', function($data) {
                         return '<img src="'.asset($data->image).'" width="100%">';
                     })
-                    ->rawColumns(['status','image'])
+                    ->rawColumns(['status','image','description'])
                     ->make(true);
         
         }elseif ($alias == 'submenu') {

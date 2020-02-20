@@ -53,7 +53,7 @@ class PartnershipController extends Controller
                 'title'              => 'required',
                 'link'              => 'required',
                 'status'            => 'required',
-                'image'             => 'image|mimes:jpeg,png,jpg',
+                'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
             ]);
 
             if($request->hasfile('image')) 
@@ -128,7 +128,7 @@ class PartnershipController extends Controller
                     'title'              => 'required',
                     'link'              => 'required',
                     'status'            => 'required',
-                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
 
                 ]);
 
