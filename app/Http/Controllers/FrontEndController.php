@@ -18,6 +18,7 @@ class FrontEndController extends Controller
     
     public function index()
     { 
+        
         $partnetships = Partnership::where('status', 'active')->orderBy('idPartership', 'ASC')->get()->all();
         $testimonials = Testimonial::where('status', 'active')->orderBy('idTestimonial', 'ASC')->get()->all();
         $sliders = Slider::where('status', 'active')->orderBy('priority', 'ASC')->get()->all();
@@ -36,17 +37,20 @@ class FrontEndController extends Controller
                 }
             $i++;
         }
-        
-        return view('welcome',[ 
-            'browserTitle'=>$topmenu->browserTitle,
-            'metaDescription'=>$topmenu->metaDescription,
-            'partnerships'=>$partnetships,
-            'testimonials'=>$testimonials,
-            'sliders'=>$sliders,
-            'topmenu'=>$topmenu,
-            'botmenu'=>$botmenu,
-            'menus' => $menus
-            ]);
+        if(!empty($menus)){
+            return view('welcome',[ 
+                'browserTitle'=>$topmenu->browserTitle,
+                'metaDescription'=>$topmenu->metaDescription,
+                'partnerships'=>$partnetships,
+                'testimonials'=>$testimonials,
+                'sliders'=>$sliders,
+                'topmenu'=>$topmenu,
+                'botmenu'=>$botmenu,
+                'menus' => $menus
+                ]);
+        }else{
+            abort(404);
+        }
     } 
 
     public function get($menu, $submenu = null, $content = null)

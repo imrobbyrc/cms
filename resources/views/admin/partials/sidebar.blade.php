@@ -37,15 +37,15 @@
        </li>
 
       <li class="@if(request()->segment(2)=='partnership') active @endif">
-        <a class="pl-3" href="/admin/partnership"><i class="far fa-handshake"></i>Partnership</a>
+        <a class="nav-link" href="/admin/partnership"><i class="far fa-handshake"></i><span>Partnership</span></a>
       </li>
 
       <li class="@if(request()->segment(2)=='testimonial') active @endif">
-        <a class="pl-3" href="/admin/testimonial"><i class="far fa-comments"></i>Testimonial</a>
+        <a class="nav-link" href="/admin/testimonial"><i class="far fa-comments"></i><span>Testimonial</span></a>
       </li>
 
       <li class="@if(request()->segment(2)=='inbox') active @endif">
-        <a class="pl-3" href="/admin/inbox"><i class="far fa-envelope"></i>Inbox</a>
+        <a class="nav-link" href="/admin/inbox"><i class="far fa-envelope"></i><span>Inbox</span></a>
       </li> 
 
       {{-- @role('admin') --}}

@@ -41,7 +41,7 @@
                     Contact Page
                 </div>
                 <div class="col-9 my-2"> 
-                    <textarea class="summernote-simple" name="contact" required>{{$data->contact ?? ''}}</textarea>
+                    <textarea class="summernote" name="contact" required>{{$data->contact ?? ''}}</textarea>
                 </div>
                 <div class="invalid-feedback">
                     Contact Page Required
@@ -83,7 +83,7 @@
                         Service Description
                     </div>
                     <div class="col-9 my-2"> 
-                        <textarea class="summernote-simple" name="serviceDescription{{$i}}">{{ $data->{'serviceDescription'.$i} ?? ''}}</textarea>
+                        <textarea class="summernote" name="serviceDescription{{$i}}">{{ $data->{'serviceDescription'.$i} ?? ''}}</textarea>
                     </div>
 
                 </div>
@@ -112,7 +112,7 @@
                     Meta Description
                 </div>
                 <div class="col-9 my-2"> 
-                    <textarea class="summernote-simple" name="metaDescription" required>{{$data->metaDescription ?? ''}}</textarea>
+                    <textarea class="summernote" name="metaDescription" required>{{$data->metaDescription ?? ''}}</textarea>
                 </div>
                 <div class="invalid-feedback">
                     Meta Description Required

@@ -31,7 +31,7 @@
               <th>Content Left</th>
               <th>Content Right</th>
               <th>Title</th>
-              <th>Description</th>
+              <!--<th>Description</th>-->
               <th>Created At</th>
               <th>Updated At</th>
               <th>Action</th>
@@ -131,7 +131,9 @@ $(function() {
         "autoWidth": false,
         columnDefs: [
             { width: "100px", targets: 1 },
-            { width: "100px", targets: 2 }
+            { width: "100px", targets: 2 },
+            { width: "200px", targets: 4 },
+            { width: "200px", targets: 5 }
         ],
         searchDelay: 600,
         ajax: url,
@@ -146,7 +148,7 @@ $(function() {
             { data: 'contentLeft',name: 'contentLeft',"searchable": false},
             { data: 'contentRight',name: 'contentRight',"searchable": false},
             { data: 'browserTitle',name: 'browserTitle'},
-            { data: 'metaDescription',name: 'metaDescription'},
+            // { data: 'metaDescription',name: 'metaDescription'},
             { data: 'created_at',name: 'created_at',"searchable": false},
             { data: 'updated_at',name: 'updated_at',"searchable": false},
             { data: 'idHeader',name: 'idHeader',"searchable": false,

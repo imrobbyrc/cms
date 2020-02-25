@@ -1,11 +1,12 @@
 <?php
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/', 'FrontEndController@index');
-// Route::get('/{menu}/{submenu?}/{content?}', 'FrontEndController@get');
+
+Route::get('admin/clear/', 'Admin\DashboardController@clear');
+
 Auth::routes();
 
+Route::get('admin/login/', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('admin/login/', 'Auth\LoginController@login');
+Route::post('admin/logout', 'Auth\LoginController@logout')->name('logout');
 
 //cms route
 Route::get('/admin', 'Admin\DashboardController@index')->name('home');
@@ -54,12 +55,21 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function() {
     Route::post('/testimonial/update', 'Admin\TestimonialController@update')->name('testimonial.update');
     Route::post('/testimonial/delete', 'Admin\TestimonialController@destroy')->name('testimonial.destroy');
     
-    Route::get('/inbox', 'Admin\DashboardController@inbox')->name('inbox');
+    Route::get('/inbox', 'Admin\InboxController@index')->name('inbox');
+    Route::get('/inbox/show/{id}', 'Admin\InboxController@show')->name('inbox.show');
+    Route::get('/inbox/test', 'Admin\InboxController@test')->name('inbox.test');
+    Route::get('/inbox/markAsRead/{id}', 'Admin\InboxController@readNotif')->name('inbox.read');
     
     //ajax
     Route::get('/homepage/{alias}/getdata', 'Admin\HomepageController@getData')->name('homepage.getdata');
     Route::get('/content/{alias}/getdata', 'Admin\ContentController@getData')->name('content.getdata');
     Route::get('/partnerships_getdata', 'Admin\PartnershipController@getData')->name('partnership.getdata');
     Route::get('/testimonials_getdata', 'Admin\TestimonialController@getData')->name('testimonial.getdata');
+    Route::get('/inbox/getdata', 'Admin\InboxController@getData')->name('inbox.getdata');
     Route::post('/ajax_get_all_submenu', 'Admin\ContentController@ajax_get_all_submenu')->name('ajax_get_all_submenu');
 });
+
+
+Route::get('/', 'FrontEndController@index');
+Route::get('/{menu}/{submenu?}/{content?}', 'FrontEndController@get');
+Route::post('contact-us','Admin\InboxController@contactUs')->name('contact.store');

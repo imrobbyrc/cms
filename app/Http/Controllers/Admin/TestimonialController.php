@@ -54,7 +54,7 @@ class TestimonialController extends Controller
                 'description'       => 'required',
                 'link'              => 'required',
                 'status'            => 'required',
-                'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
+                'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=200,min_height=200',
             ]);
 
             if($request->hasfile('image')) 
@@ -133,7 +133,7 @@ class TestimonialController extends Controller
                     'description'       => 'required',
                     'link'              => 'required',
                     'status'            => 'required',
-                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=200,min_height=200',
 
                 ]);
 

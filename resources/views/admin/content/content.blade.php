@@ -42,8 +42,7 @@
               <th>#</th>
               <th>Sub Menu</th>
               <th>Menu Content</th>
-              <th>Title</th>
-              <th>Description</th>
+              <th>Title</th> 
               <th>Link</th>
               <th>Image</th>
               <th>Status</th>
@@ -60,8 +59,8 @@
 </div> 
 
 <!-- Modal -->
-<div class="modal fade" id="createModal" role="dialog" aria-labelledby="createModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade formModal" id="createModal" role="dialog" aria-labelledby="createModalTitle" aria-hidden="true" >
+  <div class="modal-dialog modal-lg modal-dialog modal-lg-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Add New</h5>
@@ -86,7 +85,7 @@
             <div class="form-group">
               <label>Sub Menu</label>
               <br>
-              <select style="width:100%;" class="form-control js-example-basic-single submenu" required="" name="submenuId"> 
+              <select style="width:100%;" class="form-control js-example-basic-single submenu" id="selectCreate" required="" name="submenuId"> 
               </select>
               <div class="invalid-feedback">
                 Menu Required
@@ -108,7 +107,7 @@
             </div>
             <div class="form-group">
               <label>Description</label>
-                <textarea class="summernote-simple" required="" name="description" value="{{ old('description') }}"></textarea>
+                <textarea class="summernote" required="" name="description" value="{{ old('description') }}"></textarea>
               <div class="invalid-feedback">
                Description Required
               </div>
@@ -155,7 +154,7 @@
             </div>
             <div class="form-group">
               <label>Meta Description</label>
-                <textarea class="summernote-simple" required="" name="metaDescription" value="{{ old('metaDescription') }}"></textarea>
+                <textarea class="summernote" required="" name="metaDescription" value="{{ old('metaDescription') }}"></textarea>
               <div class="invalid-feedback">
               Meta Description Required
               </div>
@@ -171,8 +170,8 @@
   </div>
 </div> 
 
-<div class="modal fade" id="editModal" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="editModal" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true" >
+  <div class="modal-dialog modal-lg modal-dialog modal-lg-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Add New</h5>
@@ -199,7 +198,7 @@
             <div class="form-group">
               <label>Sub Menu</label>
               <br>
-              <select style="width:100%;" class="form-control js-example-basic-single submenu" required="" name="submenuId" > 
+              <select style="width:100%;" class="form-control js-example-basic-single submenu" id="selectEdit" required="" name="submenuId" > 
               </select>
               <div class="invalid-feedback">
                 Menu Required
@@ -221,7 +220,7 @@
             </div>
             <div class="form-group">
               <label>Description</label>
-                <textarea class="summernote-simple" required="" name="description" value="{{ old('description') }}" id="description"></textarea>
+                <textarea class="summernote" required="" name="description" value="{{ old('description') }}" id="description"></textarea>
               <div class="invalid-feedback">
                Description Required
               </div>
@@ -268,7 +267,7 @@
             </div>
             <div class="form-group">
               <label>Meta Description</label>
-                <textarea class="summernote-simple" required="" name="metaDescription" value="{{ old('metaDescription') }}" id="metaDescription" ></textarea>
+                <textarea class="summernote" required="" name="metaDescription" value="{{ old('metaDescription') }}" id="metaDescription" ></textarea>
               <div class="invalid-feedback">
               Meta Description Required
               </div>
@@ -290,6 +289,7 @@
 
 @push('scripts')
 <script>
+
   function formatState (state) {
     if (!state.id) { return state.text; }
 
@@ -303,7 +303,8 @@
     return $state;
   }
 
-  $('.submenu').select2({ 
+  $('#selectCreate').select2({ 
+    dropdownParent: $('#createModal'),
     templateResult: formatState,
     allowClear: true,
     maximumSelectionLength: 6,
@@ -327,6 +328,34 @@
         cache: true
       }
   }); 
+  
+    $('#selectEdit').select2({ 
+    dropdownParent: $('#editModal'),
+    templateResult: formatState,
+    allowClear: true,
+    maximumSelectionLength: 6,
+      ajax: {
+        headers: {
+            'X-CSRF-Token': '{{ csrf_token() }}',
+        },
+        url: '{{route("ajax_get_all_submenu")}}',
+        method: 'POST',
+        dataType: 'json',
+           data: function (params) {
+              return {
+                q: params.term
+              };
+           },
+           processResults: function (response) { 
+              return {
+                 results: response
+              }; 
+           },
+        cache: true
+      }
+  });
+  
+
 </script>
 @endpush
 
@@ -357,8 +386,7 @@
               },
               { data: 'submenus',name: 'submenus.submenus'},
               { data: 'contents',name: 'contents'},
-              { data: 'title',name: 'title'},
-              { data: 'description',name: 'description'},
+              { data: 'title',name: 'title'}, 
               { data: 'link',name: 'link'},
               { data: 'image',name: 'image',"searchable": false},
               { data: 'status',name: 'status',"searchable": false},
@@ -494,9 +522,7 @@
     var file = this.files[0];
     var preview = $(".output");
     var inputFile = $(".imagesUpload");
-    var dimension = [];
-        dimension['width'] = 478;
-        dimension['height'] = 477;
+    var dimension = []; 
     image_validation(file,preview,inputFile,dimension)
 
 });

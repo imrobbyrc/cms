@@ -1,5 +1,14 @@
 @extends('main')
 @section('title', 'Welcome')
+
+@section('stylesheet')
+<style>
+.navbar-elixir{
+    margin-bottom:-8rem!important;
+}
+</style>
+@endsection
+
 	@section('content')  
         <div class="loading" id="preloader">
             <div class="loader h-100 d-flex align-items-center justify-content-center">
@@ -27,10 +36,10 @@
                                         <div class="overflow-hidden">
                                             <h1 class="fs-4 fs-md-5 zopacity" data-zanim='{"delay":0}'>{{$slider->title}}</h1></div>
                                         <div class="overflow-hidden">
-                                            <p class="color-primary mt-4 mb-5 lh-2 fs-1 fs-md-2 zopacity" data-zanim='{"delay":0.1}'>{{$slider->description}}</p>
+                                            <p class="color-primary mt-4 mb-5 lh-2 fs-1 fs-md-2 zopacity" data-zanim='{"delay":0.1}'>{!!$slider->description!!}</p>
                                         </div>
                                         <div class="overflow-hidden">
-                                            <div class="zopacity" data-zanim='{"delay":0.2}'><a class="btn btn-primary mr-3 mt-3" href="{{$slider->link}}">Read more<span class="fa fa-chevron-right ml-2"></span></a><a class="btn btn-warning mt-3" href="contact.html">Contact us<span class="fa fa-chevron-right ml-2"></span></a></div>
+                                            <div class="zopacity" data-zanim='{"delay":0.2}'><a class="btn btn-primary mr-3 mt-3" href="{{$slider->link}}">Read more<span class="fa fa-chevron-right ml-2"></span></a><a class="btn btn-warning mt-3" href="contact-us">Contact us<span class="fa fa-chevron-right ml-2"></span></a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -53,7 +62,7 @@
                         <nav>
                             <div class="nav nav-tabs nav-fill">
                                 @foreach ($content->submenus as $submenu)
-                                    <a id="navLink-{{$submenu->idSubmenus}}" class="nav-item nav-link" onclick="changeTabs({{$submenu->idSubmenus}})">{{$submenu->submenus}}</a> 
+                                    <a id="navLink-{{$submenu->idSubmenus}}" class="nav-item nav-link" onclick="changeTabs({{$submenu->idSubmenus}})">{{$submenu->title}}</a> 
                                 @endforeach
                             </div>
                         </nav>
@@ -61,7 +70,7 @@
                             @foreach ($content->submenus as $submenu)
                             <div class="tab-pane" id="tabPane-{{$submenu->idSubmenus}}">
                                 <div class="owl-carousel owl-theme owl-nav-outer owl-dot-round mt-3" data-options='{"items":3}'>
-                                    <div class="item mx-2"><img class="radius-secondary" src="assets/images/portrait-3.jpg"></div>
+                                    <div class="item mx-2"><img class="radius-secondary" src="{{$submenu->image}}"></div>
                                 </div>
                             </div>
                             @endforeach
@@ -88,7 +97,7 @@
                                         <div class="overflow-hidden">
                                             <h5 data-zanim='{"delay":0}'>{{$submenu->title}}</h5></div>
                                         <div class="overflow-hidden">
-                                        <p class="mt-3" data-zanim='{"delay":0.1}'>{{$submenu->description}}</p>
+                                        <p class="mt-3" data-zanim='{"delay":0.1}'>{!!str_limit(strip_tags($submenu->description),200,'...')!!}</p>
                                         </div>
                                         <div class="overflow-hidden">
                                             <div data-zanim='{"delay":0.2}'><a class="d-flex align-items-center" href="{{$content->link}}/{{$submenu->link}}">Learn More<div class="overflow-hidden ml-2"><span class="d-inline-block" data-zanim='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"delay":0.8}'>&xrarr;</span></div></a></div>
@@ -114,11 +123,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6 pr-0 pr-lg-3"><img class="radius-secondary" src="assets/images/why-choose-us.jpg" alt="" /></div>
+                            <div class="col-lg-6 pr-0 pr-lg-3"><img class="radius-secondary" src="{{$content->image}}" alt="" /></div>
                             <div class="col-lg-6 px-lg-5 mt-6 mt-lg-0" data-zanim-timeline="{}" data-zanim-trigger="scroll">
 
                                 <div class="overflow-hidden">
-                                    {{$content->description}}
+                                    {!!$content->description!!}
                                 </div>
 
                             </div>
@@ -140,7 +149,7 @@
                                     <div class="overflow-hidden">
                                         <h5 class="mt-3" data-zanim='{"delay":0.1}'>{{$submenu->title}}</h5></div>
                                     <div class="overflow-hidden">
-                                        <p class="mb-0" data-zanim='{"delay":0.2}'>{{$submenu->description}}</p>
+                                        <p class="mb-0" data-zanim='{"delay":0.2}'>{!!str_limit(strip_tags($submenu->description),100,'...')!!}</p>
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +175,7 @@
                                 <div class="row px-lg-8">
                                     <div class="col-4 col-md-3 mx-auto"><img class="radius-secondary mx-auto" src="{{$testimonial->image}}" alt="Member" style="width: auto" /></div>
                                     <div class="col-md-9 ml-auto mt-4 mt-md-0 px-4 px-sm-3">
-                                        <p class="lead fw-400">{{$testimonial->description}}</p>
+                                        <p class="lead fw-400">{!!$testimonial->description!!}</p>
                                         <h6 class="fs-0 mb-1 mt-4">{{$testimonial->name}}</h6>
                                         <p class="mb-0 color-7">{{$testimonial->job}}</p>
                                     </div>

@@ -128,7 +128,8 @@ $(function() {
         "info": true,
         "autoWidth": false,
         columnDefs: [
-            { width: "150px", targets: 1 }
+            { width: "150px", targets: 1 },
+            { width: "300px", targets: 2 }
         ],
         searchDelay: 600,
         ajax: url,

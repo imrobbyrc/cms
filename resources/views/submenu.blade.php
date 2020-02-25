@@ -1,5 +1,13 @@
 @extends('main')
 @section('title', 'Welcome')
+
+@section('stylesheet')
+<style>
+#primary{
+    text-align:left;!important;
+}
+</style>
+@endsection
 	@section('content')   
         <div>
             <div class="background-holder overlay" style="{{$results->image}}"></div>
@@ -27,6 +35,16 @@
     <section class="background-11 text-center">
         <div class="container">
             <div class="row">
+                <div class="col-9 col-lg-9 col-md-9 col-xl-9 col-sm-12 col-xs-12"> 
+                    {!! $results->description !!}
+                </div>
+                <div class="col-3 col-lg-3 col-md-3 col-xl-3 col-sm-12 col-xs-12"> 
+                    test
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
                 @foreach ($results->contents as $content) 
                 <div class="col-sm-6 col-lg-4">
                     <a href="{{$results->link.'/'.$content->link}}">
@@ -38,7 +56,7 @@
                             <div class="overflow-hidden">
                                 <h6 class="fw-400 color-7" data-zanim='{"delay":0.1}'>{{$content->title}}</h6></div>
                             <div class="overflow-hidden">
-                                <p class="py-3 mb-0" data-zanim='{"delay":0.2}'>{{$content->description}}</p>
+                                <p class="py-3 mb-0" data-zanim='{"delay":0.2}'>{!!$content->description!!}</p>
                             </div>
                         </div>
                     </div>

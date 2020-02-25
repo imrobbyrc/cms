@@ -40,13 +40,13 @@
         <div class="form-group row mb-4">
           <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Right Content</label>
           <div class="col-sm-12 col-md-7">
-            <textarea class="summernote-simple" name="rightContent"></textarea>
+            <textarea class="summernote" name="rightContent"></textarea>
           </div>
         </div>
         <div class="form-group row mb-4">
           <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Left Content</label>
           <div class="col-sm-12 col-md-7">
-            <textarea class="summernote-simple" name="leftContent"></textarea>
+            <textarea class="summernote" name="leftContent"></textarea>
           </div>
         </div>
         <div class="form-group row mb-4">
@@ -93,8 +93,8 @@ $(".imagesHeader").change(function(e) {
     var preview = $(".outputHeader");
     var inputFile = $(".imagesHeader");
     var dimension = [];
-        dimension['width'] = 478;
-        dimension['height'] = 477;
+        dimension['width'] = 400;
+        dimension['height'] = 100;
     image_validation(file,preview,inputFile,dimension)
 
 });
@@ -103,8 +103,8 @@ $(".imagesIcon").change(function(e) {
     var preview = $(".outputIcon");
     var inputFile = $(".imagesIcon");
     var dimension = [];
-        dimension['width'] = 478;
-        dimension['height'] = 477;
+        dimension['width'] = 200;
+        dimension['height'] = 200;
     image_validation(file,preview,inputFile,dimension)
 
 });

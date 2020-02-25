@@ -43,7 +43,7 @@
               <th>Name</th>
               <th>Job</th>
               <th>Link</th>
-              <th>Description</th>
+              <!--<th>Description</th>-->
               <th>Image</th>
               <th>Status</th>
               <th>Created At</th>
@@ -114,7 +114,7 @@
             </div>
             <div class="form-group">
                 <label>Description</label>
-                  <textarea class="summernote-simple" required="" name="description" value="{{ old('description') }}"></textarea>
+                  <textarea class="summernote" required="" name="description" value="{{ old('description') }}"></textarea>
                 <div class="invalid-feedback">
                  Description Required
                 </div>
@@ -198,7 +198,7 @@
             </div>
             <div class="form-group">
                 <label>Description</label>
-                  <textarea class="summernote-simple" required="" name="description" value="{{ old('description') }}" id="description"></textarea>
+                  <textarea class="summernote" required="" name="description" value="{{ old('description') }}" id="description"></textarea>
                 <div class="invalid-feedback">
                  Description Required
                 </div>
@@ -240,7 +240,7 @@
           "info": true,
           "autoWidth": false,
           columnDefs: [
-            { width: "150px", targets: 5 }
+            { width: "100px", targets: 4 }
           ],
           searchDelay: 600,
           ajax: url,
@@ -253,7 +253,7 @@
               { data: 'name',name: 'name'},
               { data: 'job',name: 'job'},
               { data: 'link',name: 'link'},
-              { data: 'description',name: 'description'},
+            //   { data: 'description',name: 'description'},
               { data: 'image',name: 'image',"searchable": false},
               { data: 'status',name: 'status',"searchable": false},
               { data: 'created_at',name: 'created_at',"searchable": false},
@@ -379,8 +379,8 @@ $(".imagesUpload").change(function(e) {
     var preview = $(".output");
     var inputFile = $(".imagesUpload");
     var dimension = [];
-        dimension['width'] = 478;
-        dimension['height'] = 477;
+        dimension['width'] = 200;
+        dimension['height'] = 200;
     image_validation(file,preview,inputFile,dimension)
 
 });

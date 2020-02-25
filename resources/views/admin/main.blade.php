@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
   @yield('title')
-  <meta charset="UTF-8">
+  
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <link rel="stylesheet" href="{{ asset('admin_assets/modules/bootstrap/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset('admin_assets/modules/fontawesome/css/all.min.css')}}">
@@ -55,7 +55,8 @@
   <script src="{{ asset('admin_assets/js/fnSetFilteringDelay.js') }}"></script>
   <script src="{{ asset('admin_assets/js/scripts.js')}}"></script>
   <script src="{{ asset('admin_assets/js/custom.js')}}"></script>
-  <script src="{{ asset('admin_assets/js/sweetalert.min.js') }}"></script>
+  <script src="{{ asset('admin_assets/js/sweetalert2.all.min.js') }}"></script>
+  @include('sweet::alert')
   <script src="{{ asset('admin_assets/modules/summernote/summernote-bs4.js')}}"></script>
   <script> //images validation
     var _URL = window.URL || window.webkitURL;
@@ -85,7 +86,6 @@
         } 
     }
   </script>
-@include('sweet::alert')
 @stack('scripts')
 </body>
 </html>

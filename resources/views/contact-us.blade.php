@@ -49,7 +49,7 @@
                         <div class="background-white p-5 radius-secondary">
                             <div class="row">
                                 <div class="col-6">
-                                    {{$results->contact}}
+                                    {!!$results->contact!!}
                                 </div>
                                 <div class="col-6">
                                     <div class="mapouter">
@@ -65,17 +65,18 @@
                     <div class="col-12 mt-4">
                         <div class="background-white p-5 h-100 radius-secondary">
                             <h5>Write to us</h5>
-                            <form class="zform mt-3">
+                            <form method="post" action="{{ route('contact.store')}}">
+                                @csrf
                                 <div class="row">
                                     <div class="col-12">
                                         <input class="form-control" type="hidden" name="to" value="user@domain.extension">
-                                        <input class="form-control background-white" type="text" placeholder="Your Name" required>
+                                        <input class="form-control background-white" type="text" placeholder="Your Name" name="yname" required>
                                     </div>
                                     <div class="col-12 mt-4">
-                                        <input class="form-control background-white" type="email" placeholder="Email" required>
+                                        <input class="form-control background-white" type="email" placeholder="Email" name="email" required>
                                     </div>
                                     <div class="col-12 mt-4">
-                                        <textarea class="form-control background-white" rows="11" placeholder="Enter your descriptions here..." required></textarea>
+                                        <textarea class="form-control background-white" rows="11" placeholder="Enter your descriptions here..." name="description" required></textarea>
                                     </div>
                                     <div class="col-12 mt-4">
                                         <div class="row">

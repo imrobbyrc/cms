@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Artisan;
 
 
 class DashboardController extends Controller
@@ -17,26 +18,14 @@ class DashboardController extends Controller
     {
         return view('admin.home');
     }
-
-    public function inbox()
+    
+    public function clear()
     {
-        return view('admin.inbox');
-    }
-
-    // select2 searcj
-	function ajax_get_all_submenu(){   
-        $data = []; 
-        $data[0] = array(
-            "id" => 1,
-            "text" => 'example',
-            "html" => 'image'
-        ); 
-        $data[1] = array(
-            "id" => 2,
-            "text" => 'example2',
-            "html" => 'image2'
-        ); 
-
-        return json_encode($data);
+          Artisan::call('cache:clear');
+          Artisan::call('config:clear');
+          Artisan::call('view:clear');
+          Artisan::call('route:clear');
+          
+          dd('a');
     }
 }

@@ -1,5 +1,5 @@
 
-        <section class="background-primary py-3 d-none d-sm-block">
+        <section class="background-primary py-3 d-none d-sm-block" style="z-index:9">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-6 text-left color-white">
@@ -19,7 +19,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg">
                     <a class="navbar-brand overflow-hidden pr-3" href="/">
-                    <img src="{{$topmenu->headerLogo}}" alt="" /></a>
+                    <img class="w-75" src="{{$topmenu->headerLogo}}" alt="" /></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <div class="hamburger hamburger--emphatic">
                             <div class="hamburger-box">

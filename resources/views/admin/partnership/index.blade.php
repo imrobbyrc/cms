@@ -344,8 +344,8 @@ $(".imagesUpload").change(function(e) {
     var preview = $(".output");
     var inputFile = $(".imagesUpload");
     var dimension = [];
-        dimension['width'] = 478;
-        dimension['height'] = 477;
+        dimension['width'] = 200;
+        dimension['height'] = 200;
     image_validation(file,preview,inputFile,dimension)
 
 });

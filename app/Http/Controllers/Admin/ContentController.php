@@ -73,7 +73,7 @@ class ContentController extends Controller
                     'status'            => 'required',
                     'showOnHomepage'    => 'required',
                     'priority'          => 'required|numeric|unique:menus',
-                    'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
+                    'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=1920,min_height=643',
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
                     'layout'            => 'required',
@@ -116,7 +116,7 @@ class ContentController extends Controller
                     'status'            => 'required',
                     'layout'            => 'required',
                     'priority'          => 'required',
-                    'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
+                    'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=1698,min_height=1131',
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
                 ]);
@@ -155,7 +155,7 @@ class ContentController extends Controller
                     'title'             => 'required',
                     'description'       => 'required',
                     'link'              => 'required',
-                    'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=478,min_height=477|max:45',
+                    'image'             => 'image|mimes:jpeg,png,jpg|dimensions:min_width=1698,min_height=1131',
                     'status'            => 'required',
                     'priority'          => 'required|numeric|unique:contents',
                     'browserTitle'      => 'required',
@@ -270,7 +270,7 @@ class ContentController extends Controller
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
                     'priority'          => 'required|numeric|unique:menus,idMenus,'.$id.',idMenus',
-                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=1920,min_height=643',
 
                 ]);
 
@@ -314,7 +314,7 @@ class ContentController extends Controller
                     'status'            => 'required',
                     'layout'            => 'required',
                     'priority'          => 'required',
-                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=1698,min_height=1131',
                     'browserTitle'      => 'required',
                     'metaDescription'   => 'required',
 
@@ -362,7 +362,7 @@ class ContentController extends Controller
                     'title'             => 'required',
                     'description'       => 'required',
                     'link'              => 'required',
-                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=478,min_height=477|max:45',
+                    'image'             => 'image|mimes:jpeg,png,jpg|required_if:currentImage,null|dimensions:min_width=1698,min_height=1131',
                     'status'            => 'required',
                     'priority'          => 'required|numeric|unique:contents,idContents,'.$id.',idContents',
                     'browserTitle'      => 'required',
